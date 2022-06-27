@@ -1,4 +1,4 @@
-# myapp
+# Maternal health information system mobile application project
 
 A new Flutter project.
 
