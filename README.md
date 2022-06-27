@@ -1,4 +1,4 @@
-# Maternal health information system mobile application project
+# MHIS mobile app project
 
 A new Flutter project.
 
