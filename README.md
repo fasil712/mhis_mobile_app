@@ -1,4 +1,4 @@
-# myapp
+# MHIS mobile app project
 
 A new Flutter project.
 
