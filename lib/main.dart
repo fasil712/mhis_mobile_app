@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart';
 
 void main() => runApp(const MyApp());
@@ -104,7 +104,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ),
       ),
-      body: Center(
+      body: Container(
         child: ListView(
           children: [
             Padding(
@@ -117,22 +117,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ListTile(
                     leading: const Icon(Icons.arrow_drop_down_circle),
                     title: const Text("Card title 01"),
-                    subtitle: Text(
-                      'Secondary Text',
-                      style: GoogleFonts.alef(
-                          textStyle: TextStyle(
-                              color: Colors.black.withOpacity(0.6),
-                              fontSize: 20.0)),
+                    subtitle: Text('First Text subtitle',
+                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
                     ),
                   ),
-                  Image.asset(
-                    "assets/avatar.jpg",
-                    height: 200,
-                  ),
+                  const Image(
+                      image: NetworkImage(
+                          'https://www.cdc.gov/reproductivehealth/features/maternal-depression/images/feature-maternal-health-depression-2021.png?_=20351')),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'Hi this description',
+                      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.',
                       style: TextStyle(color: Colors.black.withOpacity(0.6)),
                     ),
                   ),
