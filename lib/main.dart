@@ -54,8 +54,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFE3E2DC),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 10, 15, 18),
         title: const Text('BottomNavigationBar Sample'),
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
@@ -104,14 +104,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ),
       ),
-      body: Container(
+      body: SafeArea(
         child: ListView(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(4.0),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
               child: Card(
                 shadowColor: Colors.blueGrey[900],
-                elevation: 8.0,
                 clipBehavior: Clip.antiAlias,
                 child: Column(children: [
                   ListTile(
@@ -135,22 +134,21 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     alignment: MainAxisAlignment.start,
                     children: [
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('Action1')),
+                          onPressed: () {}, child: const Text('View')),
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('Action 2'))
+                          onPressed: () {}, child: const Text('Next'))
                     ],
                   )
                 ]),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
               child: Card(
                 clipBehavior: Clip.antiAlias,
-                elevation: 8.0,
                 child: Column(children: [
                   ListTile(
-                    leading: const Icon(Icons.arrow_drop_down_circle),
+                    leading: const Icon(Icons.circle),
                     title: const Text("Card title 1"),
                     subtitle: Text(
                       'Secondary Text',
@@ -171,9 +169,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     alignment: MainAxisAlignment.start,
                     children: [
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('Action1')),
+                          onPressed: () {}, child: const Text('View')),
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('Action 2'))
+                          onPressed: () {}, child: const Text('Edit'))
                     ],
                   )
                 ]),
