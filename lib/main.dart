@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart';
+import 'package:myapp/contact.dart';
+import 'package:myapp/mainhomepage.dart';
+import 'package:myapp/profile.dart';
 
 void main() => runApp(const MyApp());
 
@@ -75,33 +78,80 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
       drawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.zero,
-          children: const <Widget>[
+          children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                  color: Colors.blue,
-                  image: DecorationImage(
-                      image: NetworkImage('https://www.cdc.gov/reproductivehealth/features/maternal-depression/images/feature-maternal-health-depression-2021.png?_=20351'))),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+                color: Colors.blue
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Icon(
+                        Icons.account_circle,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      flex: 2,
+                    ),
+                    Expanded(
+                      flex: 6,
+                      child: Text(
+                        "Codes Insider",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
             ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
+              title: Text("Home"),
+              leading: IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => MainHomePage()));
+              },
+            ),
+            Divider(
+              color: Colors.grey,
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
+              title: Text("Profile"),
+              leading: IconButton(
+                icon: Icon(Icons.account_circle),
+                onPressed: () {},
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Profile()));
+              },
+            ),
+            Divider(
+              color: Colors.grey,
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
+              title: Text("Contact"),
+              leading: IconButton(
+                icon: Icon(Icons.contact_page),
+                onPressed: () {},
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Contact()));
+              },
+            )
           ],
         ),
       ),
