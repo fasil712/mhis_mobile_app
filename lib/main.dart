@@ -79,8 +79,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: const <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
+                  color: Colors.blue,
+                  image: DecorationImage(
+                      image: NetworkImage('https://www.cdc.gov/reproductivehealth/features/maternal-depression/images/feature-maternal-health-depression-2021.png?_=20351'))),
               child: Text(
                 'Drawer Header',
                 style: TextStyle(
@@ -108,7 +109,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: ListView(
           children: [
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+              margin:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
               child: Card(
                 shadowColor: Colors.blueGrey[900],
                 clipBehavior: Clip.antiAlias,
@@ -116,7 +118,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ListTile(
                     leading: const Icon(Icons.arrow_drop_down_circle),
                     title: const Text("Card title 01"),
-                    subtitle: Text('First Text subtitle',
+                    subtitle: Text(
+                      'First Text subtitle',
                       style: TextStyle(color: Colors.black.withOpacity(0.6)),
                     ),
                   ),
@@ -143,7 +146,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+              margin:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
               child: Card(
                 clipBehavior: Clip.antiAlias,
                 child: Column(children: [
