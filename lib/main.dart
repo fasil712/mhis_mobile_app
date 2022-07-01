@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart';
+import 'package:myapp/bmi.dart';
 import 'package:myapp/contact.dart';
 import 'package:myapp/mainhomepage.dart';
 import 'package:myapp/profile.dart';
@@ -30,30 +31,6 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,9 +57,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: ListView(
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue
-              ),
+              decoration: BoxDecoration(color: Colors.blue),
               child: Center(
                 child: Row(
                   children: [
@@ -122,7 +97,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     builder: (BuildContext context) => MainHomePage()));
               },
             ),
-            Divider(
+            const Divider(
               color: Colors.grey,
             ),
             ListTile(
@@ -137,7 +112,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     builder: (BuildContext context) => Profile()));
               },
             ),
-            Divider(
+            const Divider(
               color: Colors.grey,
             ),
             ListTile(
@@ -150,6 +125,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => Contact()));
+              },
+            ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: const Text("BMI"),
+              leading: IconButton(
+                icon: const Icon(Icons.calculate),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => BMI_Calculator()));
               },
             )
           ],
@@ -249,9 +240,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'School',
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
       ),
     );
   }
