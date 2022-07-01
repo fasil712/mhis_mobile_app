@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart';
 import 'package:myapp/bmi.dart';
 import 'package:myapp/contact.dart';
