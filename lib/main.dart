@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:myapp/bmi.dart';
 import 'package:myapp/contact.dart';
+import 'package:myapp/login.dart';
 import 'package:myapp/mainhomepage.dart';
 import 'package:myapp/profile.dart';
 
@@ -140,6 +141,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => BMI_Calculator()));
+              },
+            ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: const Text("Login"),
+              leading: IconButton(
+                icon: const Icon(Icons.login),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const LoginPage()));
               },
             )
           ],
