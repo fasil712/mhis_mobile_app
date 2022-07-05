@@ -1,81 +1,111 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-class BMI_Calculator extends StatefulWidget {
-  const BMI_Calculator({Key? key}) : super(key: key);
+class BMICalculator extends StatefulWidget {
+  const BMICalculator({Key? key}) : super(key: key);
 
   @override
-  State<BMI_Calculator> createState() => _BMI_CalculatorState();
+  _BMICalculatorState createState() => _BMICalculatorState();
 }
 
-// ignore: camel_case_types
-class _BMI_CalculatorState extends State<BMI_Calculator> {
-  final double sideboxHeight = 10.0;
-  final TextEditingController _heightController = TextEditingController();
-  final TextEditingController _weightController = TextEditingController();
-  double _result;
+class _BMICalculatorState extends State<BMICalculator> {
+  // the controller for the text field associated with "height"
+  final _heightController = TextEditingController();
+
+  // the controller for the text field associated with "weight"
+  final _weightController = TextEditingController();
+
+  // The BMI
+  double? _bmi;
+
+  // the message at the beginning
+  String _message = 'Please enter your height an weight';
+
+  void _calculate() {
+    final double? height = double.tryParse(_heightController.value.text);
+    final double? weight = double.tryParse(_weightController.value.text);
+
+    // Check if the inputs are valid
+    if (height == null || height <= 0 || weight == null || weight <= 0) {
+      setState(() {
+        _message = "Your height and weigh must be positive numbers";
+      });
+      return;
+    }
+
+    setState(() {
+      _bmi = weight / (height * height);
+      if (_bmi! < 18.5) {
+        _message = "You are underweight";
+      } else if (_bmi! < 25) {
+        _message = 'You body is fine';
+      } else if (_bmi! < 30) {
+        _message = 'You are overweight';
+      } else {
+        _message = 'You are obese';
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("BMI Calculator"), actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.details))
-      ]),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: sideboxHeight),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextField(
-                controller: _heightController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  labelText: 'height in cm',
-                  icon: Icon(Icons.trending_up),
-                ),
-              ),
-              SizedBox(height: sideboxHeight),
-              TextField(
-                controller: _weightController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  labelText: 'weight in kg',
-                  icon: Icon(Icons.line_weight),
-                ),
-              ),
-              SizedBox(height: sideboxHeight),
-              ElevatedButton(
-                child: const Text(
-                  "Calculate",
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: calculateBMI,
-              ),
-              SizedBox(height: sideboxHeight),
-              Text(
-                
-                _result == null ? "Enter Value" : _result.toStringAsFixed(2),
-                style: const TextStyle(
-                  color: Color.fromARGB(255, 84, 73, 73),
-                  fontSize: 19.4,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
+        appBar: AppBar(
+          title: const Text("BMI Calculator"),
         ),
-      ),
-    );
-  }
-
-  void calculateBMI() {
-    double height = double.parse(_heightController.text) / 100;
-    double weight = double.parse(_weightController.text);
-
-    double heightSquare = height * height;
-    double result = weight / heightSquare;
-    _result = result;
-    setState(() {});
+        body: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    "Body Mass Index Calculator",
+                    style: TextStyle(fontSize: 30.0),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    keyboardType:
+                        const TextInputType.numberWithOptions(decimal: true),
+                    decoration: const InputDecoration(labelText: 'Height (m)'),
+                    controller: _heightController,
+                  ),
+                  TextField( 
+                    keyboardType:
+                        const TextInputType.numberWithOptions(decimal: true),
+                    decoration: const InputDecoration(
+                      labelText: 'Weight (kg)',
+                    ),
+                    controller: _weightController,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  ElevatedButton(
+                    onPressed: _calculate,
+                    child: const Text('Calculate'),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    _bmi == null ? 'No Result' : _bmi!.toStringAsFixed(2),
+                    style: const TextStyle(fontSize: 50),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    _message,
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }

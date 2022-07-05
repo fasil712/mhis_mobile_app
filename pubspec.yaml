@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   badges: ^2.0.3
+  share: ^2.0.4
   
 
 dev_dependencies:
@@ -64,6 +65,7 @@ flutter:
   assets:
     - assets/avatar.jpg
     - assets/download.jpg
+    - assets/images/pregnantmother.jpg
     - assets/images/register.png
     - assets/images/login.png
   #   - images/a_dot_ham.jpeg

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart';
-import 'package:myapp/bmi.dart';
+import 'package:share/share.dart';
 import 'package:myapp/contact.dart';
 import 'package:myapp/login.dart';
 import 'package:myapp/mainhomepage.dart';
 import 'package:myapp/profile.dart';
+
+import 'bmi/bmi_screen.dart';
+import 'edd.dart';
 
 void main() => runApp(const MyApp());
 
@@ -36,31 +38,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       backgroundColor: const Color(0xFFE3E2DC),
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('HMIS App'),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          Badge(
-            shape: BadgeShape.circle,
-            badgeContent: const Text(
-              '1',
-              style: TextStyle(color: Colors.white),
-            ),
-            badgeColor: Colors.red,
-            position: BadgePosition.topEnd(top: 5.0),
-            padding: const EdgeInsets.all(5.0),
-            child: const Icon(Icons.notifications),
-          ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.qr_code)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.notifications_rounded)),
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.more_vert_rounded)),
         ],
       ),
       drawer: Drawer(
         child: ListView(
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: const BoxDecoration(color: Colors.blue),
               child: Center(
                 child: Row(
-                  children: [
+                  children: const [
                     Expanded(
                       child: Icon(
                         Icons.account_circle,
@@ -72,7 +66,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Expanded(
                       flex: 6,
                       child: Text(
-                        "Codes Insider",
+                        "Maternal Health Care App",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -84,9 +78,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             ListTile(
-              title: Text("Home"),
+              title: const Text("Pregnancey care"),
               leading: IconButton(
-                icon: Icon(Icons.home),
+                icon: const Icon(Icons.pregnant_woman_rounded),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -94,31 +88,46 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => MainHomePage()));
+                    builder: (BuildContext context) => const MainHomePage()));
               },
             ),
             const Divider(
               color: Colors.grey,
             ),
             ListTile(
-              title: Text("Profile"),
+              title: const Text("Duity during Pregnancey"),
               leading: IconButton(
-                icon: Icon(Icons.account_circle),
+                icon: const Icon(Icons.rule_rounded),
                 onPressed: () {},
               ),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => Profile()));
+                    builder: (BuildContext context) => const Profile()));
               },
             ),
             const Divider(
               color: Colors.grey,
             ),
             ListTile(
-              title: Text("Contact"),
+              title: const Text("Pregnancey danger signs"),
               leading: IconButton(
-                icon: Icon(Icons.contact_page),
+                icon: const Icon(Icons.dangerous_rounded),
+                onPressed: () {},
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Contact()));
+              },
+            ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: const Text("Care and Hygne"),
+              leading: IconButton(
+                icon: const Icon(Icons.notifications_none_rounded),
                 onPressed: () {},
               ),
               onTap: () {
@@ -133,14 +142,30 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ListTile(
               title: const Text("BMI"),
               leading: IconButton(
-                icon: const Icon(Icons.calculate),
+                icon: const Icon(Icons.calculate_rounded),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => BMI_Calculator()));
+                    builder: (BuildContext context) => BMI_Screen()));
+              },
+            ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: const Text("EDD"),
+              leading: IconButton(
+                icon: const Icon(Icons.calculate_rounded),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const EDDCalculator()));
               },
             ),
             const Divider(
@@ -158,102 +183,380 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const LoginPage()));
               },
+            ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: const Text("About Us"),
+              leading: IconButton(
+                icon: const Icon(Icons.help_rounded),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const LoginPage()));
+              },
+            ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: const Text("Share"),
+              leading: IconButton(
+                icon: const Icon(Icons.share_rounded),
+                onPressed: () {
+                  Share.share('check out my website https://example.com',
+                      subject: 'Look what I made!');
+                },
+              ),
+              onTap: () {
+                Share.share('check out my website https://example.com',
+                    subject: 'Look what I made!');
+              },
             )
           ],
         ),
       ),
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
-              child: Card(
-                shadowColor: Colors.blueGrey[900],
-                clipBehavior: Clip.antiAlias,
-                child: Column(children: [
-                  ListTile(
-                    leading: const Icon(Icons.arrow_drop_down_circle),
-                    title: const Text("Card title 01"),
-                    subtitle: Text(
-                      'First Text subtitle',
-                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    ),
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(2),
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 5,
+        crossAxisCount: 2,
+        children: [
+          Container(
+            width: 300,
+            height: 150,
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.white,
+              elevation: 6,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Icon(Icons.person),
                   ),
-                  const Image(
-                      image: NetworkImage(
-                          'https://www.cdc.gov/reproductivehealth/features/maternal-depression/images/feature-maternal-health-depression-2021.png?_=20351')),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.',
-                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    ),
+                  const Text(
+                    "Pregnancey Care",
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    "Description of Pregnancey Care",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.0, fontWeight: FontWeight.normal),
                   ),
                   ButtonBar(
-                    alignment: MainAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('View')),
+                        child: const Text('View'),
+                        onPressed: () {/* ... */},
+                      ),
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('Next'))
+                        child: const Text('Edit'),
+                        onPressed: () {/* ... */},
+                      ),
                     ],
-                  )
-                ]),
+                  ),
+                ],
               ),
             ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
-              child: Card(
-                clipBehavior: Clip.antiAlias,
-                child: Column(children: [
-                  ListTile(
-                    leading: const Icon(Icons.circle),
-                    title: const Text("Card title 1"),
-                    subtitle: Text(
-                      'Secondary Text',
-                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    ),
+          ),
+          Container(
+            width: 300,
+            height: 150,
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.white,
+              elevation: 6,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Icon(Icons.person),
                   ),
-                  const Image(
-                      image: NetworkImage(
-                          'https://www.cdc.gov/reproductivehealth/features/maternal-depression/images/feature-maternal-health-depression-2021.png?_=20351')),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.',
-                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    ),
+                  const Text(
+                    "Pregnancey Care",
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    "Description of Pregnancey Care",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.0, fontWeight: FontWeight.normal),
                   ),
                   ButtonBar(
-                    alignment: MainAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('View')),
+                        child: const Text('View'),
+                        onPressed: () {/* ... */},
+                      ),
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('Edit'))
+                        child: const Text('Edit'),
+                        onPressed: () {/* ... */},
+                      ),
                     ],
-                  )
-                ]),
+                  ),
+                ],
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          Container(
+            width: 300,
+            height: 150,
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.white,
+              elevation: 6,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Icon(Icons.person),
+                  ),
+                  const Text(
+                    "Pregnancey Care",
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    "Description of Pregnancey Care",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.0, fontWeight: FontWeight.normal),
+                  ),
+                  ButtonBar(
+                    children: <Widget>[
+                      ElevatedButton(
+                        child: const Text('View'),
+                        onPressed: () {/* ... */},
+                      ),
+                      ElevatedButton(
+                        child: const Text('Edit'),
+                        onPressed: () {/* ... */},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+         Container(
+            width: 300,
+            height: 150,
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.white,
+              elevation: 6,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Icon(Icons.person),
+                  ),
+                  const Text(
+                    "Pregnancey Care",
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    "Description of Pregnancey Care",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.0, fontWeight: FontWeight.normal),
+                  ),
+                  ButtonBar(
+                    children: <Widget>[
+                      ElevatedButton(
+                        child: const Text('View'),
+                        onPressed: () {/* ... */},
+                      ),
+                      ElevatedButton(
+                        child: const Text('Edit'),
+                        onPressed: () {/* ... */},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: 300,
+            height: 150,
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.white,
+              elevation: 6,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Icon(Icons.person),
+                  ),
+                  const Text(
+                    "Pregnancey Care",
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    "Description of Pregnancey Care",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.0, fontWeight: FontWeight.normal),
+                  ),
+                  ButtonBar(
+                    children: <Widget>[
+                      ElevatedButton(
+                        child: const Text('View'),
+                        onPressed: () {/* ... */},
+                      ),
+                      ElevatedButton(
+                        child: const Text('Edit'),
+                        onPressed: () {/* ... */},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+         Container(
+            width: 300,
+            height: 150,
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.white,
+              elevation: 6,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Icon(Icons.person),
+                  ),
+                  const Text(
+                    "Pregnancey Care",
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    "Description of Pregnancey Care",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.0, fontWeight: FontWeight.normal),
+                  ),
+                  ButtonBar(
+                    children: <Widget>[
+                      ElevatedButton(
+                        child: const Text('View'),
+                        onPressed: () {/* ... */},
+                      ),
+                      ElevatedButton(
+                        child: const Text('Edit'),
+                        onPressed: () {/* ... */},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: 300,
+            height: 150,
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.white,
+              elevation: 6,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Icon(Icons.person),
+                  ),
+                  const Text(
+                    "Pregnancey Care",
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    "Description of Pregnancey Care",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12.0, fontWeight: FontWeight.normal),
+                  ),
+                  ButtonBar(
+                    children: <Widget>[
+                      ElevatedButton(
+                        child: const Text('View'),
+                        onPressed: () {/* ... */},
+                      ),
+                      ElevatedButton(
+                        child: const Text('Edit'),
+                        onPressed: () {/* ... */},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_rounded),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.camera_alt_rounded),
+            label: 'Video Conference',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.more_vert),
+            label: 'Profile',
           ),
         ],
       ),
