@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/api/screens/home.dart';
+import 'package:myapp/others/help.dart';
 import 'package:share/share.dart';
 import 'package:myapp/contact.dart';
 import 'package:myapp/login.dart';
-import 'package:myapp/mainhomepage.dart';
 import 'package:myapp/profile.dart';
 
 import 'bmi/bmi_screen.dart';
@@ -88,7 +89,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const MainHomePage()));
+                    builder: (BuildContext context) => const Home()));
               },
             ),
             const Divider(
@@ -188,7 +189,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               color: Colors.grey,
             ),
             ListTile(
-              title: const Text("About Us"),
+              title: const Text("Help"),
               leading: IconButton(
                 icon: const Icon(Icons.help_rounded),
                 onPressed: () {
@@ -197,7 +198,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const LoginPage()));
+                    builder: (BuildContext context) => const HelpPage()));
               },
             ),
             const Divider(

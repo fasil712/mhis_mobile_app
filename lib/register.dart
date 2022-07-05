@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/api/screens/home.dart';
 import 'package:myapp/login.dart';
-import 'package:myapp/mainhomepage.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const MainHomePage()));
+                      MaterialPageRoute(builder: (_) => const Home()));
                 },
                 child: const Text(
                   'Register',
