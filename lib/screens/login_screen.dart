@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/api/screens/home.dart';
-import 'package:myapp/register.dart';
+import 'package:myapp/screens/register_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

@@ -13,9 +13,11 @@ class _EDDCalculatorState extends State<EDDCalculator> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Estimated Date of Delivery"),
-    ),
-    body: const Center(
-      child: Text("Estimated Date of Delivery"),
+      ),
+      body: const SafeArea(
+        child: Center(
+          child: Text("Estimated Date of Delivery"),
+        ),
       ),
     );
   }
