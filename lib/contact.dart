@@ -7,15 +7,15 @@ class Contact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Contact Page"),
+        title: const Text("Contact Page"),
         actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Icon(Icons.contact_page),
+          padding: EdgeInsets.only(right: 8.0),
+          child: const Icon(Icons.contact_page),
         ),
 
       ]),
-      body: Center(child: Text('Contact Page')),
+      body: const Center(child: Text('Contact Page')),
     );
   }
 }

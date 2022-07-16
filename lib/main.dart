@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
-import 'package:myapp/api/screens/home.dart';
 import 'package:myapp/others/help.dart';
+import 'package:myapp/screens/diet_during_pregnancy/diet_during_preg_screen.dart';
 import 'package:myapp/screens/login_screen.dart';
+import 'package:myapp/screens/pregnancey_care/pregnancey_care_screen.dart';
 import 'package:share/share.dart';
 import 'package:myapp/contact.dart';
 import 'package:myapp/profile.dart';
@@ -37,15 +37,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE3E2DC),
       appBar: AppBar(
         title: const Text('HMIS App'),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
           IconButton(
               onPressed: () {}, icon: const Icon(Icons.notifications_rounded)),
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.more_vert_rounded)),
+          PopupMenuButton(
+            itemBuilder: (BuildContext context) {
+              return [
+                const PopupMenuItem(child: Text("Login")),
+                const PopupMenuItem(child: Text("Register")),
+              ];
+            },
+          ),
         ],
       ),
       drawer: Drawer(
@@ -87,9 +91,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 },
               ),
               onTap: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Home()));
+                    builder: (BuildContext context) => const PregnanceyCare()));
               },
             ),
             const Divider(
@@ -102,9 +105,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 onPressed: () {},
               ),
               onTap: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Profile()));
+                    builder: (BuildContext context) => const DietDuringPreg()));
               },
             ),
             const Divider(
@@ -117,7 +119,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 onPressed: () {},
               ),
               onTap: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const Contact()));
               },
@@ -132,7 +133,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 onPressed: () {},
               ),
               onTap: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const Contact()));
               },
@@ -221,339 +221,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ),
       ),
-      body: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(2),
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
-        crossAxisCount: 2,
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const Home()));
-            },
-            child: Expanded(
-              child: Container(
-                width: 300,
-                height: 150,
-                padding: const EdgeInsets.all(5.0),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  color: Colors.white,
-                  elevation: 6,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Padding(padding: EdgeInsets.all(8.0)),
-                      CircleAvatar(
-                        backgroundColor: Colors.brown.shade800,
-                        child: const Icon(Icons.person),
-                      ),
-                      const Text(
-                        "Pregnancey Care",
-                        style: TextStyle(
-                            fontSize: 15.0, fontWeight: FontWeight.bold),
-                      ),
-                      const Text(
-                        "Description of Pregnancey Care",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 12.0, fontWeight: FontWeight.normal),
-                      ),
-                      ButtonBar(
-                        children: <Widget>[
-                          ElevatedButton(
-                            child: const Text('View'),
-                            onPressed: () {/* ... */},
-                          ),
-                          ElevatedButton(
-                            child: const Text('Edit'),
-                            onPressed: () {/* ... */},
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Container(
-            width: 300,
-            height: 150,
-            padding: const EdgeInsets.all(5.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              color: Colors.white,
-              elevation: 6,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Padding(padding: EdgeInsets.all(8.0)),
-                  CircleAvatar(
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Icon(Icons.person),
-                  ),
-                  const Text(
-                    "Pregnancey Care",
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  const Text(
-                    "Description of Pregnancey Care",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12.0, fontWeight: FontWeight.normal),
-                  ),
-                  ButtonBar(
-                    children: <Widget>[
-                      ElevatedButton(
-                        child: const Text('View'),
-                        onPressed: () {/* ... */},
-                      ),
-                      ElevatedButton(
-                        child: const Text('Edit'),
-                        onPressed: () {/* ... */},
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: 300,
-            height: 150,
-            padding: const EdgeInsets.all(5.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              color: Colors.white,
-              elevation: 6,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Padding(padding: EdgeInsets.all(8.0)),
-                  CircleAvatar(
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Icon(Icons.person),
-                  ),
-                  const Text(
-                    "Pregnancey Care",
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  const Text(
-                    "Description of Pregnancey Care",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12.0, fontWeight: FontWeight.normal),
-                  ),
-                  ButtonBar(
-                    children: <Widget>[
-                      ElevatedButton(
-                        child: const Text('View'),
-                        onPressed: () {/* ... */},
-                      ),
-                      ElevatedButton(
-                        child: const Text('Edit'),
-                        onPressed: () {/* ... */},
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: 300,
-            height: 150,
-            padding: const EdgeInsets.all(5.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              color: Colors.white,
-              elevation: 6,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Padding(padding: EdgeInsets.all(8.0)),
-                  CircleAvatar(
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Icon(Icons.person),
-                  ),
-                  const Text(
-                    "Pregnancey Care",
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  const Text(
-                    "Description of Pregnancey Care",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12.0, fontWeight: FontWeight.normal),
-                  ),
-                  ButtonBar(
-                    children: <Widget>[
-                      ElevatedButton(
-                        child: const Text('View'),
-                        onPressed: () {/* ... */},
-                      ),
-                      ElevatedButton(
-                        child: const Text('Edit'),
-                        onPressed: () {/* ... */},
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: 300,
-            height: 150,
-            padding: const EdgeInsets.all(5.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              color: Colors.white,
-              elevation: 6,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Padding(padding: EdgeInsets.all(8.0)),
-                  CircleAvatar(
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Icon(Icons.person),
-                  ),
-                  const Text(
-                    "Pregnancey Care",
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  const Text(
-                    "Description of Pregnancey Care",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12.0, fontWeight: FontWeight.normal),
-                  ),
-                  ButtonBar(
-                    children: <Widget>[
-                      ElevatedButton(
-                        child: const Text('View'),
-                        onPressed: () {/* ... */},
-                      ),
-                      ElevatedButton(
-                        child: const Text('Edit'),
-                        onPressed: () {/* ... */},
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: 300,
-            height: 150,
-            padding: const EdgeInsets.all(5.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              color: Colors.white,
-              elevation: 6,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Padding(padding: EdgeInsets.all(8.0)),
-                  CircleAvatar(
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Icon(Icons.person),
-                  ),
-                  const Text(
-                    "Pregnancey Care",
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  const Text(
-                    "Description of Pregnancey Care",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12.0, fontWeight: FontWeight.normal),
-                  ),
-                  ButtonBar(
-                    children: <Widget>[
-                      ElevatedButton(
-                        child: const Text('View'),
-                        onPressed: () {/* ... */},
-                      ),
-                      ElevatedButton(
-                        child: const Text('Edit'),
-                        onPressed: () {/* ... */},
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: 300,
-            height: 150,
-            padding: const EdgeInsets.all(5.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              color: Colors.white,
-              elevation: 6,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Padding(padding: EdgeInsets.all(8.0)),
-                  CircleAvatar(
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Icon(Icons.person),
-                  ),
-                  const Text(
-                    "Pregnancey Care",
-                    style:
-                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  const Text(
-                    "Description of Pregnancey Care",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12.0, fontWeight: FontWeight.normal),
-                  ),
-                  ButtonBar(
-                    children: <Widget>[
-                      ElevatedButton(
-                        child: const Text('View'),
-                        onPressed: () {/* ... */},
-                      ),
-                      ElevatedButton(
-                        child: const Text('Edit'),
-                        onPressed: () {/* ... */},
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/backgroundimage.jpg"),
+              fit: BoxFit.cover),
+        ),
+        child: const Center(
+          child: Text('Care for mothers',
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              )), // Foreground widget here
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
