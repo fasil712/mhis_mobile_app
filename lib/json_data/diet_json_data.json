@@ -2,11 +2,46 @@
   {
     "name": "Month 1",
     "description": "Lorem Ipsum is simply dummy text.",
-    "picture": "https://m.media-amazon.com/images/I/81iqNypAS-L._AC_UL320_.jpg"
+    "picture": "assets/food_list/month01.jpg"
   },
   {
     "name": "Month 2",
     "description": "Lorem Ipsum is simply dummy text.",
-    "picture": "https://m.media-amazon.com/images/I/81iqNypAS-L._AC_UL320_.jpg"
+    "picture": "assets/food_list/month02.jpg"
+  },
+  {
+    "name": "Month 3",
+    "description": "Lorem Ipsum is simply dummy text.",
+    "picture": "assets/food_list/month03.jpg"
+  },
+  {
+    "name": "Month 4",
+    "description": "Lorem Ipsum is simply dummy text.",
+    "picture": "assets/food_list/month04.jpg"
+  },
+  {
+    "name": "Month 5",
+    "description": "Lorem Ipsum is simply dummy text.",
+    "picture": "assets/food_list/month05.jpg"
+  },
+  {
+    "name": "Month 6",
+    "description": "Lorem Ipsum is simply dummy text.",
+    "picture": "assets/food_list/month06.jpg"
+  },
+  {
+    "name": "Month 7",
+    "description": "Lorem Ipsum is simply dummy text.",
+    "picture": "assets/food_list/month07.jpg"
+  },
+  {
+    "name": "Month 8",
+    "description": "Lorem Ipsum is simply dummy text.",
+    "picture": "assets/food_list/month08.jpg"
+  },
+  {
+    "name": "Month 9",
+    "description": "Lorem Ipsum is simply dummy text.",
+    "picture": "assets/food_list/month09.jpg"
   }
 ]
