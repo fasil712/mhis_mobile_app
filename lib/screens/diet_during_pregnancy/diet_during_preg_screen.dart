@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/model/diet_detail.dart';
-import 'package:myapp/screens/diet_during_pregnancy/diet_detail.dart';
+import 'package:myapp/model/diet_detail_model.dart';
+import 'package:myapp/screens/diet_during_pregnancy/diet_detail_screen.dart';
 import 'package:myapp/services/diet_services.dart';
 
 class DietDuringPreg extends StatefulWidget {
@@ -28,61 +28,58 @@ class _DietDuringPregState extends State<DietDuringPreg> {
               return ListView.builder(
                   itemCount: items == null ? 0 : items.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      elevation: 5,
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 6),
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                              onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DietDretailPage())),
-                              child: Hero(
-                                tag: 'dietDetail',
-                                child: Container(
-                                  width: 50,
-                                  height: 50,
-                                  child: Image(
-                                    image: NetworkImage(
-                                        items[index].picture.toString()),
-                                    fit: BoxFit.fill,
-                                  ),
+                    final item = items[index];
+                    return GestureDetector(
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              DietDretailPage(item: item))),
+                      child: Card(
+                        elevation: 5,
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 6),
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Image(
+                                  image: AssetImage(
+                                      items[index].picture.toString()),
+                                  fit: BoxFit.fill,
                                 ),
                               ),
-                            ),
-                            Expanded(
-                                child: Container(
-                              padding: const EdgeInsets.only(bottom: 8),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Text(
-                                      items[index].name.toString(),
-                                      style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
+                              Expanded(
+                                  child: Container(
+                                padding: const EdgeInsets.only(bottom: 8),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 8, right: 8),
+                                      child: Text(
+                                        items[index].name.toString(),
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Text(
-                                        items[index].description.toString()),
-                                  )
-                                ],
-                              ),
-                            ))
-                          ],
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 8, right: 8),
+                                      child: Text(
+                                          items[index].description.toString()),
+                                    )
+                                  ],
+                                ),
+                              ))
+                            ],
+                          ),
                         ),
                       ),
                     );

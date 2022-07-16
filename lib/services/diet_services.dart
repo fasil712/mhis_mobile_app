@@ -1,4 +1,4 @@
-import 'package:myapp/model/diet_detail.dart';
+import 'package:myapp/model/diet_detail_model.dart';
 import 'package:flutter/services.dart' as root_bundle;
 import 'dart:convert';
 
