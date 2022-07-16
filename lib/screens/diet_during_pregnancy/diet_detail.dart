@@ -19,7 +19,7 @@ class _DietDretailPageState extends State<DietDretailPage> {
               children: [
                 Hero(
                   tag: 'dietDetail',
-                  child: Image.asset("assets/avatar.jpg")),
+                  child: Image.asset("assets/food_list/month01.jpg")),
                 const SizedBox(
                   height: 10.0,
                 ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/model/diet_detail.dart';
 import 'package:myapp/screens/diet_during_pregnancy/diet_detail.dart';
+import 'package:myapp/services/diet_services.dart';
 
 class DietDuringPreg extends StatefulWidget {
   const DietDuringPreg({Key? key}) : super(key: key);
@@ -16,43 +18,55 @@ class _DietDuringPregState extends State<DietDuringPreg> {
       appBar: AppBar(
         title: const Text("Diet During Pregnancy"),
       ),
-      body: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(8.0),
-        crossAxisSpacing: 8.0,
-        mainAxisSpacing: 8.0,
-        crossAxisCount: 2,
-        children: <Widget>[
-          Card(
-            elevation: 6.0,
-            child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const DietDretailPage())),
-                  child: const Hero(
-                    tag: 'dietDetail',
-                    child: CircleAvatar(
-                      backgroundColor: Colors.blue,
-                      radius: 53,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        radius: 50,
-                        backgroundImage: AssetImage("assets/avatar.jpg"),
+      body: FutureBuilder(
+        future: ReadJsonData(),
+        builder: (context,data){
+          if(data.hasError){
+            return Center(child: Text("${data.error}"));
+          }else if(data.hasData){
+            var items =data.data as List<DietDetialModel>;
+            return ListView.builder(
+              itemCount: items == null? 0: items.length,
+                itemBuilder: (context,index){
+                  return Card(
+                    elevation: 5,
+                    margin: EdgeInsets.symmetric(horizontal: 10,vertical: 6),
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            child: Image(image: NetworkImage(items[index].picture.toString()),fit: BoxFit.fill,),
+                          ),
+                          Expanded(child: Container(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(padding: const EdgeInsets.only(left: 8,right: 8),child: Text(items[index].name.toString(),style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold
+                                ),),),
+                                Padding(padding: const EdgeInsets.only(left: 8,right: 8),child: Text(items[index].description.toString()),)
+                              ],
+                            ),
+                          ))
+                        ],
                       ),
                     ),
-                  ),
-                ),
-                const Text(
-                  "Month 01",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-                const Text("Description month 01"),
-              ],
-            ),
-          ),
-        ],
-      ),
+                  );
+                }
+            );
+          }else{
+            return Center(child: CircularProgressIndicator(),);
+          }
+        },
+      )
     );
   }
 }

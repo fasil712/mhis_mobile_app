@@ -28,30 +28,33 @@ class _PregnanceyCareState extends State<PregnanceyCare> {
         children: <Widget>[
           Card(
             elevation: 6.0,
-            child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const DretailPage())),
-                  child: const Hero(
-                    tag: 'myHero',
-                    child: CircleAvatar(
-                      backgroundColor: Colors.blue,
-                      radius: 53,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const DretailPage())),
+                    child: const Hero(
+                      tag: 'myHero',
                       child: CircleAvatar(
                         backgroundColor: Colors.blue,
-                        radius: 50,
-                        backgroundImage: AssetImage("assets/avatar.jpg"),
+                        radius: 53,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.blue,
+                          radius: 50,
+                          backgroundImage: AssetImage("assets/avatar.jpg"),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const Text(
-                  "Title 01",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-                const Text("Description Title 01"),
-              ],
+                  const Text(
+                    "Title 01",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Description Title 01"),
+                ],
+              ),
             ),
           ),
         ],
