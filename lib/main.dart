@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/others/help.dart';
 import 'package:myapp/screens/bmi/bmi_screen.dart';
+import 'package:myapp/screens/contact.dart';
 import 'package:myapp/screens/diet_during_pregnancy/diet_during_preg_screen.dart';
+import 'package:myapp/screens/edd/edd.dart';
 import 'package:myapp/screens/login_screen.dart';
 import 'package:myapp/screens/pregnancey_care/pregnancey_care_screen.dart';
 import 'package:share/share.dart';
-import 'package:myapp/contact.dart';
-import 'edd.dart';
 
 void main() => runApp(const MyApp());
 
