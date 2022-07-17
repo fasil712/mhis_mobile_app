@@ -55,7 +55,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: ListView(
           children: [
             DrawerHeader(
-              decoration: const BoxDecoration(color: Colors.blue),
+              decoration: const BoxDecoration(
+                  color: Colors.blue,
+                  image: DecorationImage(
+                      image: ExactAssetImage("assets/download.jpg"),
+                      fit: BoxFit.cover)),
               child: Center(
                 child: Row(
                   children: const [
@@ -82,55 +86,34 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             ListTile(
+              leading: const Icon(Icons.pregnant_woman_rounded,
+                  color: Color.fromARGB(255, 51, 148, 44)),
               title: const Text("Pregnancey care"),
-              leading: IconButton(
-                icon: const Icon(Icons.pregnant_woman_rounded),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const PregnanceyCare()));
               },
             ),
-            const Divider(
-              color: Colors.grey,
-            ),
             ListTile(
-              title: const Text("Duity during Pregnancey"),
-              leading: IconButton(
-                icon: const Icon(Icons.rule_rounded),
-                onPressed: () {},
-              ),
+              title: const Text("Diet during Pregnancey"),
+              leading: const Icon(Icons.food_bank, color: Colors.indigoAccent),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const DietDuringPreg()));
               },
             ),
-            const Divider(
-              color: Colors.grey,
-            ),
             ListTile(
               title: const Text("Pregnancey danger signs"),
-              leading: IconButton(
-                icon: const Icon(Icons.dangerous_rounded),
-                onPressed: () {},
-              ),
+              leading: const Icon(Icons.dangerous_rounded, color: Colors.red),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const Contact()));
               },
-            ),
-            const Divider(
-              color: Colors.grey,
             ),
             ListTile(
               title: const Text("Care and Hygne"),
-              leading: IconButton(
-                icon: const Icon(Icons.notifications_none_rounded),
-                onPressed: () {},
-              ),
+              leading: const Icon(Icons.notifications_none_rounded,
+                  color: Colors.purpleAccent),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const Contact()));
@@ -138,30 +121,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             const Divider(
               color: Colors.grey,
+              height: 1,
             ),
             ListTile(
-              title: const Text("BMI"),
-              leading: IconButton(
-                icon: const Icon(Icons.calculate_rounded),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+              title: const Text("Body Mass Index"),
+              leading: const Icon(
+                Icons.calculate_rounded,
+                color: Colors.amber,
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => BMI_Screen()));
               },
             ),
-            const Divider(
-              color: Colors.grey,
-            ),
             ListTile(
-              title: const Text("EDD"),
-              leading: IconButton(
-                icon: const Icon(Icons.calculate_rounded),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+              title: const Text("Expected Date Delivery"),
+              leading: const Icon(
+                Icons.calculate_rounded,
+                color: Colors.amber,
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
@@ -170,15 +147,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             const Divider(
               color: Colors.grey,
+              height: 1,
             ),
             ListTile(
               title: const Text("Login"),
-              leading: IconButton(
-                icon: const Icon(Icons.login),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
+              leading: const Icon(Icons.login, color: Colors.greenAccent),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const LoginPage()));
@@ -187,31 +160,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             const Divider(
               color: Colors.grey,
             ),
+            const Padding(
+              padding: EdgeInsets.only(left: 20.0, top: 8.0, bottom: 8.0),
+              child: Text(
+                'More',
+              ),
+            ),
             ListTile(
               title: const Text("Help"),
-              leading: IconButton(
-                icon: const Icon(Icons.help_rounded),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
+              leading: const Icon(Icons.help_rounded, color: Colors.blue),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const HelpPage()));
               },
             ),
-            const Divider(
-              color: Colors.grey,
-            ),
             ListTile(
               title: const Text("Share"),
-              leading: IconButton(
-                icon: const Icon(Icons.share_rounded),
-                onPressed: () {
-                  Share.share('check out my website https://example.com',
-                      subject: 'Look what I made!');
-                },
-              ),
+              leading: const Icon(Icons.share_rounded, color: Colors.blue),
               onTap: () {
                 Share.share('check out my website https://example.com',
                     subject: 'Look what I made!');
@@ -225,6 +190,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
+              opacity: 200.0,
               image: AssetImage("assets/backgroundimage.jpg"),
               fit: BoxFit.cover),
         ),

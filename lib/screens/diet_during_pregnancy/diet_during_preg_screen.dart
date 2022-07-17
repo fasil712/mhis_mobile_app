@@ -26,6 +26,7 @@ class _DietDuringPregState extends State<DietDuringPreg> {
             } else if (data.hasData) {
               var items = data.data as List<DietDetialModel>;
               return ListView.builder(
+                  // ignore: unnecessary_null_comparison
                   itemCount: items == null ? 0 : items.length,
                   itemBuilder: (context, index) {
                     final item = items[index];

@@ -8,10 +8,10 @@ class Contact extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Contact Page"),
-        actions: [
+        actions: const [
         Padding(
           padding: EdgeInsets.only(right: 8.0),
-          child: const Icon(Icons.contact_page),
+          child: Icon(Icons.contact_page),
         ),
 
       ]),
