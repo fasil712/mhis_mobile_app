@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/others/help.dart';
 import 'package:myapp/screens/bmi/bmi_screen.dart';
-import 'package:myapp/screens/contact.dart';
+import 'package:myapp/screens/preg_danger_sign/pregnancy_danger_sign_screen.dart';
 import 'package:myapp/screens/diet_during_pregnancy/diet_during_preg_screen.dart';
 import 'package:myapp/screens/edd/edd.dart';
 import 'package:myapp/screens/login_screen.dart';
@@ -107,7 +107,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               leading: const Icon(Icons.dangerous_rounded, color: Colors.red),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Contact()));
+                    builder: (BuildContext context) => const PregDangerSign()));
               },
             ),
             ListTile(
@@ -116,7 +116,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   color: Colors.purpleAccent),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Contact()));
+                    builder: (BuildContext context) => const PregDangerSign()));
               },
             ),
             const Divider(
