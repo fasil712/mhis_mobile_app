@@ -7,8 +7,8 @@ class PregDangerSign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         title: const Text("Pregnancy Danger Signs"),
       ),
       body: Padding(
@@ -24,29 +24,123 @@ class PregDangerSign extends StatelessWidget {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: const Color.fromARGB(255, 104, 101, 101),
+                  borderRadius: BorderRadius.circular(2),
+                  color: Colors.white,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Title 01",
-                      style: TextStyle(color: Colors.white, fontSize: 30),
-                    ),
-                    Icon(
-                      Icons.home,
-                      size: 50,
-                      color: Colors.white,
-                    ),
-                    Text("Title Description 01"),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Headache that won't go away or gets worse over time",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      const SizedBox(height: 10.0,),
+                      Image.asset(
+                        "assets/avatar.jpg",
+                        height: 200,
+                        width: 300,
+                      ),
+                      const SizedBox(height: 10.0,),
+                      const Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DangerSignDetail()));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        "Headache that won't go away or gets worse over time",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DangerSignDetail()));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        "Headache that won't go away or gets worse over time",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DangerSignDetail()));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        "Headache that won't go away or gets worse over time",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
+                    ],
+                  ),
                 ),
               ),
             ),
           ],
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, mainAxisSpacing: 4, crossAxisSpacing: 4),
+              crossAxisCount: 1, mainAxisSpacing: 4, crossAxisSpacing: 4),
         ),
       ),
     );
