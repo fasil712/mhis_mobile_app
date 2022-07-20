@@ -10,7 +10,27 @@ class DangerSignDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(item.name)),
-      body: Center(child: Text(item.name)),
+      body: Container(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+            child: Column(
+          children: [
+            Image.asset(item.image),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              item.name,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            Text(item.description),
+            const SizedBox(
+              height: 10.0,
+            ),
+            ElevatedButton(onPressed: () {}, child: const Text("Back"))
+          ],
+        )),
+      ),
     );
   }
 }
