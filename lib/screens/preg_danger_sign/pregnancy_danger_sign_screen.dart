@@ -9,7 +9,7 @@ class PregDangerSign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 220, 227, 222),
+        backgroundColor: const Color(0xFFE3E2DC),
         appBar: AppBar(
           title: const Text("Pregnancy Danger Signs"),
         ),
@@ -34,7 +34,7 @@ class PregDangerSign extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(2),
-                            color: const Color.fromARGB(255, 113, 141, 172),
+                            color: Colors.white,
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
