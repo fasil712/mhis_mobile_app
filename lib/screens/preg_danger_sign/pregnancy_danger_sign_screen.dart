@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/model/danger_sign_model.dart';
 import 'package:myapp/screens/preg_danger_sign/danger_sign_detail_screen.dart';
+import 'package:myapp/services/danger_sign_services.dart';
 
 class PregDangerSign extends StatelessWidget {
   const PregDangerSign({Key? key}) : super(key: key);
@@ -7,142 +9,72 @@ class PregDangerSign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
-      appBar: AppBar(
-        title: const Text("Pregnancy Danger Signs"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: GridView(
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DangerSignDetail()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(2),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Headache that won't go away or gets worse over time",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      const SizedBox(height: 10.0,),
-                      Image.asset(
-                        "assets/avatar.jpg",
-                        height: 200,
-                        width: 300,
-                      ),
-                      const SizedBox(height: 10.0,),
-                      const Text(
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DangerSignDetail()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Headache that won't go away or gets worse over time",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      Text(
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DangerSignDetail()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Headache that won't go away or gets worse over time",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      Text(
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DangerSignDetail()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Headache that won't go away or gets worse over time",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      Text(
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1, mainAxisSpacing: 4, crossAxisSpacing: 4),
+        backgroundColor: const Color.fromARGB(255, 220, 227, 222),
+        appBar: AppBar(
+          title: const Text("Pregnancy Danger Signs"),
         ),
-      ),
-    );
+        body: FutureBuilder(
+          future: ReadJsonData(),
+          builder: (context, data) {
+            if (data.hasError) {
+              return Center(child: Text("${data.error}"));
+            } else if (data.hasData) {
+              var items = data.data as List<DangerSignModel>;
+              return ListView.builder(
+                  // ignore: unnecessary_null_comparison
+                  itemCount: items == null ? 0 : items.length,
+                  itemBuilder: (context, index) {
+                    final item = items[index];
+                    return Container(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                DangerSignDetail(item: item))),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(2),
+                            color: const Color.fromARGB(255, 113, 141, 172),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  items[index].name.toString(),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                SizedBox(
+                                  width: 400,
+                                  height: 200,
+                                  child: Image(
+                                    image: AssetImage(
+                                        items[index].image.toString()),
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(items[index].description.toString()),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  });
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        ));
   }
 }
