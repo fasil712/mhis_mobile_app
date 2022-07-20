@@ -28,9 +28,10 @@ class PregDangerSign extends StatelessWidget {
                     return Container(
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                DangerSignDetail(item: item))),
+                        onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    DangerSignDetail(item: item))),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(2),
@@ -44,7 +45,8 @@ class PregDangerSign extends StatelessWidget {
                                 Text(
                                   items[index].name.toString(),
                                   style: const TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
                                 ),
                                 const SizedBox(
                                   height: 10.0,
