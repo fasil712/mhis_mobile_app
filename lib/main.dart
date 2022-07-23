@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/others/send_data.dart';
 import 'package:myapp/screens/drawer.dart';
 import 'package:myapp/screens/home_screen.dart';
 
@@ -34,7 +35,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: const Text('HMIS App'),
         actions: <Widget>[
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notifications_rounded)),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const SendData()));
+              }, icon: const Icon(Icons.notifications_rounded)),
           PopupMenuButton(
             itemBuilder: (BuildContext context) {
               return [
