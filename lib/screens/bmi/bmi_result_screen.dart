@@ -6,7 +6,7 @@ class BMIResultScreen extends StatelessWidget
   final double result;
   final int age;
 
-  BMIResultScreen({required this.result, required this.age, required this.isMale});
+  const BMIResultScreen({required this.result, required this.age, required this.isMale});
 
   @override
   Widget build(BuildContext context) {

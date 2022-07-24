@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/api/model/user_model.dart';
+import 'package:myapp/model/user_model.dart';
 import 'package:myapp/api/services/api_service.dart';
 
 class Home extends StatefulWidget {
@@ -42,6 +42,16 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(_userModel![index].id.toString()),
+                          Text(_userModel![index].firstname),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(_userModel![index].lastname),
                           Text(_userModel![index].username),
                         ],
                       ),
@@ -52,7 +62,7 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(_userModel![index].email),
-                          Text(_userModel![index].website),
+                          Text(_userModel![index].address),
                         ],
                       ),
                     ],
