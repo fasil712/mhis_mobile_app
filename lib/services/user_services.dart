@@ -3,8 +3,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:myapp/model/user_model.dart';
 
-Future<UserModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname, String email,
-    String phonenumber, String region, String kebele) async {
+Future<UserModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele) async {
   final response = await http.post(
     Uri.parse('http://192.168.0.8:4000/users'),
     headers: <String, String>{
@@ -16,9 +15,13 @@ Future<UserModel> registerUser(String facilityname, String mrn, String registrat
       'registrationdate': registrationdate,
       'firstname': firstname,
       'lastname': lastname,
+      'grandfathername': grandfathername,
+      'age': age,
+      'sex': sex,
       'email': email,
       'phonenumber': phonenumber,
       'region': region,
+      'woreda': woreda,
       'kebele': kebele,
     }),
   );

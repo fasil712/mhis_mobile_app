@@ -15,9 +15,13 @@ class _RegisterPageState extends State<RegisterPage> {
   final _registrationdatecontroller = TextEditingController();
   final _fnamecontroller = TextEditingController();
   final _lnamecontroller = TextEditingController();
+  final _grandfathernamecontroller = TextEditingController();
+  final _agecontroller = TextEditingController();
+  final _sexcontroller = TextEditingController();
   final _emailcontroller = TextEditingController();
   final _phonenumbercontroller = TextEditingController();
   final _regioncontroller = TextEditingController();
+  final _woredacontroller = TextEditingController();
   final _kebelecontroller = TextEditingController();
 
   _register() {
@@ -27,20 +31,28 @@ class _RegisterPageState extends State<RegisterPage> {
       'registrationdate': _registrationdatecontroller.text,
       'firstname': _fnamecontroller,
       'lastname': _lnamecontroller,
+      'grandfathername': _grandfathernamecontroller,
+      'age': _agecontroller,
+      'sex': _sexcontroller,
       'email': _emailcontroller,
       'phonenumber': _phonenumbercontroller,
       'region': _regioncontroller,
+      'woreda': _woredacontroller,
       'kebele': _kebelecontroller,
     };
-    var res = registerUser(
+    registerUser(
         _facilitynamecontroller.text,
         _mrncontroller.text,
         _registrationdatecontroller.text,
         _fnamecontroller.text,
         _lnamecontroller.text,
+        _grandfathernamecontroller.text,
+        _agecontroller.text,
+        _sexcontroller.text,
         _emailcontroller.text,
         _phonenumbercontroller.text,
         _regioncontroller.text,
+        _woredacontroller.text,
         _kebelecontroller.text);
   }
 
@@ -116,6 +128,36 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 10.0,
               ),
               TextField(
+                controller: _grandfathernamecontroller,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Grand Father Name',
+                    hintText: 'Enter valid name'),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
+                controller: _agecontroller,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Age',
+                    hintText: 'Enter valid age'),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
+                controller: _sexcontroller,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Sex',
+                    hintText: 'Enter sex'),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
                 controller: _emailcontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
@@ -146,6 +188,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 10.0,
               ),
               TextField(
+                controller: _woredacontroller,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Woreda',
+                    hintText: 'Enter Woreda'),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
                 controller: _kebelecontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
@@ -164,6 +216,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: TextButton(
                   onPressed: () {
                     _register();
+                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const LoginPage()));
                   },
                   child: const Text(
                     'Register',
