@@ -3,20 +3,23 @@ import 'package:http/http.dart' as http;
 
 import 'package:myapp/model/user_model.dart';
 
-Future<UserModel> registerUser(String firstname, String lastname, String email,
-    String username, String password, String address) async {
+Future<UserModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname, String email,
+    String phonenumber, String region, String kebele) async {
   final response = await http.post(
-    Uri.parse('http://localhost:4000/users'),
+    Uri.parse('http://192.168.0.8:4000/users'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
     body: jsonEncode(<String, String>{
+      'facilityname': facilityname,
+      'mrn': mrn,
+      'registrationdate': registrationdate,
       'firstname': firstname,
       'lastname': lastname,
       'email': email,
-      'username': username,
-      'password': password,
-      'address': address,
+      'phonenumber': phonenumber,
+      'region': region,
+      'kebele': kebele,
     }),
   );
 

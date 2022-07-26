@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/screens/login_screen.dart';
+import 'package:myapp/services/user_services.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -9,7 +10,39 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final _controller = TextEditingController();
+  final _facilitynamecontroller = TextEditingController();
+  final _mrncontroller = TextEditingController();
+  final _registrationdatecontroller = TextEditingController();
+  final _fnamecontroller = TextEditingController();
+  final _lnamecontroller = TextEditingController();
+  final _emailcontroller = TextEditingController();
+  final _phonenumbercontroller = TextEditingController();
+  final _regioncontroller = TextEditingController();
+  final _kebelecontroller = TextEditingController();
+
+  _register() {
+    var data = {
+      'facilityname': _facilitynamecontroller.text,
+      'mrn': _mrncontroller.text,
+      'registrationdate': _registrationdatecontroller.text,
+      'firstname': _fnamecontroller,
+      'lastname': _lnamecontroller,
+      'email': _emailcontroller,
+      'phonenumber': _phonenumbercontroller,
+      'region': _regioncontroller,
+      'kebele': _kebelecontroller,
+    };
+    var res = registerUser(
+        _facilitynamecontroller.text,
+        _mrncontroller.text,
+        _registrationdatecontroller.text,
+        _fnamecontroller.text,
+        _lnamecontroller.text,
+        _emailcontroller.text,
+        _phonenumbercontroller.text,
+        _regioncontroller.text,
+        _kebelecontroller.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +66,37 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 10.0,
               ),
               TextField(
-                controller: _controller,
+                controller: _facilitynamecontroller,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Facility Name',
+                    hintText: 'Enter valid facility name'),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
+                controller: _mrncontroller,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'MRN',
+                    hintText: 'Enter valid MRN'),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
+                controller: _registrationdatecontroller,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Date of Registation',
+                    hintText: 'Enter valid Date'),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
+                controller: _fnamecontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'First Name',
@@ -43,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 10.0,
               ),
               TextField(
-                controller: _controller,
+                controller: _lnamecontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Last Name',
@@ -53,7 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 10.0,
               ),
               TextField(
-                controller: _controller,
+                controller: _emailcontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -63,32 +126,31 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 10.0,
               ),
               TextField(
-                controller: _controller,
+                controller: _phonenumbercontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'User Name',
-                    hintText: 'Enter valid name'),
+                    labelText: 'Phone Number',
+                    hintText: 'Enter valid phone number'),
               ),
               const SizedBox(
                 height: 10.0,
               ),
               TextField(
-                controller: _controller,
-                obscureText: true,
+                controller: _regioncontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Password',
-                    hintText: 'Enter secure password'),
+                    labelText: 'Region',
+                    hintText: 'Enter Region'),
               ),
               const SizedBox(
                 height: 10.0,
               ),
               TextField(
-                controller: _controller,
+                controller: _kebelecontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Address',
-                    hintText: 'Enter valid address'),
+                    labelText: 'Kebele',
+                    hintText: 'Enter Kebele'),
               ),
               const SizedBox(
                 height: 10.0,
@@ -97,9 +159,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 50,
                 width: 250,
                 decoration: BoxDecoration(
-                    color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(20)),
                 child: TextButton(
                   onPressed: () {
+                    _register();
                   },
                   child: const Text(
                     'Register',
@@ -128,4 +192,3 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
-
