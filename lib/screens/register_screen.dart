@@ -25,21 +25,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final _kebelecontroller = TextEditingController();
 
   _register() {
-    var data = {
-      'facilityname': _facilitynamecontroller.text,
-      'mrn': _mrncontroller.text,
-      'registrationdate': _registrationdatecontroller.text,
-      'firstname': _fnamecontroller,
-      'lastname': _lnamecontroller,
-      'grandfathername': _grandfathernamecontroller,
-      'age': _agecontroller,
-      'sex': _sexcontroller,
-      'email': _emailcontroller,
-      'phonenumber': _phonenumbercontroller,
-      'region': _regioncontroller,
-      'woreda': _woredacontroller,
-      'kebele': _kebelecontroller,
-    };
     registerUser(
         _facilitynamecontroller.text,
         _mrncontroller.text,

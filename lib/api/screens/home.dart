@@ -45,7 +45,6 @@ class _HomeState extends State<Home> {
                         children: [
                           Column(
                             children: [
-                              Text("Id : " + _userModel[index].id.toString()),
                               Text("First Name : " + _userModel[index].firstname),
                               Text("Last Name : " + _userModel[index].lastname),
                               Text("Phone Number : " + _userModel[index].phonenumber),
