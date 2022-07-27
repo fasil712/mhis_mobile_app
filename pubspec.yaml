@@ -43,6 +43,7 @@ dependencies:
   provider:
   encrypt:
   random_string:
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_test:
