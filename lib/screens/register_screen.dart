@@ -41,9 +41,13 @@ class _RegisterPageState extends State<RegisterPage> {
         _kebelecontroller.text);
   }
 
+  final formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Register Page"),
@@ -51,181 +55,234 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Center(
-                child: SizedBox(
-                    width: 200,
-                    height: 150,
-                    child: Image.asset('assets/avatar.jpg')),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _facilitynamecontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Facility Name',
-                    hintText: 'Enter valid facility name'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _mrncontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'MRN',
-                    hintText: 'Enter valid MRN'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _registrationdatecontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Date of Registation',
-                    hintText: 'Enter valid Date'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _fnamecontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'First Name',
-                    hintText: 'Enter valid name'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _lnamecontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Last Name',
-                    hintText: 'Enter valid name'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _grandfathernamecontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Grand Father Name',
-                    hintText: 'Enter valid name'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _agecontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Age',
-                    hintText: 'Enter valid age'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _sexcontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Sex',
-                    hintText: 'Enter sex'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _emailcontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
-                    hintText: 'Enter valid email'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _phonenumbercontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Phone Number',
-                    hintText: 'Enter valid phone number'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _regioncontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Region',
-                    hintText: 'Enter Region'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _woredacontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Woreda',
-                    hintText: 'Enter Woreda'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextField(
-                controller: _kebelecontroller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Kebele',
-                    hintText: 'Enter Kebele'),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                height: 50,
-                width: 250,
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(20)),
-                child: TextButton(
+          child: Form(
+            key: formkey,
+            child: Column(
+              children: <Widget>[
+                Center(
+                  child: SizedBox(
+                      width: 200,
+                      height: 150,
+                      child: Image.asset('assets/avatar.jpg')),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _facilitynamecontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Facility Name',
+                      hintText: 'Enter valid facility name'),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return "Enter correct name";
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                    controller: _mrncontroller,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(), labelText: 'MRN'),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
+                              .hasMatch(value)) {
+                        return "Enter correct MRN";
+                      } else {
+                        return null;
+                      }
+                    }),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _registrationdatecontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Date of Registation'),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _fnamecontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'First Name'),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return "Enter correct fname";
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _lnamecontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Last Name'),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return "Enter correct lname";
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _grandfathernamecontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Grand Father Name'),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return "Enter correct gfname";
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _agecontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Age'),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _sexcontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Sex'),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                    controller: _emailcontroller,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Email'),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
+                              .hasMatch(value)) {
+                        return "Enter correct email";
+                      } else {
+                        return null;
+                      }
+                    }),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                    controller: _phonenumbercontroller,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Phone Number'),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
+                              .hasMatch(value)) {
+                        return "Enter correct Phone Number";
+                      } else {
+                        return null;
+                      }
+                    }),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _regioncontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Region',
+                      hintText: 'Enter Region'),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _woredacontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Woreda',
+                      hintText: 'Enter Woreda'),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: _kebelecontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Kebele',
+                      hintText: 'Enter Kebele'),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Container(
+                  height: 50,
+                  width: 250,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: TextButton(
+                    onPressed: () {
+                      if (formkey.currentState!.validate()) {
+                        _register();
+                        final snackbar =
+                            SnackBar(content: Text("Submitting form"));
+                        // ignore: deprecated_member_use
+                        _scaffoldKey.currentState!.showSnackBar(snackbar);
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const LoginPage()));
+                      }
+                    },
+                    child: const Text(
+                      'Register',
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 130,
+                ),
+                TextButton(
                   onPressed: () {
-                    _register();
                     Navigator.pop(context);
                     Navigator.push(context,
                         MaterialPageRoute(builder: (_) => const LoginPage()));
                   },
                   child: const Text(
-                    'Register',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
+                    'Early User? Login Account',
+                    style: TextStyle(color: Colors.blue, fontSize: 15),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 130,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const LoginPage()));
-                },
-                child: const Text(
-                  'Early User? Login Account',
-                  style: TextStyle(color: Colors.blue, fontSize: 15),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
