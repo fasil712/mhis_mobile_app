@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/others/send_data.dart';
-import 'package:myapp/screens/drawer.dart';
+import 'package:myapp/widgets/drawer.dart';
 import 'package:myapp/screens/home_screen.dart';
 
 void main() => runApp(const MyApp());
@@ -51,22 +51,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
       drawer: const DrawerPage(),
       body: const HomePage(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera_alt_rounded),
-            label: 'Video Conference',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.more_vert),
-            label: 'Profile',
-          ),
-        ],
-      ),
+      bottomNavigationBar: const BottomAppBar(),
     );
   }
 }
