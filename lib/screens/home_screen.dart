@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/widgets/item_carousel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,23 +11,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            opacity: 200.0,
-            image: AssetImage("assets/backgroundimage.jpg"),
-            fit: BoxFit.cover),
-      ),
-      child: const Center(
-        child: Text('Care for mothers',
-            style: TextStyle(
-              color: Colors.blue,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            )), // Foreground widget here
-      ),
+    return SafeArea(
+      child: SingleChildScrollView(
+          child: Column(
+        children: const[
+          ItemCarousel(),
+          SizedBox(height: 20.0,)
+        ],
+      )),
     );
   }
 }
