@@ -13,7 +13,7 @@ class BMIResultScreen extends StatelessWidget {
     String _message;
     if (result < 18.5) {
         _message = "You are underweight";
-      } else if (result < 25) {
+      } else if (result < 15) {
         _message = 'You body is fine';
       } else if (result < 30) {
         _message = 'You are overweight';
@@ -27,48 +27,54 @@ class BMIResultScreen extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Your Body Mass Index Result",
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
+        child: Container(
+          color: Colors.blue,
+          padding: const EdgeInsets.all(6.0),
+          height: 500,
+          width: 300,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Your Body Mass Index Result",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              "Gender: ${isMale ? 'Male' : 'Female'}",
-              style: const TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+              const SizedBox(
+                height: 10.0,
               ),
-            ),
-            Text(
-              "Result: ${result.round()}",
-              style: const TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+              Text(
+                "Gender: ${isMale ? 'Male' : 'Female'}",
+                style: const TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              "Message: $_message",
-              style: const TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+              Text(
+                "Result: ${result.round()}",
+                style: const TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              "Age: $age",
-              style: const TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+              Text(
+                "Message: $_message",
+                style: const TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          ],
+              Text(
+                "Age: $age",
+                style: const TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
