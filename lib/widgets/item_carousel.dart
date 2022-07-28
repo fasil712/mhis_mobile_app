@@ -11,7 +11,7 @@ class ItemCarousel extends StatefulWidget {
 class _ItemCarouselState extends State<ItemCarousel> {
   int currentIndex = 0;
   List<String> images = [
-    "assets/food_list/month01.jpg",
+    "assets/backgroundimage.jpg",
     "assets/food_list/month02.jpg",
     "assets/food_list/month03.jpg",
     "assets/food_list/month04.jpg",
@@ -31,6 +31,17 @@ class _ItemCarouselState extends State<ItemCarousel> {
     "Month 07",
     "Month 08",
     "Month 09"
+  ];
+  List<String> desc = [
+    "Month 01 description",
+    "Month 02 description",
+    'Month 03 description',
+    'Month 04 description',
+    'Month 05 description',
+    'Month 06 description',
+    "Month 07 description",
+    "Month 08 description",
+    "Month 09 description"
   ];
   @override
   Widget build(BuildContext context) {
@@ -74,7 +85,7 @@ class _ItemCarouselState extends State<ItemCarousel> {
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeStrategy: CenterPageEnlargeStrategy.height,
                   autoPlayInterval: const Duration(seconds: 5),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 2000),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 4000),
                   pauseAutoPlayOnTouch: true,
                   scrollDirection: Axis.horizontal,
                   onPageChanged: (index, next) {
@@ -87,13 +98,24 @@ class _ItemCarouselState extends State<ItemCarousel> {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 180.0),
-                child: Text(
-                  names[currentIndex],
-                  style: const TextStyle(
-                      decoration: TextDecoration.none,
-                      color: Color.fromARGB(255, 235, 8, 8),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.0),
+                child: Column(
+                  children: [
+                    Text(
+                      names[currentIndex],
+                      style: const TextStyle(
+                          decoration: TextDecoration.none,
+                          color: Color.fromARGB(255, 8, 69, 235),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0),
+                    ),
+                    const SizedBox(height: 5.0,),
+                    Text(desc[currentIndex],
+                    style: const TextStyle(
+                          decoration: TextDecoration.none,
+                          color: Color.fromARGB(255, 177, 194, 240),
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14.0),)
+                  ],
                 ),
               ),
             ),

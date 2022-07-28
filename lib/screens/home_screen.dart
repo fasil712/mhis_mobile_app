@@ -13,12 +13,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+          controller: ScrollController(),
           child: Column(
-        children: const[
-          ItemCarousel(),
-          SizedBox(height: 20.0,)
-        ],
-      )),
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              ItemCarousel(),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text("Care for Mothers"),
+              SizedBox(height: 10.0,)
+            ],
+          )),
     );
   }
 }
