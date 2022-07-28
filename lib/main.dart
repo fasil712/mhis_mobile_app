@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/others/send_data.dart';
+import 'package:myapp/widgets/bottomnavbar.dart';
 import 'package:myapp/widgets/drawer.dart';
 import 'package:myapp/screens/home_screen.dart';
 
@@ -51,7 +52,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
       drawer: const DrawerPage(),
       body: const HomePage(),
-      bottomNavigationBar: const BottomAppBar(),
+      bottomNavigationBar: const BottomeNavBar(),
     );
   }
 }

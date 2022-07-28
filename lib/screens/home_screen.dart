@@ -16,13 +16,24 @@ class _HomePageState extends State<HomePage> {
           controller: ScrollController(),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: const [
-              ItemCarousel(),
-              SizedBox(
+            children:  [
+              const ItemCarousel(),
+              const SizedBox(
                 height: 20.0,
               ),
-              Text("Care for Mothers"),
-              SizedBox(height: 10.0,)
+              const Text("Care for Mothers", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              const SizedBox(height: 10.0,),
+              Container(
+                padding: const EdgeInsets.all(10),
+                height: 200,
+                width: 400,
+                color: Colors.amberAccent,
+                child: Column(
+                  children: const [
+                    Text('Title')
+                  ],
+                ),
+              )
             ],
           )),
     );
