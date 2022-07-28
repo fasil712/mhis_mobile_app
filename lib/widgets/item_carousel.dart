@@ -32,17 +32,17 @@ class _ItemCarouselState extends State<ItemCarousel> {
     "Month 08",
     "Month 09"
   ];
-  List<String> desc = [
-    "Month 01 description",
-    "Month 02 description",
-    'Month 03 description',
-    'Month 04 description',
-    'Month 05 description',
-    'Month 06 description',
-    "Month 07 description",
-    "Month 08 description",
-    "Month 09 description"
-  ];
+  // List<String> desc = [
+  //   "Month 01 description",
+  //   "Month 02 description",
+  //   'Month 03 description',
+  //   'Month 04 description',
+  //   'Month 05 description',
+  //   'Month 06 description',
+  //   "Month 07 description",
+  //   "Month 08 description",
+  //   "Month 09 description"
+  // ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -108,13 +108,13 @@ class _ItemCarouselState extends State<ItemCarousel> {
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0),
                     ),
-                    const SizedBox(height: 5.0,),
-                    Text(desc[currentIndex],
-                    style: const TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Color.fromARGB(255, 177, 194, 240),
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14.0),)
+                    // const SizedBox(height: 5.0,),
+                    // Text(desc[currentIndex],
+                    // style: const TextStyle(
+                    //       decoration: TextDecoration.none,
+                    //       color: Color.fromARGB(255, 177, 194, 240),
+                    //       fontWeight: FontWeight.normal,
+                    //       fontSize: 14.0),)
                   ],
                 ),
               ),

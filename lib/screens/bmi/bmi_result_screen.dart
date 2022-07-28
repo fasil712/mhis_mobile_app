@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 
-class BMIResultScreen extends StatelessWidget
-{
+class BMIResultScreen extends StatelessWidget {
   final bool isMale;
   final double result;
   final int age;
 
-  const BMIResultScreen({required this.result, required this.age, required this.isMale});
+  const BMIResultScreen(
+      {required this.result, required this.age, required this.isMale});
 
   @override
   Widget build(BuildContext context) {
+    String _message;
+    if (result < 18.5) {
+        _message = "You are underweight";
+      } else if (result < 25) {
+        _message = 'You body is fine';
+      } else if (result < 30) {
+        _message = 'You are overweight';
+      } else {
+        _message = 'You are obese';
+      }
     return Scaffold(
       appBar: AppBar(
-        /*Manual Way to create back arrow*/
-        // leading: IconButton(
-        //   onPressed: (){
-        //     Navigator.pop(context);
-        //   },
-        //   icon: Icon(
-        //     Icons.arrow_back_ios,
-        //   ),
-        // ),
-        title:const Text(
+        title: const Text(
           "BMI RESULT",
         ),
       ),
@@ -29,8 +30,18 @@ class BMIResultScreen extends StatelessWidget
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              "Your Body Mass Index Result",
+              style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
             Text(
-              "Gender: ${isMale? 'Male':'Female'}",
+              "Gender: ${isMale ? 'Male' : 'Female'}",
               style: const TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
@@ -38,6 +49,13 @@ class BMIResultScreen extends StatelessWidget
             ),
             Text(
               "Result: ${result.round()}",
+              style: const TextStyle(
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              "Message: $_message",
               style: const TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,

@@ -318,7 +318,7 @@ class _BMI_ScreenState extends State<BMI_Screen> {
           Container(
             width: double.infinity,
             height: 75.0,
-            color: Color.fromARGB(255, 230, 20, 73),
+            color: const Color.fromARGB(255, 230, 20, 73),
             child: MaterialButton(
               onPressed: () {
                 double result = weight / pow(height / 100, 2);

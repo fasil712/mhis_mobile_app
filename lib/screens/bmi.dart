@@ -72,7 +72,7 @@ class _BMICalculatorState extends State<BMICalculator> {
                     decoration: const InputDecoration(labelText: 'Height (m)'),
                     controller: _heightController,
                   ),
-                  TextField( 
+                  TextField(
                     keyboardType:
                         const TextInputType.numberWithOptions(decimal: true),
                     decoration: const InputDecoration(
