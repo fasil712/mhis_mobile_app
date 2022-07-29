@@ -10,6 +10,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // Initial Selected Value
+  String dropdownvalue = 'Receptionist';
+
+  // List of items in our dropdown menu
+  var items = [
+    'Receptionist',
+    'Doctor',
+    'Nurse',
+    'Phrmacist',
+    'Client',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +51,8 @@ class _LoginPageState extends State<LoginPage> {
               child: TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Email',
-                    hintText: 'Enter valid email id as abc@gmail.com'),
+                    labelText: 'Username',
+                    hintText: 'Username'),
               ),
             ),
             const Padding(
@@ -52,18 +63,45 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
-                    hintText: 'Enter secure password'),
+                    hintText: 'Password'),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
-              },
-              child: const Text(
-                'Forgot Password',
-                style: TextStyle(color: Colors.blue, fontSize: 15),
-              ),
+            Padding(
+              padding: const EdgeInsets.only(top: 15, right: 15, left: 15, bottom: 20.0),
+              child: Column(children: [
+                DropdownButtonFormField(
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Role',
+                      hintText: 'Role'),
+                  borderRadius: BorderRadius.circular(10),
+                  value: dropdownvalue,
+                  icon: const Icon(Icons.keyboard_arrow_down),
+                  items: items.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownvalue = newValue!;
+                    });
+                  },
+                ),
+              ]),
             ),
+
+            // TextButton(
+            //   onPressed: () {
+            //     //TODO FORGOT PASSWORD SCREEN GOES HERE
+            //   },
+            //   child: const Text(
+            //     'Forgot Password',
+            //     style: TextStyle(color: Colors.blue, fontSize: 15),
+            //   ),
+            // ),
+           
             Container(
               height: 50,
               width: 250,
@@ -81,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 130,
+              height: 100,
             ),
             TextButton(
               onPressed: () {
