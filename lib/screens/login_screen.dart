@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:myapp/api/screens/home.dart';
 import 'package:myapp/others/help.dart';
-import 'package:myapp/screens/register_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -28,9 +27,8 @@ class _LoginPageState extends State<LoginPage> {
 
   final passwordValidator = MultiValidator([
     RequiredValidator(errorText: 'Password is required'),
-    MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
-    PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-        errorText: 'Passwords must have at least one special character')
+    MinLengthValidator(6, errorText: 'Password must be at least 6 digits long'),
+    MaxLengthValidator(10, errorText: 'Password must be at most 10 digits long')
   ]);
 
   @override
