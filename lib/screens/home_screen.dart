@@ -27,10 +27,11 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(10),
                 height: 200,
                 width: 400,
-                color: Colors.amberAccent,
                 child: Column(
                   children: const [
-                    Text('Title')
+                    Card(
+                      elevation: 5,
+                      child: Text('Title'))
                   ],
                 ),
               )

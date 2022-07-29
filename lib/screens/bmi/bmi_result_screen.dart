@@ -28,7 +28,7 @@ class BMIResultScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          color: Colors.blue,
+          color: const Color.fromARGB(255, 174, 186, 195),
           padding: const EdgeInsets.all(6.0),
           height: 500,
           width: 300,
