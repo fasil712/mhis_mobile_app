@@ -251,7 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       if (formkey.currentState!.validate()) {
                         _register();
                         final snackbar =
-                            SnackBar(content: Text("Submitting form"));
+                            SnackBar(content: const Text("Submitting form"));
                         // ignore: deprecated_member_use
                         _scaffoldKey.currentState!.showSnackBar(snackbar);
                         Navigator.pop(context);
