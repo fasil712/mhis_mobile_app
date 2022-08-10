@@ -11,26 +11,18 @@ class ItemCarousel extends StatefulWidget {
 class _ItemCarouselState extends State<ItemCarousel> {
   int currentIndex = 0;
   List<String> images = [
-    "assets/backgroundimage.jpg",
-    "assets/food_list/month02.jpg",
-    "assets/food_list/month03.jpg",
-    "assets/food_list/month04.jpg",
-    "assets/food_list/month05.jpg",
-    "assets/food_list/month06.jpg",
-    "assets/food_list/month07.jpg",
-    "assets/food_list/month08.jpg",
-    "assets/food_list/month09.jpg"
+    "assets/carousel_image/image01.jpg",
+    "assets/carousel_image/image02.jpg",
+    "assets/carousel_image/image03.jpg",
+    "assets/carousel_image/image04.jpg",
+    "assets/carousel_image/image05.jpg"
   ];
   List<String> names = [
     "Month 01",
     "Month 02",
     'Month 03',
     'Month 04',
-    'Month 05',
-    'Month 06',
-    "Month 07",
-    "Month 08",
-    "Month 09"
+    "Month 05"
   ];
 
   @override

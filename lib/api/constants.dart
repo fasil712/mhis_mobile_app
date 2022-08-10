@@ -1,4 +1,4 @@
 class ApiConstants {
-  static String baseUrl = 'http://192.168.0.6:4000';
-  static String usersEndpoint = '/users';
+  static String baseUrl = 'http://10.161.164.237:3000/';
+  static String usersEndpoint = '/clients';
 }
