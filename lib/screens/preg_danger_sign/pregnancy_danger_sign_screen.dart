@@ -68,6 +68,21 @@ class PregDangerSign extends StatelessWidget {
                                   maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
                                 ),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  DangerSignDetail(
+                                                    item: item,
+                                                  )));
+                                    },
+                                    child: const Text(
+                                      "More detail..",
+                                      style: TextStyle(
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.bold),
+                                    ))
                               ],
                             ),
                           ),
