@@ -23,11 +23,15 @@ class DangerSignDetail extends StatelessWidget {
               item.name,
               style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
-            Text(item.description),
+            Text(item.description, style: const TextStyle(fontStyle: FontStyle.italic),),
             const SizedBox(
               height: 10.0,
             ),
-            ElevatedButton(onPressed: () {}, child: const Text("Back"))
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("Back"))
           ],
         )),
       ),
