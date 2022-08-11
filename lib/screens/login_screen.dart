@@ -17,10 +17,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // Initial Selected Value
-  String _role = 'Receptionist';
+  String _role = 'receptionist';
   // List of items in our dropdown menu
   var items = [
-    'Receptionist',
+    'receptionist',
     'Doctor',
     'Nurse',
     'Phrmacist',

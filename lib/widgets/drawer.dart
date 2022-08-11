@@ -78,15 +78,6 @@ class _DrawerPageState extends State<DrawerPage> {
                   builder: (BuildContext context) => const PregDangerSign()));
             },
           ),
-          ListTile(
-            title: const Text("Care and Hygne"),
-            leading: const Icon(Icons.notifications_none_rounded,
-                color: Colors.purpleAccent),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const PregDangerSign()));
-            },
-          ),
           const Divider(
             color: Colors.grey,
             height: 1,

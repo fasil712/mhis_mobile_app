@@ -3,5 +3,5 @@ class ApiConstants {
   static Map<String, String> headers = {"Content-Type": "application/json"};
   static String clientListEndpoint = '/clientList';
   static String addClientEndpoint = '/add';
-  static String usersLoginEndpoint = '/login';
+  static String usersLoginEndpoint = '/mobileLogin';
 }
