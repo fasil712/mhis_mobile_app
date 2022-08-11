@@ -63,7 +63,11 @@ class PregDangerSign extends StatelessWidget {
                                 const SizedBox(
                                   height: 10.0,
                                 ),
-                                Text(items[index].description.toString()),
+                                Text(
+                                  items[index].description.toString(),
+                                  maxLines: 4,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ],
                             ),
                           ),
