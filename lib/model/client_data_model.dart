@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-List<UserModel> userModelFromJson(String str) =>
-    List<UserModel>.from(json.decode(str).map((x) => UserModel.fromJson(x)));
+List<ClientDataModel> clientDataModelFromJson(String str) =>
+    List<ClientDataModel>.from(json.decode(str).map((x) => ClientDataModel.fromJson(x)));
 
-String userModelToJson(List<UserModel> data) =>
+String clientDataModelToJson(List<ClientDataModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class UserModel {
-  UserModel({
+class ClientDataModel {
+  ClientDataModel({
     required this.facilityname,
     required this.mrn,
     required this.registrationdate,
@@ -37,7 +37,7 @@ class UserModel {
   String woreda;
   String kebele;
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+  factory ClientDataModel.fromJson(Map<String, dynamic> json) => ClientDataModel(
         facilityname: json["name_of_facility"],
         mrn: json["MRN"],
         registrationdate: json["date_reg"],

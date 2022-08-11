@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/model/user_model.dart';
-import 'package:myapp/services/list_user_service.dart';
+import 'package:myapp/model/client_data_model.dart';
+import 'package:myapp/services/client_history_service.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<UserModel> _userModel = [];
+  List<ClientDataModel> _clientDataModel = [];
   @override
   void initState() {
     super.initState();
@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   }
 
   void _getData() async {
-    _userModel = await ApiService.getUsers();
+    _clientDataModel = await ApiService.getUsers();
     Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
   }
 
@@ -28,12 +28,12 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('REST API Example'),
       ),
-      body: _userModel.isEmpty
+      body: _clientDataModel.isEmpty
           ? const Center(
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
-              itemCount: _userModel.length,
+              itemCount: _clientDataModel.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -45,11 +45,11 @@ class _HomeState extends State<Home> {
                         children: [
                           Column(
                             children: [
-                              Text("First Name : " + _userModel[index].firstname),
-                              Text("Last Name : " + _userModel[index].lastname),
-                              Text("Phone Number : " + _userModel[index].phonenumber),
-                              Text("Email : " + _userModel[index].email),
-                              Text("Region : " + _userModel[index].region),
+                              Text("First Name : " + _clientDataModel[index].firstname),
+                              Text("Last Name : " + _clientDataModel[index].lastname),
+                              Text("Phone Number : " + _clientDataModel[index].phonenumber),
+                              Text("Email : " + _clientDataModel[index].email),
+                              Text("Region : " + _clientDataModel[index].region),
                             ],
                           ),
                         ],

@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:myapp/others/constants.dart';
 
-import 'package:myapp/model/user_model.dart';
+import 'package:myapp/model/client_data_model.dart';
 
-Future<UserModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele) async {
+Future<ClientDataModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele) async {
   final response = await http.post(
-    Uri.parse(ApiConstants.baseUrl + ApiConstants.userAddEndpoint),
+    Uri.parse(ApiConstants.baseUrl + ApiConstants.addClientEndpoint),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -30,7 +30,7 @@ Future<UserModel> registerUser(String facilityname, String mrn, String registrat
   if (response.statusCode == 201) {
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
-    return UserModel.fromJson(jsonDecode(response.body));
+    return ClientDataModel.fromJson(jsonDecode(response.body));
   } else {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
