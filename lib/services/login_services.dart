@@ -1,19 +1,27 @@
-import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
-
 import 'package:http/http.dart' as http;
+import 'package:myapp/api/constants.dart';
 import 'package:myapp/model/login_model.dart';
 
-Future<LoginModel> fetchAlbum() async {
-  final response = await http.get(
-    Uri.parse('http://localhost:4000/users/id'),
-    // Send authorization headers to the backend.
-    headers: {
-      HttpHeaders.authorizationHeader: 'Basic your_api_token_here',
+Future<LoginModel> userLogin(String username, String password) async {
+  final response = await http.post(
+    Uri.parse(ApiConstants.baseUrl + ApiConstants.usersLoginEndpoint),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
     },
+    body: jsonEncode(<String, String>{
+      'username': username,
+      'password': password
+    }),
   );
-  final responseJson = jsonDecode(response.body);
 
-  return LoginModel.fromJson(responseJson);
+  if (response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return LoginModel.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Failed to create user.');
+  }
 }

@@ -6,7 +6,7 @@ import 'package:myapp/model/user_model.dart';
 
 Future<UserModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele) async {
   final response = await http.post(
-    Uri.parse(ApiConstants.baseUrl + ApiConstants.usersEndpoint),
+    Uri.parse(ApiConstants.baseUrl + ApiConstants.userAddEndpoint),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },

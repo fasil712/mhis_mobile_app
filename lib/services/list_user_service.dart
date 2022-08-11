@@ -8,7 +8,7 @@ class ApiService {
   static Future<List<UserModel>> getUsers() async {
     List<UserModel> _model = [];
     try {
-      var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersEndpoint);
+      var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersListEndpoint);
       var response =
           await http.get(url, headers: {"accept": "application/json"});
       if (response.statusCode == 200) {
