@@ -52,8 +52,8 @@ class _PregnanceyCareState extends State<PregnanceyCare> {
                                   radius: 53,
                                   child: CircleAvatar(
                                       radius: 50,
-                                      child: Image.asset(
-                                          items[index].image.toString(), fit: BoxFit.cover,)),
+                                      backgroundImage: AssetImage(
+                                          items[index].image.toString())),
                                 ),
                               ),
                               Text(
