@@ -33,7 +33,7 @@ class _DietDuringPregState extends State<DietDuringPreg> {
                     return GestureDetector(
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              DietDretailPage(item: item))),
+                              DietDetailPage(item: item))),
                       child: Card(
                         elevation: 5,
                         margin: const EdgeInsets.symmetric(
@@ -84,6 +84,7 @@ class _DietDuringPregState extends State<DietDuringPreg> {
                         ),
                       ),
                     );
+                 
                   });
             } else {
               return const Center(

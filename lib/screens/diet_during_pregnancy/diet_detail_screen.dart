@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/model/diet_detail_model.dart';
 
-class DietDretailPage extends StatelessWidget {
+class DietDetailPage extends StatelessWidget {
   final DietDetialModel item;
 
-  const DietDretailPage({Key? key, required this.item}) : super(key: key);
+  const DietDetailPage({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
