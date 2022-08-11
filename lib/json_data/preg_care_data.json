@@ -1,7 +1,7 @@
 [
   {
     "title": "Eat healthy foods",
-    "image": "assets/avatar.jpg",
+    "image": "assets/pregnancy_care/image02.jpg",
     "description": "Eating healthy foods is especially important for pregnant women. Your baby needs nutrients to grow healthy and strong in the womb. Eat plenty of colorful fruits and vegetables, whole grains, calcium-rich foods and foods low in saturated fat."
   },
   {
@@ -12,7 +12,7 @@
   {
     "title": "Stay hydrated",
     "image": "assets/avatar.jpg",
-    "description": "A pregnant woman’s body needs more water than it did before pregnancy. Aim for eight or more cups each day."
+    "description": "A pregnant woman's body needs more water than it did before pregnancy. Aim for eight or more cups each day."
   },
   {
     "title": "Go to your prenatal care checkups",
@@ -31,12 +31,12 @@
   },
   {
     "title": "Don't smoke",
-    "image": "assets/avatar.jpg",
+    "image": "assets/pregnancy_care/image03.png",
     "description": "Smoking is unhealthy for you and your unborn child. It increases the risk of sudden infant death syndrome (SIDS), premature birth, miscarriage and other poor outcomes."
   },
   {
     "title": "Get moving",
-    "image": "assets/avatar.jpg",
+    "image": "assets/pregnancy_care/image02.jpg",
     "description": "Daily exercise or staying active in other ways can help you stay healthy during pregnancy. Check with your doctor to find out how much physical activity is right for you."
   },
   {

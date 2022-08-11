@@ -76,6 +76,10 @@ flutter:
     - assets/images/pregnantmother.jpg
     - assets/images/register.png
     - assets/images/login.png
+    - assets/pregnancy_care/image01.jpg
+    - assets/pregnancy_care/image02.jpg
+    - assets/pregnancy_care/image03.png
+
     - assets/carousel_image/image01.jpg
     - assets/carousel_image/image02.jpg
     - assets/carousel_image/image03.jpg

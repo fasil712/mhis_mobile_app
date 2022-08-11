@@ -8,13 +8,13 @@ class DretailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Detail")),
+      appBar: AppBar(title: Text(item.title)),
       body: Container(
         padding: const EdgeInsets.all(8.0),
         child: Center(
             child: Column(
           children: [
-            Hero(tag: 'myHero', child: Image.asset(item.image)),
+            Image.asset(item.image),
             const SizedBox(
               height: 10.0,
             ),

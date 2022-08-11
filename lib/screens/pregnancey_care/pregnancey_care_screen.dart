@@ -47,20 +47,19 @@ class _PregnanceyCareState extends State<PregnanceyCare> {
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             DretailPage(item: item))),
-                                child: Hero(
-                                  tag: 'myHero',
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.blue,
+                                  radius: 53,
                                   child: CircleAvatar(
-                                    backgroundColor: Colors.blue,
-                                    radius: 53,
-                                    child: CircleAvatar(
-                                        radius: 50,
-                                        child: Image.asset(
-                                            items[index].image.toString())),
-                                  ),
+                                      radius: 50,
+                                      child: Image.asset(
+                                          items[index].image.toString(), fit: BoxFit.cover,)),
                                 ),
                               ),
                               Text(
                                 items[index].title.toString(),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.bold),
                               ),
