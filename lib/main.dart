@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/screens/client_history.dart';
-import 'package:myapp/others/send_data.dart';
-import 'package:myapp/screens/register_screen.dart';
 import 'package:myapp/widgets/bottomnavbar.dart';
 import 'package:myapp/widgets/drawer.dart';
 import 'package:myapp/screens/home_screen.dart';
@@ -48,13 +46,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               return [
                 const PopupMenuItem(
                   child: Text("Login"),
+                ),
+                const PopupMenuItem(
+                  child: Text("Register"),
                   // onTap: () {
                   //   Navigator.of(context).push(MaterialPageRoute(
                   //       builder: (BuildContext context) =>
                   //           const RegisterPage()));
                   // },
                 ),
-                const PopupMenuItem(child: Text("Register")),
               ];
             },
           ),

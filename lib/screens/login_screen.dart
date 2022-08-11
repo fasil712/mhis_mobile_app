@@ -1,7 +1,12 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:myapp/screens/client_history.dart';
 import 'package:myapp/others/help.dart';
+import 'package:myapp/screens/register_screen.dart';
+import 'package:myapp/services/login_auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,7 +17,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // Initial Selected Value
-  String dropdownvalue = 'Receptionist';
+  String _role = 'Receptionist';
   // List of items in our dropdown menu
   var items = [
     'Receptionist',
@@ -21,6 +26,28 @@ class _LoginPageState extends State<LoginPage> {
     'Phrmacist',
     'Client',
   ];
+
+  String _username = '';
+  String _password = '';
+
+  loginPressed() async {
+    if (_username.isNotEmpty && _password.isNotEmpty && _role.isNotEmpty) {
+      http.Response response =
+          await AuthServices.login(_username, _password, _role);
+      Map responseMap = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => const RegisterPage(),
+            ));
+      } else {
+        errorSnackBar(context, responseMap.values.first);
+      }
+    } else {
+      errorSnackBar(context, 'Enter all required fields');
+    }
+  }
 
   final formkey = GlobalKey<FormState>();
 
@@ -58,6 +85,9 @@ class _LoginPageState extends State<LoginPage> {
                       border: OutlineInputBorder(),
                       labelText: 'Username',
                       hintText: 'Username'),
+                  onChanged: (value) {
+                    _username = value;
+                  },
                   validator: (value) {
                     if (value!.isEmpty ||
                         !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
@@ -77,6 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                       labelText: 'Password',
                       hintText: 'Password'),
                   validator: passwordValidator,
+                  onChanged: (value) {
+                    _password = value;
+                  },
                 ),
                 const SizedBox(
                   height: 10.0,
@@ -88,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: 'Role',
                         hintText: 'Role'),
                     borderRadius: BorderRadius.circular(10),
-                    value: dropdownvalue,
+                    value: _role,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: items.map((String items) {
                       return DropdownMenuItem(
@@ -98,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                     }).toList(),
                     onChanged: (String? newValue) {
                       setState(() {
-                        dropdownvalue = newValue!;
+                        _role = newValue!;
                       });
                     },
                   ),
@@ -113,15 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(20)),
                   child: TextButton(
-                    onPressed: () {
-                      if (formkey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => const Home()));
-                      }
-                    },
+                    onPressed: () => loginPressed(),
                     child: const Text(
                       'Login',
                       style: TextStyle(color: Colors.white, fontSize: 25),
@@ -148,4 +173,12 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+}
+
+errorSnackBar(BuildContext context, String text) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    backgroundColor: Colors.red,
+    content: Text(text),
+    duration: const Duration(seconds: 1),
+  ));
 }
