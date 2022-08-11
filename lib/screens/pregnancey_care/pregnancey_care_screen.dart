@@ -48,7 +48,7 @@ class _PregnanceyCareState extends State<PregnanceyCare> {
                                         builder: (context) =>
                                             DretailPage(item: item))),
                                 child: CircleAvatar(
-                                  backgroundColor: Colors.blue,
+                                  backgroundColor: Colors.yellow,
                                   radius: 53,
                                   child: CircleAvatar(
                                       radius: 50,
