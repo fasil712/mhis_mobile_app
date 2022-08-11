@@ -57,6 +57,8 @@ class _LoginPageState extends State<LoginPage> {
     MaxLengthValidator(10, errorText: 'Password must be at most 10 digits long')
   ]);
 
+  bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,11 +103,21 @@ class _LoginPageState extends State<LoginPage> {
                   height: 10.0,
                 ),
                 TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                  obscureText: _obscureText,
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
                       labelText: 'Password',
-                      hintText: 'Password'),
+                      hintText: 'Password',
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                        child: Icon(_obscureText
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                      )),
                   validator: passwordValidator,
                   onChanged: (value) {
                     _password = value;
