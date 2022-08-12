@@ -85,7 +85,7 @@ flutter:
 
     - assets/danger_sign/headache_image01.jpg
     - assets/danger_sign/dizziness_image02.jpg
-    - assets/danger_sign/headache_image01.jpg
+    - assets/danger_sign/hurting_thoughts_image03.jpg
     - assets/danger_sign/headache_image01.jpg
     - assets/danger_sign/headache_image01.jpg
 
@@ -98,7 +98,6 @@ flutter:
     - assets/food_list/month07.jpg
     - assets/food_list/month08.jpg
     - assets/food_list/month09.jpg
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
