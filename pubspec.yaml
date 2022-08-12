@@ -86,8 +86,13 @@ flutter:
     - assets/danger_sign/headache_image01.jpg
     - assets/danger_sign/dizziness_image02.jpg
     - assets/danger_sign/hurting_thoughts_image03.jpg
-    - assets/danger_sign/headache_image01.jpg
-    - assets/danger_sign/headache_image01.jpg
+    - assets/danger_sign/eye_vision_image04.jpg
+    - assets/danger_sign/fever_image05.jpg
+    - assets/danger_sign/trouble_breathing_image06.jpg
+    - assets/danger_sign/heart_palpitations_image07.jpg
+    - assets/danger_sign/belly_pain_image08.jpg
+    - assets/danger_sign/baby_movement_image09.jpg
+    - assets/danger_sign/tired_pregnant_image10.jpg    -
 
     - assets/food_list/month01.jpg
     - assets/food_list/month02.jpg
