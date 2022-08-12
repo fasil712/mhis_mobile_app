@@ -1,13 +1,13 @@
 [
   {
     "name": "Headache that won't go away or gets worse over time",
-    "image": "assets/food_list/month01.jpg",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    "image": "assets/danger_sign/headache_image01.jpg",
+    "description": "Doctors don't fully understand what causes most headaches. They do know that the brain tissue and the skull are never responsible since they don't have nerves that register pain. But the blood vessels in the head and neck can signal pain, as can the tissues that surround the brain and some major nerves that originate in the brain. The scalp, sinuses, teeth, and muscles and joints of the neck can also cause head pain."
   },
   {
     "name": "Dizziness or fainting",
-    "image": "assets/food_list/month02.jpg",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    "image": "assets/danger_sign/dizziness_image02.jpg",
+    "description": "Dizziness is when you feel light-headed, weak, unsteady or as if you might faint. Many pregnant women feel dizzy at times. It is sometimes the first sign that you are pregnant. Dizziness is common in weeks 0 to 13 of pregnancy. The main causes of dizziness and fainting during pregnancy are: Hormone changes - this can cause your blood pressure to drop, allowing less blood to get to your brain, Overheating, Low blood sugar, - keep a snack with you and avoid skipping meals, Low iron levels, Reduced circulation - as your womb grows it will put pressure on the blood vessels in the lower part of your body, Lying on your back."
   },
   {
     "name": "Thoughts about huuring yourself or your baby",

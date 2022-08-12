@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:myapp/others/constants.dart';
+import 'package:myapp/config/constants.dart';
 
 class AuthServices {
   // static Future<http.Response> register(

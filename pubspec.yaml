@@ -39,10 +39,6 @@ dependencies:
   rxdart: ^0.27.4
   flutter_session: ^0.1.1
   fluttertoast: ^8.0.9
-  password:
-  provider:
-  encrypt:
-  random_string:
   carousel_slider: ^4.1.1
   form_field_validator: ^1.1.0
 
@@ -76,14 +72,23 @@ flutter:
     - assets/images/pregnantmother.jpg
     - assets/images/register.png
     - assets/images/login.png
+
     - assets/pregnancy_care/image01.jpg
     - assets/pregnancy_care/image02.jpg
     - assets/pregnancy_care/image03.png
+
     - assets/carousel_image/image01.jpg
     - assets/carousel_image/image02.jpg
     - assets/carousel_image/image03.jpg
     - assets/carousel_image/image04.jpg
     - assets/carousel_image/image05.jpg
+
+    - assets/danger_sign/headache_image01.jpg
+    - assets/danger_sign/dizziness_image02.jpg
+    - assets/danger_sign/headache_image01.jpg
+    - assets/danger_sign/headache_image01.jpg
+    - assets/danger_sign/headache_image01.jpg
+
     - assets/food_list/month01.jpg
     - assets/food_list/month02.jpg
     - assets/food_list/month03.jpg

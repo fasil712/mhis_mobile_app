@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Username',
-                      hintText: 'Username'),
+                      hintText:  'Username'),
                   onChanged: (value) {
                     _username = value;
                   },
@@ -115,8 +115,8 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         },
                         child: Icon(_obscureText
-                            ? Icons.visibility
-                            : Icons.visibility_off),
+                            ? Icons.visibility_off
+                            : Icons.visibility),
                       )),
                   validator: passwordValidator,
                   onChanged: (value) {
