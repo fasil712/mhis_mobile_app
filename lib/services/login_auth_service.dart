@@ -34,7 +34,6 @@ class AuthServices {
       headers: ApiConstants.headers,
       body: body,
     );
-    print(response.body);
     return response;
   }
 }

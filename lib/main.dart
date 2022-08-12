@@ -36,11 +36,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: const Text('HMIS App'),
         actions: <Widget>[
           IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Home()));
-              },
-              icon: const Icon(Icons.notifications_rounded)),
+              onPressed: () {}, icon: const Icon(Icons.notifications_rounded)),
           PopupMenuButton(
             itemBuilder: (BuildContext context) {
               return [

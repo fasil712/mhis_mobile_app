@@ -41,20 +41,20 @@ class ClientDataModel {
 
   factory ClientDataModel.fromJson(Map<String, dynamic> json) =>
       ClientDataModel(
-        userId: json["userId"],
-        facilityname: json["facility_name"],
-        mrn: json["mrn"],
-        registrationdate: json["date_of_reg"],
-        firstname: json["fname"],
-        lastname: json["lname"],
-        grandfathername: json["gfname"],
-        age: json["age"],
-        sex: json["gender"],
-        email: json["email"],
-        phonenumber: json["phone"],
-        region: json["region"],
-        woreda: json["city"],
-        kebele: json["kebele"],
+        userId: json["UserId"],
+        facilityname: json["name_of_facility"],
+        mrn: json["MRN"],
+        registrationdate: json["date_reg"],
+        firstname: json["first_name"],
+        lastname: json["lats_name"],
+        grandfathername: json["Grand_Father_name"],
+        age: json["Age"],
+        sex: json["Sex"],
+        email: json["Email"],
+        phonenumber: json["Phone_no"],
+        region: json["Region"],
+        woreda: json["Woreda"],
+        kebele: json["Kebele"],
       );
 
   Map<String, dynamic> toJson() => {

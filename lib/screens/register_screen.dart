@@ -270,12 +270,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextButton(
                     onPressed: () {
                       if (formkey.currentState!.validate()) {
-                        _register();
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const Home()));
+                        _register();                        
+                        secSnackBar(context, 'Secussully Registered');
                       } else {
                         errorSnackBar(context, 'Enter all required fields');
                       }
@@ -312,6 +308,14 @@ class _RegisterPageState extends State<RegisterPage> {
 errorSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     backgroundColor: Colors.red,
+    content: Text(text),
+    duration: const Duration(seconds: 1),
+  ));
+}
+
+secSnackBar(BuildContext context, String text) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    backgroundColor: Colors.green,
     content: Text(text),
     duration: const Duration(seconds: 1),
   ));

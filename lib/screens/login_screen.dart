@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const RegisterPage(),
+              builder: (BuildContext context) => const ClientHistory(),
             ));
       } else {
         errorSnackBar(context, responseMap.values.first);
