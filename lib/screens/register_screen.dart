@@ -10,6 +10,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final _useridcontroller = TextEditingController();
   final _facilitynamecontroller = TextEditingController();
   final _mrncontroller = TextEditingController();
   final _registrationdatecontroller = TextEditingController();
@@ -26,6 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   _register() {
     registerUser(
+        _useridcontroller.text,
         _facilitynamecontroller.text,
         _mrncontroller.text,
         _registrationdatecontroller.text,
@@ -69,6 +71,24 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 10.0,
                 ),
                 TextFormField(
+                  controller: _useridcontroller,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'User ID',
+                      hintText: 'Enter valid user id'),
+                  // validator: (value) {
+                  //   if (value!.isEmpty ||
+                  //       !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                  //     return "Enter correct user id";
+                  //   } else {
+                  //     return null;
+                  //   }
+                  // },
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
                   controller: _facilitynamecontroller,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -90,15 +110,16 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _mrncontroller,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: 'MRN'),
-                    validator: (value) {
-                      if (value!.isEmpty ||
-                          !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
-                              .hasMatch(value)) {
-                        return "Enter correct MRN";
-                      } else {
-                        return null;
-                      }
-                    }),
+                    // validator: (value) {
+                    //   if (value!.isEmpty ||
+                    //       !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
+                    //           .hasMatch(value)) {
+                    //     return "Enter correct MRN";
+                    //   } else {
+                    //     return null;
+                    //   }
+                    // }
+                    ),
                 const SizedBox(
                   height: 10.0,
                 ),
@@ -179,8 +200,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 TextFormField(
                     controller: _emailcontroller,
                     decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Email'),
+                        border: OutlineInputBorder(), labelText: 'Email'),
                     validator: (value) {
                       if (value!.isEmpty ||
                           !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
@@ -259,6 +279,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (_) => const LoginPage()));
+                      } else {
+                        errorSnackBar(context, 'Enter all required fields');
                       }
                     },
                     child: const Text(
@@ -288,4 +310,12 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+}
+
+errorSnackBar(BuildContext context, String text) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    backgroundColor: Colors.red,
+    content: Text(text),
+    duration: const Duration(seconds: 1),
+  ));
 }

@@ -4,7 +4,7 @@ import 'package:myapp/others/constants.dart';
 
 import 'package:myapp/model/client_data_model.dart';
 
-Future<ClientDataModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele) async {
+Future<ClientDataModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele, String text) async {
   final response = await http.post(
     Uri.parse(ApiConstants.baseUrl + ApiConstants.addClientEndpoint),
     headers: <String, String>{
