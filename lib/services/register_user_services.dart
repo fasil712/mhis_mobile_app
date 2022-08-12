@@ -4,25 +4,26 @@ import 'package:myapp/others/constants.dart';
 
 import 'package:myapp/model/client_data_model.dart';
 
-Future<ClientDataModel> registerUser(String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele, String text) async {
+Future<ClientDataModel> registerUser(String userId, String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele) async {
   final response = await http.post(
     Uri.parse(ApiConstants.baseUrl + ApiConstants.addClientEndpoint),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
     body: jsonEncode(<String, String>{
-      'facilityname': facilityname,
+      'userId': userId,
+      'facility_name': facilityname,
       'mrn': mrn,
-      'registrationdate': registrationdate,
-      'firstname': firstname,
-      'lastname': lastname,
-      'grandfathername': grandfathername,
+      'date_of_reg': registrationdate,
+      'fname': firstname,
+      'lname': lastname,
+      'gfname': grandfathername,
       'age': age,
-      'sex': sex,
+      'gender': sex,
       'email': email,
-      'phonenumber': phonenumber,
+      'phone': phonenumber,
       'region': region,
-      'woreda': woreda,
+      'city': woreda,
       'kebele': kebele,
     }),
   );

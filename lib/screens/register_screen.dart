@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/screens/client_history.dart';
 import 'package:myapp/screens/login_screen.dart';
 import 'package:myapp/services/register_user_services.dart';
 
@@ -270,15 +271,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: () {
                       if (formkey.currentState!.validate()) {
                         _register();
-                        final snackbar =
-                            SnackBar(content: const Text("Submitting form"));
-                        // ignore: deprecated_member_use
-                        _scaffoldKey.currentState!.showSnackBar(snackbar);
                         Navigator.pop(context);
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => const LoginPage()));
+                                builder: (_) => const Home()));
                       } else {
                         errorSnackBar(context, 'Enter all required fields');
                       }
