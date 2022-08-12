@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pregmomcare/screens/client_history.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/services/register_user_services.dart';
 
@@ -51,8 +51,9 @@ class _RegisterPageState extends State<RegisterPage> {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
+        backgroundColor: AppColors.appbarBgColor,
         title: const Text("Register Page"),
       ),
       body: SingleChildScrollView(

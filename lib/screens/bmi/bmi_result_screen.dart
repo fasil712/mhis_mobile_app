@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 
 class BMIResultScreen extends StatelessWidget {
   final bool isMale;
@@ -21,7 +22,9 @@ class BMIResultScreen extends StatelessWidget {
         _message = 'You are obese';
       }
     return Scaffold(
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
+        backgroundColor: AppColors.appbarBgColor,
         title: const Text(
           "BMI RESULT",
         ),

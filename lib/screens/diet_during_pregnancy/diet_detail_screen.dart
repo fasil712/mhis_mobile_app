@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/diet_detail_model.dart';
 
 class DietDetailPage extends StatelessWidget {
@@ -9,7 +10,10 @@ class DietDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(item.name)),
+      backgroundColor: AppColors.bgColor,
+      appBar: AppBar(
+        backgroundColor: AppColors.appbarBgColor,
+        title: Text(item.name)),
       body: Container(
         padding: const EdgeInsets.all(8.0),
         child: Center(

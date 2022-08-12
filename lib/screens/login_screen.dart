@@ -3,9 +3,9 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/client_history.dart';
 import 'package:pregmomcare/others/help.dart';
-import 'package:pregmomcare/screens/register_screen.dart';
 import 'package:pregmomcare/services/login_auth_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -62,8 +62,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
+        backgroundColor: AppColors.appbarBgColor,
         title: const Text("Login Page"),
       ),
       body: SingleChildScrollView(

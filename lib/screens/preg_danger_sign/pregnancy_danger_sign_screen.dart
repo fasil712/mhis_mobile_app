@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/danger_sign_model.dart';
 import 'package:pregmomcare/screens/preg_danger_sign/danger_sign_detail_screen.dart';
 import 'package:pregmomcare/services/danger_sign_services.dart';
@@ -9,8 +10,9 @@ class PregDangerSign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFFE3E2DC),
+        backgroundColor: AppColors.bgColor,
         appBar: AppBar(
+          backgroundColor: AppColors.appbarBgColor,
           title: const Text("Pregnancy Danger Signs"),
         ),
         body: FutureBuilder(

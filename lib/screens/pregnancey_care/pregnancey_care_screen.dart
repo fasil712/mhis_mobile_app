@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/preg_care_model.dart';
 import 'package:pregmomcare/screens/pregnancey_care/pregnancey_care_detail.dart';
 import 'package:pregmomcare/services/preg_care_services.dart';
@@ -14,9 +15,10 @@ class _PregnanceyCareState extends State<PregnanceyCare> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE3E2DC),
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
         title: const Text("Pregnancey Care"),
+        backgroundColor: AppColors.appbarBgColor,
       ),
       body: FutureBuilder<List<PregnancyCareModel>>(
         future: ReadJsonData(),

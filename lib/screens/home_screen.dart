@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pregmomcare/screens/diet_during_pregnancy/diet_detail_screen.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/diet_during_pregnancy/diet_during_preg_screen.dart';
 import 'package:pregmomcare/screens/preg_danger_sign/pregnancy_danger_sign_screen.dart';
 import 'package:pregmomcare/screens/pregnancey_care/pregnancey_care_screen.dart';
@@ -27,7 +27,10 @@ class _HomePageState extends State<HomePage> {
               ),
               const Text(
                 "Care for Mothers",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Roboto'),
               ),
               const SizedBox(
                 height: 10.0,
@@ -45,12 +48,14 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Image(
-                            image: AssetImage("assets/avatar.jpg"),
-                            fit: BoxFit.fill,
+                         const CircleAvatar(
+                          backgroundColor: AppColors.appbarBgColor,
+                          radius: 30,
+                          child: CircleAvatar(
+                            radius: 28,
+                            backgroundImage: AssetImage(
+                              "assets/pregnancy_care/image01.jpg",
+                            ),
                           ),
                         ),
                         Expanded(
@@ -69,9 +74,17 @@ class _HomePageState extends State<HomePage> {
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
+                              SizedBox(
+                                height: 5.0,
+                              ),
                               Padding(
                                 padding: EdgeInsets.only(left: 8, right: 8),
-                                child: Text("PregnanceyCare Desciption"),
+                                child: Text(
+                                  "Pregnancey Care Desciption",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontStyle: FontStyle.normal),
+                                ),
                               )
                             ],
                           ),
@@ -94,12 +107,14 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Image(
-                            image: AssetImage("assets/avatar.jpg"),
-                            fit: BoxFit.fill,
+                         const CircleAvatar(
+                          backgroundColor: AppColors.appbarBgColor,
+                          radius: 30,
+                          child: CircleAvatar(
+                            radius: 28,
+                            backgroundImage: AssetImage(
+                              "assets/danger_sign/fever_image05.jpg",
+                            ),
                           ),
                         ),
                         Expanded(
@@ -115,12 +130,17 @@ class _HomePageState extends State<HomePage> {
                                   "Danger Sign During Pregnancy",
                                   style: TextStyle(
                                       fontSize: 16,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Roboto'),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 5.0,
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 8, right: 8),
-                                child: Text("Danger Sign During Pregnancy desc"),
+                                child:
+                                    Text("Danger Sign During Pregnancy desc"),
                               )
                             ],
                           ),
@@ -143,12 +163,14 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Image(
-                            image: AssetImage("assets/avatar.jpg"),
-                            fit: BoxFit.fill,
+                         const CircleAvatar(
+                          backgroundColor: AppColors.appbarBgColor,
+                          radius: 30,
+                          child: CircleAvatar(
+                            radius: 28,
+                            backgroundImage: AssetImage(
+                              "assets/food_list/month01.jpg",
+                            ),
                           ),
                         ),
                         Expanded(
@@ -192,12 +214,14 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Image(
-                            image: AssetImage("assets/avatar.jpg"),
-                            fit: BoxFit.fill,
+                        const CircleAvatar(
+                          backgroundColor: AppColors.appbarBgColor,
+                          radius: 30,
+                          child: CircleAvatar(
+                            radius: 28,
+                            backgroundImage: AssetImage(
+                              "assets/danger_sign/fever_image05.jpg",
+                            ),
                           ),
                         ),
                         Expanded(

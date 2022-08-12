@@ -7,10 +7,10 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile Page"),
-        actions: [
+        title: const Text("Profile Page"),
+        actions: const [
         Padding(
-          padding: const EdgeInsets.only(right: 8.0),
+          padding: EdgeInsets.only(right: 8.0),
           child: Icon(Icons.person),
         ),
 

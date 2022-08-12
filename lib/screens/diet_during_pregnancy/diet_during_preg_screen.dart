@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/diet_detail_model.dart';
 import 'package:pregmomcare/screens/diet_during_pregnancy/diet_detail_screen.dart';
 import 'package:pregmomcare/services/diet_services.dart';
@@ -14,8 +15,9 @@ class _DietDuringPregState extends State<DietDuringPreg> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFFE3E2DC),
+        backgroundColor: AppColors.bgColor,
         appBar: AppBar(
+          backgroundColor: AppColors.appbarBgColor,
           title: const Text("Diet During Pregnancy"),
         ),
         body: FutureBuilder(

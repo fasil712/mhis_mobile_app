@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/client_data_model.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/screens/register_screen.dart';
@@ -27,7 +28,9 @@ class _ClientHistoryState extends State<ClientHistory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.bgColor,
         appBar: AppBar(
+          backgroundColor: AppColors.appbarBgColor,
           title: const Text('Client List'),
           actions: [
             IconButton(

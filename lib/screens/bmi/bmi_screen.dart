@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/bmi/bmi_result_screen.dart';
 
 class BMI_Screen extends StatefulWidget {
@@ -17,9 +18,9 @@ class _BMI_ScreenState extends State<BMI_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromRGBO(10, 15, 30, 1.0),
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
-        // backgroundColor: const Color.fromRGBO(10, 15, 30, 1.0),
+        backgroundColor: AppColors.appbarBgColor,
         title: const Text(
           "BMI Calculator",
         ),

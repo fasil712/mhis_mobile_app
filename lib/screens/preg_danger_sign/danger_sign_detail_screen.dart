@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/danger_sign_model.dart';
 
 class DangerSignDetail extends StatelessWidget {
@@ -9,7 +10,9 @@ class DangerSignDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(item.name)),
+      backgroundColor: AppColors.bgColor,
+      appBar: AppBar(
+          backgroundColor: AppColors.appbarBgColor, title: Text(item.name)),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(8.0),
@@ -22,9 +25,13 @@ class DangerSignDetail extends StatelessWidget {
               ),
               Text(
                 item.name,
-                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              Text(item.description, style: const TextStyle(fontStyle: FontStyle.italic),),
+              Text(
+                item.description,
+                style: const TextStyle(fontStyle: FontStyle.italic),
+              ),
               const SizedBox(
                 height: 10.0,
               ),

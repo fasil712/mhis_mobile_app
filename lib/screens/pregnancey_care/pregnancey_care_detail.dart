@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/preg_care_model.dart';
 
 class DretailPage extends StatelessWidget {
@@ -8,7 +9,11 @@ class DretailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(item.title)),
+      backgroundColor: AppColors.bgColor,
+      appBar: AppBar(
+        title: Text(item.title),
+        backgroundColor: AppColors.bgColor,
+      ),
       body: Container(
         padding: const EdgeInsets.all(8.0),
         child: Center(
@@ -26,9 +31,11 @@ class DretailPage extends StatelessWidget {
             const SizedBox(
               height: 10.0,
             ),
-            ElevatedButton(onPressed: () {
-              Navigator.pop(context);
-            }, child: const Text("Back"))
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("Back"))
           ],
         )),
       ),
