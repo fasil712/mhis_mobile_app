@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/model/preg_care_model.dart';
-import 'package:myapp/screens/pregnancey_care/pregnancey_care_detail.dart';
-import 'package:myapp/services/preg_care_services.dart';
+import 'package:pregmomcare/model/preg_care_model.dart';
+import 'package:pregmomcare/screens/pregnancey_care/pregnancey_care_detail.dart';
+import 'package:pregmomcare/services/preg_care_services.dart';
 
 class PregnanceyCare extends StatefulWidget {
   const PregnanceyCare({Key? key}) : super(key: key);

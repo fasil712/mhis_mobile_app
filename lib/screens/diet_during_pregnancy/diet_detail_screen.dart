@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/model/diet_detail_model.dart';
+import 'package:pregmomcare/model/diet_detail_model.dart';
 
 class DietDetailPage extends StatelessWidget {
   final DietDetialModel item;

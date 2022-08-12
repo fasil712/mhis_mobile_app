@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/screens/client_history.dart';
-import 'package:myapp/widgets/bottomnavbar.dart';
-import 'package:myapp/widgets/drawer.dart';
-import 'package:myapp/screens/home_screen.dart';
+import 'package:pregmomcare/screens/client_history.dart';
+import 'package:pregmomcare/widgets/bottomnavbar.dart';
+import 'package:pregmomcare/widgets/drawer.dart';
+import 'package:pregmomcare/screens/home_screen.dart';
 
 void main() => runApp(const MyApp());
 

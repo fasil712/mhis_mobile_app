@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart' as root_bundle;
 import 'dart:convert';
 
-import 'package:myapp/model/preg_care_model.dart';
+import 'package:pregmomcare/model/preg_care_model.dart';
 
 Future<List<PregnancyCareModel>> ReadJsonData() async {
   final jsondata = await root_bundle.rootBundle

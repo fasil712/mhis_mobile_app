@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/model/client_data_model.dart';
-import 'package:myapp/screens/login_screen.dart';
-import 'package:myapp/screens/register_screen.dart';
-import 'package:myapp/services/client_history_service.dart';
+import 'package:pregmomcare/model/client_data_model.dart';
+import 'package:pregmomcare/screens/login_screen.dart';
+import 'package:pregmomcare/screens/register_screen.dart';
+import 'package:pregmomcare/services/client_history_service.dart';
 
 class ClientHistory extends StatefulWidget {
   const ClientHistory({Key? key}) : super(key: key);

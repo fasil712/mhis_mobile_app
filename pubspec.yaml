@@ -1,4 +1,4 @@
-name: myapp
+name: pregmomcare
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -92,7 +92,7 @@ flutter:
     - assets/danger_sign/heart_palpitations_image07.jpg
     - assets/danger_sign/belly_pain_image08.jpg
     - assets/danger_sign/baby_movement_image09.jpg
-    - assets/danger_sign/tired_pregnant_image10.jpg    -
+    - assets/danger_sign/tired_pregnant_image10.jpg
 
     - assets/food_list/month01.jpg
     - assets/food_list/month02.jpg

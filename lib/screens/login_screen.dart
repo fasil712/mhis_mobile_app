@@ -3,10 +3,10 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:myapp/screens/client_history.dart';
-import 'package:myapp/others/help.dart';
-import 'package:myapp/screens/register_screen.dart';
-import 'package:myapp/services/login_auth_service.dart';
+import 'package:pregmomcare/screens/client_history.dart';
+import 'package:pregmomcare/others/help.dart';
+import 'package:pregmomcare/screens/register_screen.dart';
+import 'package:pregmomcare/services/login_auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

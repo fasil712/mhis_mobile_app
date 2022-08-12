@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart' as root_bundle;
 import 'dart:convert';
-import 'package:myapp/model/danger_sign_model.dart';
+import 'package:pregmomcare/model/danger_sign_model.dart';
 
 Future<List<DangerSignModel>> ReadJsonData() async {
   final jsondata = await root_bundle.rootBundle

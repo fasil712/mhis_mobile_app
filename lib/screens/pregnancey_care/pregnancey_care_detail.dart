@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/model/preg_care_model.dart';
+import 'package:pregmomcare/model/preg_care_model.dart';
 
 class DretailPage extends StatelessWidget {
   final PregnancyCareModel item;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/model/diet_detail_model.dart';
-import 'package:myapp/screens/diet_during_pregnancy/diet_detail_screen.dart';
-import 'package:myapp/services/diet_services.dart';
+import 'package:pregmomcare/model/diet_detail_model.dart';
+import 'package:pregmomcare/screens/diet_during_pregnancy/diet_detail_screen.dart';
+import 'package:pregmomcare/services/diet_services.dart';
 
 class DietDuringPreg extends StatefulWidget {
   const DietDuringPreg({Key? key}) : super(key: key);

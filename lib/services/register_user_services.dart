@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:myapp/config/constants.dart';
+import 'package:pregmomcare/config/constants.dart';
 
-import 'package:myapp/model/client_data_model.dart';
+import 'package:pregmomcare/model/client_data_model.dart';
 
 Future<ClientDataModel> registerUser(String userId, String facilityname, String mrn, String registrationdate, String firstname, String lastname,  String grandfathername, String age, String sex, String email, String phonenumber, String region,String woreda, String kebele) async {
   final response = await http.post(
