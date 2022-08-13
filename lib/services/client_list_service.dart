@@ -16,8 +16,6 @@ class ApiService {
         _model = clientDataModelFromJson(response.body);
         return _model;
       }
-      print("its done");
-      print(response.body);
     } catch (e) {
       log(e.toString());
     }

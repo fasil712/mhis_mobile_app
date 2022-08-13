@@ -12,7 +12,7 @@ class DretailPage extends StatelessWidget {
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
         title: Text(item.title),
-        backgroundColor: AppColors.bgColor,
+        backgroundColor: AppColors.appbarBgColor,
       ),
       body: Container(
         padding: const EdgeInsets.all(8.0),

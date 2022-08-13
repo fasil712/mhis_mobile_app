@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:pregmomcare/config/colors.dart';
-import 'package:pregmomcare/screens/client_history.dart';
+import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/others/help.dart';
 import 'package:pregmomcare/services/login_auth_service.dart';
 
