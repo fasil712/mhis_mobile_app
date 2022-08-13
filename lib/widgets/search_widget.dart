@@ -21,8 +21,8 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final styleActive = TextStyle(color: Colors.black);
-    final styleHint = TextStyle(color: Colors.black54);
+    const styleActive = TextStyle(color: Colors.black);
+    const styleHint = TextStyle(color: Colors.black54);
     final style = widget.text.isEmpty ? styleHint : styleActive;
 
     return Row(
@@ -38,10 +38,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                     borderRadius: BorderRadius.circular(60),
                     borderSide: BorderSide.none),
                 hintText: 'Search',
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+                hintStyle: const TextStyle(color: Colors.grey, fontSize: 18),
                 prefixIcon: Container(
-                  padding: EdgeInsets.all(15),
-                  child: Icon(Icons.search),
+                  padding: const EdgeInsets.all(15),
+                  child: const Icon(Icons.search),
                   width: 18,
                 ),
                 suffixIcon: widget.text.isNotEmpty
@@ -55,6 +55,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                       )
                     : null,
               ),
+              style: style,
+              onChanged: widget.onChanged,
             ))
       ],
     );

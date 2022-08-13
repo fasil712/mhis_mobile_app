@@ -1,24 +1,26 @@
-import 'dart:developer';
-
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pregmomcare/config/constants.dart';
 import 'package:pregmomcare/model/client_data_model.dart';
 
 class ApiService {
-  static Future<List<ClientDataModel>> getUsers() async {
-    List<ClientDataModel> _model = [];
-    try {
-      var url =
-          Uri.parse(ApiConstants.baseUrl + ApiConstants.clientListEndpoint);
-      var response =
-          await http.get(url, headers: {"accept": "application/json"});
-      if (response.statusCode == 200) {
-        _model = clientDataModelFromJson(response.body);
-        return _model;
-      }
-    } catch (e) {
-      log(e.toString());
+  static Future<List<ClientDataModel>> getUsers(String query) async {
+    var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.clientListEndpoint);
+    var response = await http.get(url, headers: {"accept": "application/json"});
+    if (response.statusCode == 200) {
+      final List clients = json.decode(response.body);
+      return clients
+          .map((json) => ClientDataModel.fromJson(json))
+          .where((client) {
+        final firstnameLower = client.firstname.toLowerCase();
+        final mrnLower = client.mrn.toLowerCase();
+        final searchLower = query.toLowerCase();
+
+        return firstnameLower.contains(searchLower) ||
+            mrnLower.contains(searchLower);
+      }).toList();
+    } else {
+      throw Exception();
     }
-    return _model;
   }
 }

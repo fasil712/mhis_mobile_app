@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/config/colors.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -6,7 +7,9 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
+        backgroundColor: AppColors.appbarBgColor,
         title: const Text("Profile Page"),
         actions: const [
         Padding(
@@ -15,7 +18,7 @@ class Profile extends StatelessWidget {
         ),
 
       ]),
-      body: Center(child: Text('Profile Page')),
+      body: const Center(child: Text('Profile Page')),
     );
   }
 }

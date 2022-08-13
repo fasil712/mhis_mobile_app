@@ -68,120 +68,138 @@ class _LoginPageState extends State<LoginPage> {
         title: const Text("Login Page"),
       ),
       body: SingleChildScrollView(
-        child: Form(
-          key: formkey,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: <Widget>[
-                Center(
-                  child: SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: Image.asset('assets/avatar.jpg')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 4,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.grey, Colors.grey]),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(200),
+                    bottomRight: Radius.circular(200),
+                  )),
+              child: const Center(
+                child: CircleAvatar(
+                  backgroundColor: AppColors.appbarBgColor,
+                  radius: 58,
+                  child: CircleAvatar(
+                    radius: 56,
+                    backgroundImage: AssetImage("assets/avatar.jpg"),
+                  ),
                 ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Username',
-                      hintText:  'Username'),
-                  onChanged: (value) {
-                    _username = value;
-                  },
-                  validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                      return "Username is required";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  obscureText: _obscureText,
-                  decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelText: 'Password',
-                      hintText: 'Password',
-                      suffixIcon: GestureDetector(
-                        onTap: () {
+              ),
+            ),
+            Form(
+              key: formkey,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: <Widget>[
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(hintText: 'Username'),
+                      onChanged: (value) {
+                        _username = value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                          return "Username is required";
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      obscureText: _obscureText,
+                      decoration: InputDecoration(
+                          hintText: 'Password',
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                            child: Icon(_obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                          )),
+                      validator: passwordValidator,
+                      onChanged: (value) {
+                        _password = value;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Column(children: [
+                      DropdownButtonFormField(
+                        decoration: const InputDecoration(hintText: 'Role'),
+                        borderRadius: BorderRadius.circular(10),
+                        value: _role,
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        items: items.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
                           setState(() {
-                            _obscureText = !_obscureText;
+                            _role = newValue!;
                           });
                         },
-                        child: Icon(_obscureText
-                            ? Icons.visibility_off
-                            : Icons.visibility),
-                      )),
-                  validator: passwordValidator,
-                  onChanged: (value) {
-                    _password = value;
-                  },
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Column(children: [
-                  DropdownButtonFormField(
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Role',
-                        hintText: 'Role'),
-                    borderRadius: BorderRadius.circular(10),
-                    value: _role,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items: items.map((String items) {
-                      return DropdownMenuItem(
-                        value: items,
-                        child: Text(items),
-                      );
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        _role = newValue!;
-                      });
-                    },
-                  ),
-                ]),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Container(
-                  height: 50,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: TextButton(
-                    onPressed: () => loginPressed(),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ]),
+                    const SizedBox(
+                      height: 20.0,
                     ),
-                  ),
+                    Container(
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: TextButton(
+                        onPressed: () => loginPressed(),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white, fontSize: 25),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 100,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const HelpPage()));
+                      },
+                      child: const Text(
+                        'New User? See Detail info',
+                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  height: 100,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const HelpPage()));
-                  },
-                  child: const Text(
-                    'New User? See Detail info',
-                    style: TextStyle(color: Colors.blue, fontSize: 15),
-                  ),
-                ),
-              ],
-            ),
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
