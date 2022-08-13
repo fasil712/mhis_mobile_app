@@ -12,28 +12,62 @@ class DietDetailPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
-        backgroundColor: AppColors.appbarBgColor,
-        title: Text(item.name)),
-      body: Container(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-            child: Column(
-          children: [
-            Image.asset(item.picture),
-            const SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              item.name,
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            ),
-            Text(item.description),
-            const SizedBox(
-              height: 10.0,
-            ),
-            ElevatedButton(onPressed: () {}, child: const Text("Back"))
-          ],
-        )),
+          backgroundColor: AppColors.appbarBgColor, title: Text(item.name)),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                item.name,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Image.asset(item.picture),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "BABY'S DEVELOPMENT:",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  Text(item.description01),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  const Text(
+                    "YOUR PHYSICAL SYMPTOMS:",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  Text(item.description02),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  const Text(
+                    "IMPORTANT FOODS TO FOCUS ON IN MONTH 1 OF PREGNANCY:",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  Text(item.description03),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("Back"))
+            ],
+          ),
+        ),
       ),
     );
   }

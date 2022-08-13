@@ -1,47 +1,74 @@
 [
   {
-    "name": "Month 1",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 1 Pregnancy Diet",
+    "description01": "In the first month of pregnancy your baby is an embryo consisting of two layers of cells. All the organs and body parts will develop from here. This month, the neural tube is developed which is the reason a supplement containing folic acid (or folinic acid or 5-MTHF if you know that you have an MTHFR gene mutation) is crucial to prevent neural tube defects.",
+    "description02": "Morning sickness is common in the first few months of pregnancy. It is not experienced by all women, but can be extremely severe for some. The good news is that most women find their nausea disappears by the beginning of their second trimester. In the meantime, here are some strategies to decrease nausea (which can occur at any time of the day, not just in the morning): Have a carbohydrate-rich snack 15-20 minutes before you get out of bed in the morning, Consume smaller meals more frequently, Focus on foods that are easy to digest...",
+    "description03": "Folate-rich foods: green leafy vegetables (spinach, rocket, parsley), whole-grains and legumes (lentils, beans, chickpeas). Vitamin B6: 40 mg taken twice daily has been shown to be an effective, natural treatment at reducing early pregnancy nausea and vomiting. Talk to your healthcare provider about taking this supplement if you feel it might be useful.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month01.jpg"
   },
   {
-    "name": "Month 2",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 2 Pregnancy Diet",
+    "description01": "In the second month of pregnancy your baby is around the size of a kidney bean and has distinct, slightly webbed fingers.",
+    "description02": "Nausea and fatigue are common in the second month. Have a read of this article for some natural remedies for morning sickness. Need your partner to understand what you're going through? Get him to read this funny male perspective on nausea. ",
+    "description03": "Ginger for nausea: ginger has been demonstrated to provide the same relief from nausea as the leading anti-nausea drugs. Try grating 2 Tbsp. into hot water as a tea, chewing on crystallised ginger sweets throughout the day or adding powdered ginger to cooking. Vitamin E: this study demonstrated a link between low vitamin E status and increased miscarriage risk. Some good sources of vitamin E include: raw almonds, avocado olive oil, sunflower seeds, hazelnuts, egg yolk.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month02.jpg"
   },
   {
-    "name": "Month 3",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 3 Pregnancy Diet",
+    "description01": "Lorem Ipsum is simply dummy text.",
+    "description02": "Lorem Ipsum is simply dummy text.",
+    "description03": "Lorem Ipsum is simply dummy text.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month03.jpg"
   },
   {
-    "name": "Month 4",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 4 Pregnancy Diet",
+    "description01": "Lorem Ipsum is simply dummy text.",
+    "description02": "Lorem Ipsum is simply dummy text.",
+    "description03": "Lorem Ipsum is simply dummy text.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month04.jpg"
   },
   {
-    "name": "Month 5",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 5 Pregnancy Diet",
+    "description01": "Lorem Ipsum is simply dummy text.",
+    "description02": "Lorem Ipsum is simply dummy text.",
+    "description03": "Lorem Ipsum is simply dummy text.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month05.jpg"
   },
   {
-    "name": "Month 6",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 6 Pregnancy Diet",
+    "description01": "Lorem Ipsum is simply dummy text.",
+    "description02": "Lorem Ipsum is simply dummy text.",
+    "description03": "Lorem Ipsum is simply dummy text.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month06.jpg"
   },
   {
-    "name": "Month 7",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 7 Pregnancy Diet",
+    "description01": "Lorem Ipsum is simply dummy text.",
+    "description02": "Lorem Ipsum is simply dummy text.",
+    "description03": "Lorem Ipsum is simply dummy text.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month07.jpg"
   },
   {
-    "name": "Month 8",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 8 Pregnancy Diet",
+    "description01": "Lorem Ipsum is simply dummy text.",
+    "description02": "Lorem Ipsum is simply dummy text.",
+    "description03": "Lorem Ipsum is simply dummy text.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month08.jpg"
   },
   {
-    "name": "Month 9",
-    "description": "Lorem Ipsum is simply dummy text.",
+    "name": "Month 9 Pregnancy Diet",
+    "description01": "Lorem Ipsum is simply dummy text.",
+    "description02": "Lorem Ipsum is simply dummy text.",
+    "description03": "Lorem Ipsum is simply dummy text.",
+    "description04": "Lorem Ipsum is simply dummy text.",
     "picture": "assets/food_list/month09.jpg"
   }
 ]
