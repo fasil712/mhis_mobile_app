@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/client_data_model.dart';
-import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/screens/register_screen.dart';
 import 'package:pregmomcare/services/client_list_service.dart';
+import 'package:pregmomcare/widgets/search_widget.dart';
 
 class ClientHistory extends StatefulWidget {
   const ClientHistory({Key? key}) : super(key: key);
@@ -15,6 +14,7 @@ class ClientHistory extends StatefulWidget {
 
 class _ClientHistoryState extends State<ClientHistory> {
   List<ClientDataModel> _clientDataModel = [];
+  String query = '';
   @override
   void initState() {
     super.initState();
@@ -97,39 +97,8 @@ class _ClientHistoryState extends State<ClientHistory> {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  left: 10.0, right: 10.0, top: 5.0, bottom: 5.0),
-              child: Row(
-                children: [
-                  Flexible(
-                    flex: 1,
-                    child: TextField(
-                      cursorColor: Colors.grey,
-                      decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none),
-                          hintText: 'Search',
-                          hintStyle:
-                              TextStyle(color: Colors.grey, fontSize: 18),
-                          prefixIcon: Container(
-                            padding: EdgeInsets.all(15),
-                            child: Icon(Icons.search),
-                            width: 18,
-                          )),
-                    ),
-                  ),
-                  Container(
-                      margin: const EdgeInsets.only(left: 10),
-                      padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: const Icon(Icons.filter),
-                      width: 25),
-                ],
-              ),
+                  left: 10.0, right: 10.0, top: 10.0, bottom: 5.0),
+              child: buildSearch(),
             ),
             Expanded(
               child: SizedBox(
@@ -140,19 +109,181 @@ class _ClientHistoryState extends State<ClientHistory> {
                     : ListView.builder(
                         itemCount: _clientDataModel.length,
                         itemBuilder: (context, index) {
+                          final listItem = _clientDataModel[index];
                           return SizedBox(
                             child: Column(
                               children: [
                                 ListTile(
                                     leading: const Icon(Icons.person),
-                                    title: Text(
-                                        _clientDataModel[index].firstname +
-                                            ' ' +
-                                            _clientDataModel[index].lastname),
-                                    subtitle: Text(_clientDataModel[index].mrn),
+                                    title: Text(listItem.firstname +
+                                        ' ' +
+                                        listItem.lastname),
+                                    subtitle: Text(listItem.mrn),
                                     trailing: const Icon(Icons.more_vert),
                                     onTap: () {
-                                      /* react to the tile being tapped */
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return Dialog(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20.0)), //this right here
+                                              child: SizedBox(
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height -
+                                                    150,
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      15.0),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text("Usser ID : " +
+                                                          listItem.userId),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Facility Name : " +
+                                                          listItem
+                                                              .facilityname),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("MRN : " +
+                                                          listItem.mrn),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Registration Date : " +
+                                                          listItem
+                                                              .registrationdate),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("First Name : " +
+                                                          listItem.firstname),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Last Name : " +
+                                                          listItem.lastname),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Grand Father Name : " +
+                                                          listItem
+                                                              .grandfathername),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Age : " +
+                                                          listItem.age
+                                                              .toString()),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Sex : " +
+                                                          listItem.sex),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Email : " +
+                                                          listItem.email),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Phone Number : " +
+                                                          listItem.phonenumber),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Region : " +
+                                                          listItem.region),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Woreda : " +
+                                                          listItem.woreda),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      Text("Kebele : " +
+                                                          listItem.kebele),
+                                                      const Divider(
+                                                        height: 10.0,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 10.0,
+                                                      ),
+                                                      const Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  top: 20.0)),
+                                                      TextButton(
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                          child: const Text(
+                                                            'Ok',
+                                                            style: TextStyle(
+                                                                color:
+                                                                    Colors.blue,
+                                                                fontSize: 18.0),
+                                                          ))
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          });
                                     }),
                                 const Divider(
                                   height: 2.0,
@@ -166,5 +297,30 @@ class _ClientHistoryState extends State<ClientHistory> {
             ),
           ],
         ));
+  }
+
+  buildSearch() => SearchWidget(
+      text: query, onChanged: searchClieant, hintText: "Search client..");
+
+  buildClient(ClientDataModel _clientDataModel) => ListTile(
+        leading: const Icon(Icons.person),
+        title:
+            Text(_clientDataModel.firstname + ' ' + _clientDataModel.lastname),
+        subtitle: Text(_clientDataModel.mrn),
+      );
+  void searchClieant(String query) {
+    final _clientataModel = _clientDataModel.where((clientList) {
+      final titleLower = clientList.firstname.toLowerCase();
+      final authorLower = clientList.mrn.toLowerCase();
+      final searchLower = query.toLowerCase();
+
+      return titleLower.contains(searchLower) ||
+          authorLower.contains(searchLower);
+    }).toList();
+
+    setState(() {
+      this.query = query;
+      _clientDataModel = _clientataModel;
+    });
   }
 }
