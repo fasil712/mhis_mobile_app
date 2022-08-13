@@ -74,7 +74,7 @@ class _DietDuringPregState extends State<DietDuringPreg> {
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 8, right: 8),
+                                          left: 8, right: 8, top: 5.0),
                                       child: Text(
                                           items[index].description01.toString(), overflow: TextOverflow.ellipsis, maxLines: 3,),
                                     )

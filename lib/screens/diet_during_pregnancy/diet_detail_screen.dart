@@ -22,7 +22,8 @@ class DietDetailPage extends StatelessWidget {
               Text(
                 item.name,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10.0,
@@ -50,9 +51,10 @@ class DietDetailPage extends StatelessWidget {
                   const SizedBox(
                     height: 10.0,
                   ),
-                  const Text(
-                    "IMPORTANT FOODS TO FOCUS ON IN MONTH 1 OF PREGNANCY:",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  Text(
+                    "IMPORTANT FOODS TO FOCUS ON IN " +
+                        item.name,
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   Text(item.description03),
                   const SizedBox(
