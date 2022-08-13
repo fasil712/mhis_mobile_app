@@ -6,6 +6,7 @@ class BMIResultScreen extends StatelessWidget {
   final double result;
   final int age;
 
+  // ignore: use_key_in_widget_constructors
   const BMIResultScreen(
       {required this.result, required this.age, required this.isMale});
 
@@ -14,7 +15,7 @@ class BMIResultScreen extends StatelessWidget {
     String _message;
     if (result < 18.5) {
         _message = "You are underweight";
-      } else if (result < 15) {
+      } else if (result < 25) {
         _message = 'You body is fine';
       } else if (result < 30) {
         _message = 'You are overweight';
