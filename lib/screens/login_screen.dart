@@ -97,8 +97,12 @@ class _LoginPageState extends State<LoginPage> {
                       height: 10.0,
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(), labelText: 'Username'),
+                      decoration: InputDecoration(
+                          isDense: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          labelText: 'Username'),
                       onChanged: (value) {
                         _username = value;
                       },
@@ -117,7 +121,9 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       obscureText: _obscureText,
                       decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                           labelText: 'Password',
                           suffixIcon: GestureDetector(
                             onTap: () {

@@ -322,10 +322,6 @@ class _ClientListState extends State<ClientList> {
                                                       const SizedBox(
                                                         height: 10.0,
                                                       ),
-                                                      const Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  top: 20.0)),
                                                       TextButton(
                                                           onPressed: () {
                                                             Navigator.of(
