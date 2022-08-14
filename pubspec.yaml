@@ -73,6 +73,8 @@ flutter:
     - assets/images/register.png
     - assets/images/login.png
 
+    - assets/doctors_list/image01.jpg
+
     - assets/pregnancy_care/image01.jpg
     - assets/pregnancy_care/image02.jpg
     - assets/pregnancy_care/image03.png

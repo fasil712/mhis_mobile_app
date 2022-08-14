@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Dr. Abebe Alemu",
+        "role": "Gynacologist",
+        "picture": "assets/doctors_list/image01.jpg"
+    },
+    {
+        "name": "Dr. Aster Kebede",
+        "role": "Pharmasist",
+        "picture": "assets/doctors_list/image01.jpg"
+    },
+    {
+        "name": "Dr. Eyob Belay",
+        "role": "Medical Laboratorist",
+        "picture": "assets/doctors_list/image01.jpg"
+    },
+    {
+        "name": "Dr. Abebech Yihune",
+        "role": "Midwife Nurse",
+        "picture": "assets/doctors_list/image01.jpg"
+    }
+]
