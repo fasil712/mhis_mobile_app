@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/danger_sign_model.dart';
-import 'package:pregmomcare/screens/preg_danger_sign/danger_sign_detail_screen.dart';
+import 'package:pregmomcare/screens/danger_sign_detail_screen.dart';
 import 'package:pregmomcare/services/danger_sign_services.dart';
 
 class PregDangerSign extends StatelessWidget {

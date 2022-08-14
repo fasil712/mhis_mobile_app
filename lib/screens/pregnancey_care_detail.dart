@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/preg_care_model.dart';
 
-class DretailPage extends StatelessWidget {
+class DetailPage extends StatelessWidget {
   final PregnancyCareModel item;
-  const DretailPage({Key? key, required this.item}) : super(key: key);
+  const DetailPage({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

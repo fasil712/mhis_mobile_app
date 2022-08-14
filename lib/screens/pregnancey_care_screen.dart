@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/preg_care_model.dart';
-import 'package:pregmomcare/screens/pregnancey_care/pregnancey_care_detail.dart';
+import 'package:pregmomcare/screens/pregnancey_care_detail.dart';
 import 'package:pregmomcare/services/preg_care_services.dart';
 
 class PregnanceyCare extends StatefulWidget {
@@ -48,7 +48,7 @@ class _PregnanceyCareState extends State<PregnanceyCare> {
                                 onTap: () => Navigator.of(context).push(
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            DretailPage(item: item))),
+                                            DetailPage(item: item))),
                                 child: CircleAvatar(
                                   backgroundColor: Colors.blue,
                                   radius: 53,
