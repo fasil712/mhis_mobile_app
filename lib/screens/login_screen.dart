@@ -16,15 +16,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // Initial Selected Value
   String _role = 'receptionist';
-  // List of items in our dropdown menu
+
   var items = [
     'receptionist',
-    'Doctor',
-    'Nurse',
-    'Phrmacist',
-    'Client',
+    'doctor',
+    'nurse',
+    'phrmacist',
+    'client',
   ];
 
   String _username = '';
@@ -39,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const ClientHistory(),
+              builder: (BuildContext context) => const ClientList(),
             ));
       } else {
         errorSnackBar(context, responseMap.values.first);
@@ -50,12 +49,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   final formkey = GlobalKey<FormState>();
-
-  final passwordValidator = MultiValidator([
-    RequiredValidator(errorText: 'Password is required'),
-    MinLengthValidator(6, errorText: 'Password must be at least 6 digits long'),
-    MaxLengthValidator(10, errorText: 'Password must be at most 10 digits long')
-  ]);
 
   bool _obscureText = true;
 
@@ -135,7 +128,13 @@ class _LoginPageState extends State<LoginPage> {
                                 ? Icons.visibility_off
                                 : Icons.visibility),
                           )),
-                      validator: passwordValidator,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Password is required";
+                        } else {
+                          return null;
+                        }
+                      },
                       onChanged: (value) {
                         _password = value;
                       },

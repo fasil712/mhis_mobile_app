@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/widgets/prefile_card.dart';
 
-// our data
-const department = "Health Officer";
+const department = "Health Scince";
 const email = "abeale007@gmail.com";
-const phone = "+251930561728"; // not real number :)
+const phone = "+251930571728"; // not real number :)
 const location = "Bahir dar, Ethiopia";
 
 class Profile extends StatelessWidget {
@@ -20,7 +19,7 @@ class Profile extends StatelessWidget {
         ),
         backgroundColor: AppColors.bgColor,
         body: SafeArea(
-          minimum: const EdgeInsets.only(top: 100),
+          minimum: const EdgeInsets.only(top: 50),
           child: Column(
             children: <Widget>[
               const CircleAvatar(
@@ -31,16 +30,16 @@ class Profile extends StatelessWidget {
                 "Dr. Abebe Alemu",
                 style: TextStyle(
                   fontSize: 40.0,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 20, 20, 34),
                   fontWeight: FontWeight.bold,
                   fontFamily: "Pacifico",
                 ),
               ),
-              Text(
+              const Text(
                 "Gynacologist",
                 style: TextStyle(
                     fontSize: 30,
-                    color: Colors.blueGrey[200],
+                    color: Color.fromARGB(255, 108, 116, 120),
                     letterSpacing: 2.5,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Source Sans Pro"),
@@ -52,13 +51,12 @@ class Profile extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-
-              // we will be creating a new widget name info carrd
               ProfileCard(text: phone, icon: Icons.phone, onPressed: () {}),
-              ProfileCard(text: department, icon: Icons.web, onPressed: () {}),
+              ProfileCard(text: email, icon: Icons.email, onPressed: () {}),
+              ProfileCard(
+                  text: department, icon: Icons.school, onPressed: () {}),
               ProfileCard(
                   text: location, icon: Icons.location_city, onPressed: () {}),
-              ProfileCard(text: email, icon: Icons.email, onPressed: () {}),
             ],
           ),
         ));

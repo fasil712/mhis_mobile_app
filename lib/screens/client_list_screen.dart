@@ -9,14 +9,14 @@ import 'package:pregmomcare/screens/register_screen.dart';
 import 'package:pregmomcare/services/client_list_service.dart';
 import 'package:pregmomcare/widgets/search_widget.dart';
 
-class ClientHistory extends StatefulWidget {
-  const ClientHistory({Key? key}) : super(key: key);
+class ClientList extends StatefulWidget {
+  const ClientList({Key? key}) : super(key: key);
 
   @override
-  _ClientHistoryState createState() => _ClientHistoryState();
+  _ClientListState createState() => _ClientListState();
 }
 
-class _ClientHistoryState extends State<ClientHistory> {
+class _ClientListState extends State<ClientList> {
   List<ClientDataModel> _clientDataModel = [];
   String query = '';
   Timer? debouncer;
@@ -121,7 +121,7 @@ class _ClientHistoryState extends State<ClientHistory> {
               padding: const EdgeInsets.only(
                   left: 10.0, right: 10.0, top: 10.0, bottom: 5.0),
               child: buildSearch(),
-            ),            
+            ),
             Expanded(
               child: SizedBox(
                 child: _clientDataModel.isEmpty
@@ -140,9 +140,48 @@ class _ClientHistoryState extends State<ClientHistory> {
                                     title: Text(listItem.firstname +
                                         ' ' +
                                         listItem.lastname),
-                                    subtitle: Text(listItem.mrn),
-                                    trailing: const Icon(Icons.more_vert),
+                                    subtitle: Text(listItem.phonenumber),
+                                    trailing: Text(
+                                      listItem.mrn,
+                                      style: const TextStyle(
+                                          color: Colors.red,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                     onLongPress: () {
+                                      showModalBottomSheet(
+                                          context: context,
+                                          builder: (context) {
+                                            return Wrap(
+                                              children: [
+                                                ListTile(
+                                                  leading: const Icon(
+                                                    Icons.update,
+                                                    color: Color.fromARGB(
+                                                        255, 30, 132, 214),
+                                                  ),
+                                                  title: const Text('Update'),
+                                                  trailing: Text(listItem.mrn),
+                                                  onTap: () {},
+                                                ),
+                                                const Divider(
+                                                  height: 2.0,
+                                                ),
+                                                ListTile(
+                                                  leading: const Icon(
+                                                    Icons.delete,
+                                                    color: Color.fromARGB(
+                                                        255, 181, 51, 42),
+                                                  ),
+                                                  title: const Text('Delete'),
+                                                  trailing: Text(listItem.mrn),
+                                                  onTap: () {},
+                                                ),
+                                              ],
+                                            );
+                                          });
+                                    },
+                                    onTap: () {
                                       showDialog(
                                           context: context,
                                           builder: (BuildContext context) {
