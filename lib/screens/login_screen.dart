@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/others/help.dart';
@@ -29,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   String _username = '';
   String _password = '';
 
-  loginPressed() async {
+  _login() async {
     if (_username.isNotEmpty && _password.isNotEmpty && _role.isNotEmpty) {
       http.Response response =
           await AuthServices.login(_username, _password, _role);
@@ -91,14 +90,15 @@ class _LoginPageState extends State<LoginPage> {
             Form(
               key: formkey,
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: <Widget>[
                     const SizedBox(
                       height: 10.0,
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(hintText: 'Username'),
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'Username'),
                       onChanged: (value) {
                         _username = value;
                       },
@@ -117,7 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       obscureText: _obscureText,
                       decoration: InputDecoration(
-                          hintText: 'Password',
+                          border: const OutlineInputBorder(),
+                          labelText: 'Password',
                           suffixIcon: GestureDetector(
                             onTap: () {
                               setState(() {
@@ -144,7 +145,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Column(children: [
                       DropdownButtonFormField(
-                        decoration: const InputDecoration(hintText: 'Role'),
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(), labelText: 'Role'),
                         borderRadius: BorderRadius.circular(10),
                         value: _role,
                         icon: const Icon(Icons.keyboard_arrow_down),
@@ -164,20 +166,11 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    Container(
-                      height: 50,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(20)),
-                      child: TextButton(
-                        onPressed: () => loginPressed(),
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(color: Colors.white, fontSize: 25),
-                        ),
-                      ),
-                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          _login();
+                        },
+                        child: const Text("Login")),
                     const SizedBox(
                       height: 100,
                     ),

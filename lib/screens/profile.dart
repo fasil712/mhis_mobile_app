@@ -24,21 +24,21 @@ class Profile extends StatelessWidget {
             children: <Widget>[
               const CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage('assets/avatar.jpg'),
+                backgroundImage: AssetImage('assets/doctors_list/receptionist_profile_pic.jpg'),
               ),
               const Text(
-                "Dr. Abebe Alemu",
+                "Mis. Abebech Alemu",
                 style: TextStyle(
-                  fontSize: 40.0,
+                  fontSize: 30.0,
                   color: Color.fromARGB(255, 20, 20, 34),
                   fontWeight: FontWeight.bold,
                   fontFamily: "Pacifico",
                 ),
               ),
               const Text(
-                "Gynacologist",
+                "Receptionist",
                 style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 25,
                     color: Color.fromARGB(255, 108, 116, 120),
                     letterSpacing: 2.5,
                     fontWeight: FontWeight.bold,

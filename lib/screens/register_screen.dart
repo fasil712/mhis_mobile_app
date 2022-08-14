@@ -57,249 +57,286 @@ class _RegisterPageState extends State<RegisterPage> {
         title: const Text("Register Page"),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Form(
-            key: formkey,
-            child: Column(
-              children: <Widget>[
-                Center(
-                  child: SizedBox(
-                      width: 200,
-                      height: 150,
-                      child: Image.asset('assets/avatar.jpg')),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _useridcontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'User ID',
-                      hintText: 'Enter valid user id'),
-                  // validator: (value) {
-                  //   if (value!.isEmpty ||
-                  //       !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                  //     return "Enter correct user id";
-                  //   } else {
-                  //     return null;
-                  //   }
-                  // },
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _facilitynamecontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Facility Name',
-                      hintText: 'Enter valid facility name'),
-                  validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                      return "Enter correct name";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                    controller: _mrncontroller,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'MRN'),
-                    // validator: (value) {
-                    //   if (value!.isEmpty ||
-                    //       !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
-                    //           .hasMatch(value)) {
-                    //     return "Enter correct MRN";
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // }
-                    ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _registrationdatecontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Date of Registation'),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _fnamecontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'First Name'),
-                  validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                      return "Enter correct fname";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _lnamecontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'Last Name'),
-                  validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                      return "Enter correct lname";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _grandfathernamecontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Grand Father Name'),
-                  validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                      return "Enter correct gfname";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _agecontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'Age'),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _sexcontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'Sex'),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                    controller: _emailcontroller,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Email'),
-                    validator: (value) {
-                      if (value!.isEmpty ||
-                          !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
-                              .hasMatch(value)) {
-                        return "Enter correct email";
-                      } else {
-                        return null;
-                      }
-                    }),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                    controller: _phonenumbercontroller,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Phone Number'),
-                    validator: (value) {
-                      if (value!.isEmpty ||
-                          !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
-                              .hasMatch(value)) {
-                        return "Enter correct Phone Number";
-                      } else {
-                        return null;
-                      }
-                    }),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _regioncontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Region',
-                      hintText: 'Enter Region'),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _woredacontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Woreda',
-                      hintText: 'Enter Woreda'),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: _kebelecontroller,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Kebele',
-                      hintText: 'Enter Kebele'),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Container(
-                  height: 50,
-                  width: 250,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: TextButton(
-                    onPressed: () {
-                      if (formkey.currentState!.validate()) {
-                        _register();                        
-                        secSnackBar(context, 'Secussully Registered');
-                      } else {
-                        errorSnackBar(context, 'Enter all required fields');
-                      }
-                    },
-                    child: const Text(
-                      'Register',
-                      style: TextStyle(color: Colors.white, fontSize: 25),
-                    ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 6,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.grey, Colors.grey]),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(100),
+                    bottomRight: Radius.circular(100),
+                  )),
+              child: const Center(
+                child: CircleAvatar(
+                  backgroundColor: AppColors.appbarBgColor,
+                  radius: 38,
+                  child: CircleAvatar(
+                    radius: 36,
+                    backgroundImage: AssetImage("assets/avatar.jpg"),
                   ),
                 ),
-                const SizedBox(
-                  height: 130,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const LoginPage()));
-                  },
-                  child: const Text(
-                    'Early User? Login Account',
-                    style: TextStyle(color: Colors.blue, fontSize: 15),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Form(
+                key: formkey,
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      controller: _useridcontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'User ID'),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Enter correct user id";
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _facilitynamecontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Facility Name'),
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                          return "Enter correct name";
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                        controller: _mrncontroller,
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(), labelText: 'MRN'),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Enter correct MRN";
+                          } else {
+                            return null;
+                          }
+                        }),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _registrationdatecontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Date of Registation'),
+                      keyboardType: TextInputType.datetime,
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _fnamecontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'First Name'),
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                          return "Enter correct fname";
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _lnamecontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'Last Name'),
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                          return "Enter correct lname";
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _grandfathernamecontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Grand Father Name'),
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                          return "Enter correct gfname";
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _agecontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'Age'),
+                      keyboardType: TextInputType.number,
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _sexcontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'Sex'),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                        controller: _emailcontroller,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(), labelText: 'Email'),
+                        validator: (value) {
+                          if (value!.isEmpty ||
+                              !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
+                                  .hasMatch(value)) {
+                            return "Enter correct email";
+                          } else {
+                            return null;
+                          }
+                        }),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                        controller: _phonenumbercontroller,
+                        keyboardType: TextInputType.phone,
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Phone Number'),
+                        validator: (value) {
+                          if (value!.isEmpty ||
+                              !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
+                                  .hasMatch(value)) {
+                            return "Enter correct Phone Number";
+                          } else {
+                            return null;
+                          }
+                        }),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _regioncontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Region',
+                          hintText: 'Enter Region'),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _woredacontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Woreda',
+                          hintText: 'Enter Woreda'),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _kebelecontroller,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Kebele',
+                          hintText: 'Enter Kebele'),
+                    ),
+                    const SizedBox(
+                      height: 15.0,
+                    ),
+                    Center(
+                      child: Row(
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                if (formkey.currentState!.validate()) {
+                                  _register();
+                                  secSnackBar(context, 'Secussully Registered');
+                                } else {
+                                  errorSnackBar(
+                                      context, 'Enter all required fields');
+                                }
+                              },
+                              child: const Text("Register")),
+                          const SizedBox(
+                            width: 15.0,
+                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                _useridcontroller.clear();
+                                _facilitynamecontroller.clear();
+                                _mrncontroller.clear();
+                                _registrationdatecontroller.clear();
+                                _fnamecontroller.clear();
+                                _lnamecontroller.clear();
+                                _grandfathernamecontroller.clear();
+                                _agecontroller.clear();
+                                _sexcontroller.clear();
+                                _emailcontroller.clear();
+                                _phonenumbercontroller.clear();
+                                _regioncontroller.clear();
+                                _woredacontroller.clear();
+                                _kebelecontroller.clear();
+                              },
+                              child: const Text("Clear"))
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 100,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const LoginPage()));
+                      },
+                      child: const Text(
+                        'Early User? Login Account',
+                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ProfileCard extends StatelessWidget {
   // the values we need
   final String text;
