@@ -135,6 +135,14 @@ flutter:
           weight: 700
         - asset: assets/font/Roboto-Black.ttf
           weight: 900
+          
+    - family: Pacifico
+      fonts:
+        - asset: assets/font/Pacifico-Regular.ttf
+
+    - family: Source Sans Pro
+      fonts:
+        - asset: assets/font/SourceSansPro-Regular.ttf
 
   #   - family: Trajan Pro
   #     fonts:

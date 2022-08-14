@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/screens/profile.dart';
 import 'package:pregmomcare/widgets/bottomnavbar.dart';
 import 'package:pregmomcare/widgets/drawer.dart';
 import 'package:pregmomcare/screens/home_screen.dart';
@@ -38,7 +39,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: const Text('MHIS App'),
         actions: <Widget>[
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notifications_rounded)),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const Profile()));
+              }, icon: const Icon(Icons.notifications_rounded)),
           PopupMenuButton(
             itemBuilder: (BuildContext context) {
               return [
