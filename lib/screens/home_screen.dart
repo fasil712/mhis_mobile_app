@@ -4,6 +4,7 @@ import 'package:pregmomcare/screens/bmi_screen.dart';
 import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
 import 'package:pregmomcare/screens/pregnancey_care_screen.dart';
 import 'package:pregmomcare/screens/pregnancy_danger_sign_screen.dart';
+import 'package:pregmomcare/widgets/doctor_list.dart';
 import 'package:pregmomcare/widgets/item_carousel.dart';
 
 class HomePage extends StatefulWidget {
@@ -273,7 +274,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 10.0,
           ),
-          //const Expanded(child: SizedBox(height: 200.0, child: DoctorLsit())),
+          const DoctorLsit(),
         ],
       ),
     );

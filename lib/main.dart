@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/profile.dart';
-import 'package:pregmomcare/widgets/bottomnavbar.dart';
 import 'package:pregmomcare/widgets/drawer.dart';
 import 'package:pregmomcare/screens/home_screen.dart';
 
@@ -33,39 +32,37 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.appbarBgColor,
-        title: const Text('MHIS App'),
-        actions: <Widget>[
-          IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const Profile()));
-              }, icon: const Icon(Icons.notifications_rounded)),
-          PopupMenuButton(
-            itemBuilder: (BuildContext context) {
-              return [
-                const PopupMenuItem(
-                  child: Text("Login"),
-                ),
-                const PopupMenuItem(
-                  child: Text("Register"),
-                  // onTap: () {
-                  //   Navigator.of(context).push(MaterialPageRoute(
-                  //       builder: (BuildContext context) =>
-                  //           const RegisterPage()));
-                  // },
-                ),
-              ];
-            },
-          ),
-        ],
-      ),
-      drawer: const DrawerPage(),
-      body: const HomePage(),
-      bottomNavigationBar: const BottomeNavBar(),
-    );
+        backgroundColor: AppColors.bgColor,
+        appBar: AppBar(
+          backgroundColor: AppColors.appbarBgColor,
+          title: const Text('MHIS App'),
+          actions: <Widget>[
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => const Profile()));
+                },
+                icon: const Icon(Icons.notifications_rounded)),
+            PopupMenuButton(
+              itemBuilder: (BuildContext context) {
+                return [
+                  const PopupMenuItem(
+                    child: Text("Login"),
+                  ),
+                  const PopupMenuItem(
+                    child: Text("Register"),
+                    // onTap: () {
+                    //   Navigator.of(context).push(MaterialPageRoute(
+                    //       builder: (BuildContext context) =>
+                    //           const RegisterPage()));
+                    // },
+                  ),
+                ];
+              },
+            ),
+          ],
+        ),
+        drawer: const DrawerPage(),
+        body: const HomePage());
   }
 }
