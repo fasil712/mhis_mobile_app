@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/bmi/bmi_result_screen.dart';
 
-class BMI_Screen extends StatefulWidget {
+class BMIScreen extends StatefulWidget {
+  const BMIScreen({Key? key}) : super(key: key);
+
   @override
-  _BMI_ScreenState createState() => _BMI_ScreenState();
+  _BMIScreenState createState() => _BMIScreenState();
 }
 
-class _BMI_ScreenState extends State<BMI_Screen> {
+class _BMIScreenState extends State<BMIScreen> {
   bool isMale = true;
   double height = 180.0;
   int weight = 40;

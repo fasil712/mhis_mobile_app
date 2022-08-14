@@ -90,7 +90,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => BMI_Screen()));
+                  builder: (BuildContext context) => const BMIScreen()));
             },
           ),
           ListTile(

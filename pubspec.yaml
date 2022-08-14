@@ -68,6 +68,7 @@ flutter:
     - lib/json_data/
     - assets/avatar.jpg
     - assets/backgroundimage.jpg
+    - assets/bmi.jpg
     - assets/download.jpg
     - assets/images/pregnantmother.jpg
     - assets/images/register.png
