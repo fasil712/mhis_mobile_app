@@ -130,7 +130,7 @@ class _BMIScreenState extends State<BMIScreen> {
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
-                  color: Color.fromARGB(255, 16, 19, 35),
+                  color: const Color.fromARGB(255, 16, 19, 35),
                 ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

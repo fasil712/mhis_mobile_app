@@ -4,5 +4,5 @@ class ApiConstants {
   static String clientListEndpoint = '/clientList';
   static String addClientEndpoint = '/mobileRegister';
   static String usersLoginEndpoint = '/mobileLogin';  
-  static String customerFeedback = '/contactUs';
+  static String customerFeedback = '/sendFeedback';
 }

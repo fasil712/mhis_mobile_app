@@ -20,6 +20,13 @@ class _FeedbackPageState extends State<FeedbackPage> {
         _phonecontroller.text, _messagecontroller.text);
   }
 
+  reset() {
+    _fullnamecontroller.clear();
+    _emailcontroller.clear();
+    _phonecontroller.clear();
+    _messagecontroller.clear();
+  }
+
   final formkey = GlobalKey<FormState>();
 
   @override
@@ -27,9 +34,9 @@ class _FeedbackPageState extends State<FeedbackPage> {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
-          backgroundColor: AppColors.appbarBgColor,
-          title: const Text("Feedback Page"),
-          actions: []),
+        backgroundColor: AppColors.appbarBgColor,
+        title: const Text("Feedback Page"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -121,6 +128,12 @@ class _FeedbackPageState extends State<FeedbackPage> {
                               onPressed: () {
                                 if (formkey.currentState!.validate()) {
                                   send();
+                                  secSnackBar(
+                                      context, "Tankyou for you feedback");
+                                  reset();
+                                } else {
+                                  errSnackBar(
+                                      context, "Enter all required fields");
                                 }
                               },
                               child: const Text("Send")),
@@ -129,10 +142,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                _fullnamecontroller.clear();
-                                _emailcontroller.clear();
-                                _phonecontroller.clear();
-                                _messagecontroller.clear();
+                                reset();
                               },
                               child: const Text("Reset"))
                         ],
@@ -146,5 +156,21 @@ class _FeedbackPageState extends State<FeedbackPage> {
         ),
       ),
     );
+  }
+
+  secSnackBar(BuildContext context, String text) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.green,
+      content: Text(text),
+      duration: const Duration(seconds: 1),
+    ));
+  }
+
+  errSnackBar(BuildContext context, String text) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.red,
+      content: Text(text),
+      duration: const Duration(seconds: 1),
+    ));
   }
 }

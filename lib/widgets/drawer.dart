@@ -7,7 +7,7 @@ import 'package:pregmomcare/screens/pregnancy_danger_sign_screen.dart';
 import 'package:share/share.dart';
 import 'package:pregmomcare/others/help.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
-import 'package:pregmomcare/screens/edd.dart';
+import 'package:pregmomcare/screens/edd_screen.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);
