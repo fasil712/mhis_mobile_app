@@ -8,60 +8,50 @@ class EDDCalculator extends StatefulWidget {
 }
 
 class _EDDCalculatorState extends State<EDDCalculator> {
-  int day = 01;
-  int month = 11;
-  int year = 2021;
+  DateTime currentDate = DateTime.now();
 
-  int result = 0;
+  final _lmpController = TextEditingController();
+  final _todayController = TextEditingController();
 
-  var days = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30
-  ];
-  var months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  var years = [
-    2013,
-    2014,
-    2015,
-    2016,
-    2017,
-    2018,
-    2019,
-    2020,
-    2021,
-    2022,
-    2023,
-    2024,
-    2025
-  ];
+  Future<void> _selectNowDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != currentDate)
+      // ignore: curly_braces_in_flow_control_structures
+      setState(() {
+        currentDate = pickedDate;
+        _todayController.text = currentDate.toString();
+      });
+  }
+
+  Future<void> _selectLmpDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != currentDate)
+      // ignore: curly_braces_in_flow_control_structures
+      setState(() {
+        currentDate = pickedDate;
+        _lmpController.text = currentDate.toString();
+      });
+  }
+
+  String edd = "Null";
+  
+  result() {
+    DateTime dueDate = DateTime.parse(_lmpController.text);
+    //DateTime gaDate = DateTime.parse(_lmpController.text);
+    setState(() {
+      edd = dueDate.subtract(const Duration(days: 90)).toString();
+    });
+  }
+
+  final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -71,90 +61,67 @@ class _EDDCalculatorState extends State<EDDCalculator> {
         backgroundColor: const Color(0XFF282842),
         title: const Text("Estimated Date of Delivery"),
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+      body: Center(
+        child: Form(
+          key: _formkey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Enter Today's date"),
-              const SizedBox(
-                height: 10,
-              ),
-              DropdownButtonFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Day'),
-                borderRadius: BorderRadius.circular(10),
-                value: day,
-                icon: const Icon(Icons.keyboard_arrow_down),
-                items: days.map((int days) {
-                  return DropdownMenuItem(
-                    value: days,
-                    child: Text("$days"),
-                  );
-                }).toList(),
-                onChanged: (int? newValue) {
-                  setState(() {
-                    day = newValue!;
-                  });
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const Text('LMP'),
+              TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Date is required";
+                  } else {
+                    return null;
+                  }
                 },
+                controller: _lmpController,
+                decoration: InputDecoration(
+                  labelText: "LMP",
+                  hintText: "lmp",
+                  suffix: IconButton(
+                    icon: const Icon(Icons.calendar_month),
+                    onPressed: () => _selectLmpDate(context),
+                  ),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                  ),
+                ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              DropdownButtonFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Month'),
-                borderRadius: BorderRadius.circular(10),
-                value: month,
-                icon: const Icon(Icons.keyboard_arrow_down),
-                items: months.map((int months) {
-                  return DropdownMenuItem(
-                    value: months,
-                    child: Text("$months"),
-                  );
-                }).toList(),
-                onChanged: (int? newValue) {
-                  setState(() {
-                    month = newValue!;
-                  });
+              const Text('TODAY'),
+              TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Date is required";
+                  } else {
+                    return null;
+                  }
                 },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              DropdownButtonFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Year'),
-                borderRadius: BorderRadius.circular(10),
-                value: year,
-                icon: const Icon(Icons.keyboard_arrow_down),
-                items: years.map((int years) {
-                  return DropdownMenuItem(
-                    value: years,
-                    child: Text("$years"),
-                  );
-                }).toList(),
-                onChanged: (int? newValue) {
-                  setState(() {
-                    year = newValue!;
-                  });
-                },
-              ),
-              const SizedBox(
-                height: 10,
+                controller: _todayController,
+                decoration: InputDecoration(
+                  labelText: "TODAY",
+                  hintText: "today",
+                  suffix: IconButton(
+                    icon: const Icon(Icons.calendar_month),
+                    onPressed: () => _selectNowDate(context),
+                  ),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                  ),
+                ),
               ),
               ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      result = day + month;
-                    });
-                  },
-                  child: Text('Calculate')),
-              const SizedBox(
-                height: 10,
+                onPressed: () {
+                  result();
+                },
+                child: const Text('Calculate'),
               ),
-              Text("Result : $result")
+              Text("Result : $edd")
             ],
           ),
         ),

@@ -10,7 +10,7 @@ class PregDangerSign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.bgColor,
+        backgroundColor: const Color.fromARGB(255, 202, 202, 209),
         appBar: AppBar(
           backgroundColor: AppColors.appbarBgColor,
           title: const Text("Pregnancy Danger Signs"),

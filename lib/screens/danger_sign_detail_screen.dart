@@ -26,11 +26,13 @@ class DangerSignDetail extends StatelessWidget {
               Text(
                 item.name,
                 style:
-                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              Text(
-                item.description,
-                style: const TextStyle(fontStyle: FontStyle.italic),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  item.description,
+                ),
               ),
               const SizedBox(
                 height: 10.0,
