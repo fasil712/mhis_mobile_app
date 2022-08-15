@@ -7,16 +7,16 @@
     {
         "name": "Dr. Aster Kebede",
         "role": "Pharmasist",
-        "picture": "assets/doctors_list/image01.jpg"
+        "picture": "assets/doctors_list/image02.jpg"
     },
     {
         "name": "Dr. Eyob Belay",
         "role": "Medical Laboratorist",
-        "picture": "assets/doctors_list/image01.jpg"
+        "picture": "assets/doctors_list/image04.jpg"
     },
     {
         "name": "Dr. Abebech Yihune",
         "role": "Midwife Nurse",
-        "picture": "assets/doctors_list/image01.jpg"
+        "picture": "assets/doctors_list/image03.jpg"
     }
 ]

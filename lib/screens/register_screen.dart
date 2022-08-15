@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/services/register_user_services.dart';
+import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -43,7 +44,6 @@ class _RegisterPageState extends State<RegisterPage> {
         _woredacontroller.text,
         _kebelecontroller.text);
   }
-
   final formkey = GlobalKey<FormState>();
 
   @override
