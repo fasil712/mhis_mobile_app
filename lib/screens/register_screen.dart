@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/services/register_user_services.dart';
-import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -20,7 +19,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final _lnamecontroller = TextEditingController();
   final _grandfathernamecontroller = TextEditingController();
   final _agecontroller = TextEditingController();
-  final _sexcontroller = TextEditingController();
   final _emailcontroller = TextEditingController();
   final _phonenumbercontroller = TextEditingController();
   final _regioncontroller = TextEditingController();
@@ -37,13 +35,22 @@ class _RegisterPageState extends State<RegisterPage> {
         _lnamecontroller.text,
         _grandfathernamecontroller.text,
         _agecontroller.text,
-        _sexcontroller.text,
+        _sex,
         _emailcontroller.text,
         _phonenumbercontroller.text,
         _regioncontroller.text,
         _woredacontroller.text,
         _kebelecontroller.text);
   }
+
+  String _sex = 'Female';
+
+  var items = [
+    'Female',
+    'Male',
+    'Others',
+  ];
+
   final formkey = GlobalKey<FormState>();
 
   @override
@@ -205,11 +212,26 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    TextFormField(
-                      controller: _sexcontroller,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(), labelText: 'Sex'),
-                    ),
+                    Column(children: [
+                      DropdownButtonFormField(
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(), labelText: 'Sex'),
+                        borderRadius: BorderRadius.circular(10),
+                        value: _sex,
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        items: items.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _sex = newValue!;
+                          });
+                        },
+                      ),
+                    ]),
                     const SizedBox(
                       height: 10.0,
                     ),
@@ -305,7 +327,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                 _lnamecontroller.clear();
                                 _grandfathernamecontroller.clear();
                                 _agecontroller.clear();
-                                _sexcontroller.clear();
                                 _emailcontroller.clear();
                                 _phonenumbercontroller.clear();
                                 _regioncontroller.clear();
