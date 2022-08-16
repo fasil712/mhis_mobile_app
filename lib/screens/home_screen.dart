@@ -129,11 +129,12 @@ class _HomePageState extends State<HomePage> {
                                   const SizedBox(
                                     height: 5.0,
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
-                                      "Pregnancey Care Desciption",
-                                      style: TextStyle(
+                                      translation(context).preg_care_desc,
+                                      style: const TextStyle(
                                           fontSize: 13,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -191,10 +192,11 @@ class _HomePageState extends State<HomePage> {
                                   const SizedBox(
                                     height: 5.0,
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
-                                        "Danger Sign During Pregnancy desc"),
+                                        translation(context).danger_sign_desc),
                                   )
                                 ],
                               ),
@@ -245,9 +247,11 @@ class _HomePageState extends State<HomePage> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
-                                    child: Text("Diet During Pregnancy desc"),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
+                                    child: Text(
+                                        translation(context).preg_diet_desc),
                                   )
                                 ],
                               ),
@@ -351,10 +355,10 @@ class _HomePageState extends State<HomePage> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                   Padding(
-                                    padding: const EdgeInsets.only(left: 8, right: 8),
-                                    child:
-                                        Text(translation(context).edd),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
+                                    child: Text(translation(context).edd_desc),
                                   )
                                 ],
                               ),
