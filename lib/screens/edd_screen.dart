@@ -50,7 +50,7 @@ class _EDDCalculatorState extends State<EDDCalculator> {
   result() async {
     DateTime lmpFromField = DateTime.parse(_lmpController.text);
     DateTime currentDateFromFild = DateTime.parse(_todayController.text);
-    DateTime minus3Month = lmpFromField.subtract(const Duration(days: 120));
+    DateTime minus3Month = lmpFromField.subtract(const Duration(days: 90));
 
     int days = currentDateFromFild.difference(lmpFromField).inDays;
 
