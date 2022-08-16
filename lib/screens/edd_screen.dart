@@ -18,8 +18,8 @@ class _EDDCalculatorState extends State<EDDCalculator> {
     final DateTime? pickedDate = await showDatePicker(
         context: context,
         initialDate: currentDate,
-        firstDate: DateTime(2015),
-        lastDate: DateTime(2050));
+        firstDate: DateTime(2010),
+        lastDate: DateTime(2040));
 
     if (pickedDate != null && pickedDate != currentDate)
       // ignore: curly_braces_in_flow_control_structures

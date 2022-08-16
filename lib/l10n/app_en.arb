@@ -1,3 +1,10 @@
 {
-  "homePage": "MHIS App"
+  "homePage": "MHIS App",
+  "services": "Services",
+  "doctors": "Doctors",
+  "preg_care": "Pregnancey Care",
+  "danger_sign": "Danger Sign During Pregnancy",
+  "preg_diet": "Diet During Pregnancy",
+  "bmi": "Body Mass Index",
+  "edd": "Estimated Date of Delivery"
 }

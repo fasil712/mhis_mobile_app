@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/main.dart';
 import 'package:pregmomcare/screens/bmi_screen.dart';
@@ -9,8 +10,6 @@ import 'package:pregmomcare/screens/pregnancy_danger_sign_screen.dart';
 import 'package:pregmomcare/widgets/doctor_list.dart';
 import 'package:pregmomcare/widgets/item_carousel.dart';
 import 'package:pregmomcare/classes/language.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
         backgroundColor: AppColors.appbarBgColor,
-        title: Text(AppLocalizations.of(context)!.homePage),
+        title: Text(translation(context).homePage),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -72,9 +71,9 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 20.0,
             ),
-            const Text(
-              "Our Services",
-              style: TextStyle(
+            Text(
+              translation(context).services,
+              style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Roboto'),
@@ -115,20 +114,21 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
-                                      "Pregnancey Care",
-                                      style: TextStyle(
+                                      translation(context).preg_care,
+                                      style: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5.0,
                                   ),
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(left: 8, right: 8),
                                     child: Text(
                                       "Pregnancey Care Desciption",
@@ -175,21 +175,22 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
-                                      "Danger Sign During Pregnancy",
-                                      style: TextStyle(
+                                      translation(context).danger_sign,
+                                      style: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'Roboto'),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5.0,
                                   ),
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(left: 8, right: 8),
                                     child: Text(
                                         "Danger Sign During Pregnancy desc"),
@@ -232,17 +233,18 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
-                                      "Diet During Pregnancy",
-                                      style: TextStyle(
+                                      translation(context).preg_diet,
+                                      style: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(left: 8, right: 8),
                                     child: Text("Diet During Pregnancy desc"),
                                   )
@@ -283,20 +285,20 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
-                                      "Body Mass Index Calulator",
-                                      style: TextStyle(
+                                      translation(context).bmi,
+                                      style: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(left: 8, right: 8),
-                                    child:
-                                        Text("Body Mass Index Calulator Desc"),
+                                    child: Text("Body Mass Index Desc"),
                                   )
                                 ],
                               ),
@@ -336,20 +338,21 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
-                                      "Estimated Date of Delivery Calulator",
-                                      style: TextStyle(
+                                      translation(context).edd,
+                                      style: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(left: 8, right: 8),
-                                    child: Text(
-                                        "Estimated Date of Delivery Calulator Desc"),
+                                    child:
+                                        Text("Estimated Date of Delivery Desc"),
                                   )
                                 ],
                               ),
@@ -365,9 +368,9 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 10.0,
             ),
-            const Text(
-              "Our Doctors",
-              style: TextStyle(
+            Text(
+              translation(context).doctors,
+              style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Roboto'),
