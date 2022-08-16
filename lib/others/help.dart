@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 
 class HelpPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HelpPageState extends State<HelpPage> {
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
           backgroundColor: AppColors.appbarBgColor,
-          title: const Text("Help Page")),
+          title: Text(translation(context).help)),
       body: ListView(
         children: const <Widget>[
           Padding(padding: EdgeInsets.all(8.0)),

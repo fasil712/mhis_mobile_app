@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/preg_care_model.dart';
 import 'package:pregmomcare/screens/pregnancey_care_detail.dart';
@@ -17,7 +18,7 @@ class _PregnanceyCareState extends State<PregnanceyCare> {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
-        title: const Text("Pregnancey Care"),
+        title: Text(translation(context).preg_care),
         backgroundColor: AppColors.appbarBgColor,
       ),
       body: FutureBuilder<List<PregnancyCareModel>>(

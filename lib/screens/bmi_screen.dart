@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/bmi_result_screen.dart';
 
@@ -23,8 +24,8 @@ class _BMIScreenState extends State<BMIScreen> {
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
         backgroundColor: AppColors.appbarBgColor,
-        title: const Text(
-          "BMI Calculator",
+        title: Text(
+          translation(context).bmi,
         ),
       ),
       body: Column(

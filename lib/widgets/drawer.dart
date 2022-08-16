@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/screens/bmi_screen.dart';
 import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
 import 'package:pregmomcare/screens/feedback_screen.dart';
@@ -56,14 +57,14 @@ class _DrawerPageState extends State<DrawerPage> {
           ListTile(
             leading: const Icon(Icons.pregnant_woman_rounded,
                 color: Color.fromARGB(255, 51, 148, 44)),
-            title: const Text("Pregnancey care"),
+            title: Text(translation(context).preg_care),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const PregnanceyCare()));
             },
           ),
           ListTile(
-            title: const Text("Diet during Pregnancey"),
+            title: Text(translation(context).preg_diet),
             leading: const Icon(Icons.food_bank, color: Colors.indigoAccent),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -71,7 +72,7 @@ class _DrawerPageState extends State<DrawerPage> {
             },
           ),
           ListTile(
-            title: const Text("Pregnancey danger signs"),
+            title: Text(translation(context).danger_sign),
             leading: const Icon(Icons.dangerous_rounded, color: Colors.red),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -83,7 +84,7 @@ class _DrawerPageState extends State<DrawerPage> {
             height: 1,
           ),
           ListTile(
-            title: const Text("Body Mass Index"),
+            title: Text(translation(context).bmi),
             leading: const Icon(
               Icons.calculate_rounded,
               color: Colors.amber,
@@ -94,7 +95,7 @@ class _DrawerPageState extends State<DrawerPage> {
             },
           ),
           ListTile(
-            title: const Text("Expected Date Delivery"),
+            title: Text(translation(context).edd),
             leading: const Icon(
               Icons.calculate_rounded,
               color: Colors.amber,
@@ -109,7 +110,7 @@ class _DrawerPageState extends State<DrawerPage> {
             height: 1,
           ),
           ListTile(
-            title: const Text("Login"),
+            title: Text(translation(context).login),
             leading: const Icon(Icons.login, color: Colors.greenAccent),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -119,14 +120,14 @@ class _DrawerPageState extends State<DrawerPage> {
           const Divider(
             color: Colors.grey,
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20.0, top: 8.0, bottom: 8.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, top: 8.0, bottom: 8.0),
             child: Text(
-              'More',
+              translation(context).more,
             ),
           ),
           ListTile(
-            title: const Text("Help"),
+            title: Text(translation(context).help),
             leading: const Icon(Icons.help_rounded, color: Colors.blue),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -134,7 +135,7 @@ class _DrawerPageState extends State<DrawerPage> {
             },
           ),
           ListTile(
-            title: const Text("Feedback"),
+            title: Text(translation(context).feedback),
             leading: const Icon(Icons.feedback_rounded, color: Colors.blue),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -142,7 +143,7 @@ class _DrawerPageState extends State<DrawerPage> {
             },
           ),
           ListTile(
-            title: const Text("Share"),
+            title: Text(translation(context).share),
             leading: const Icon(Icons.share_rounded, color: Colors.blue),
             onTap: () {
               Share.share('check out my website https://example.com',

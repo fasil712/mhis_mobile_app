@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/danger_sign_model.dart';
 import 'package:pregmomcare/screens/danger_sign_detail_screen.dart';
@@ -13,7 +14,7 @@ class PregDangerSign extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 202, 202, 209),
         appBar: AppBar(
           backgroundColor: AppColors.appbarBgColor,
-          title: const Text("Pregnancy Danger Signs"),
+          title: Text(translation(context).danger_sign),
         ),
         body: FutureBuilder(
           future: ReadJsonData(),

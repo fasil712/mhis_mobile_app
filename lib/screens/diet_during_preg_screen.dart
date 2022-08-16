@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/diet_detail_model.dart';
 import 'package:pregmomcare/screens/diet_detail_screen.dart';
@@ -18,7 +19,7 @@ class _DietDuringPregState extends State<DietDuringPreg> {
         backgroundColor: AppColors.bgColor,
         appBar: AppBar(
           backgroundColor: AppColors.appbarBgColor,
-          title: const Text("Diet During Pregnancy"),
+          title: Text(translation(context).preg_diet),
         ),
         body: FutureBuilder(
           future: ReadJsonData(),

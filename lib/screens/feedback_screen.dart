@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/services/feedback_services.dart';
 
@@ -35,7 +36,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
         backgroundColor: AppColors.appbarBgColor,
-        title: const Text("Feedback Page"),
+        title: Text(translation(context).feedback),
       ),
       body: SingleChildScrollView(
         child: Column(

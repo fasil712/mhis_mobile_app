@@ -6,5 +6,10 @@
   "danger_sign": "Danger Sign During Pregnancy",
   "preg_diet": "Diet During Pregnancy",
   "bmi": "Body Mass Index",
-  "edd": "Estimated Date of Delivery"
+  "edd": "Estimated Date of Delivery",
+  "login": "Login",
+  "help": "Help",
+  "feedback": "Feedback",
+  "share": "Share",
+  "more": "More"
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/screens/home_screen.dart';
 
 void main() {
@@ -30,6 +31,12 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _locale = locale;
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    getLocale().then((locale) => {setLocale(locale)});
+    super.didChangeDependencies();
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 
 class EDDCalculator extends StatefulWidget {
@@ -75,7 +76,7 @@ class _EDDCalculatorState extends State<EDDCalculator> {
       backgroundColor: const Color(0XFFF7F7FF),
       appBar: AppBar(
         backgroundColor: const Color(0XFF282842),
-        title: const Text("Estimated Date of Delivery"),
+        title: Text(translation(context).edd),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(8.0),

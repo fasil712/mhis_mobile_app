@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
+import 'package:pregmomcare/classes/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/others/help.dart';
@@ -57,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
         backgroundColor: AppColors.appbarBgColor,
-        title: const Text("Login Page"),
+        title: Text(translation(context).login),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -197,7 +198,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             )
-          
           ],
         ),
       ),

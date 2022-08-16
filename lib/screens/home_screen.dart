@@ -36,9 +36,10 @@ class _HomePageState extends State<HomePage> {
                 Icons.language,
                 color: Colors.white,
               ),
-              onChanged: (Language? language) {
+              onChanged: (Language? language) async {
                 if (language != null) {
-                  MyApp.setLocale(context, Locale(language.languageCode, ''));
+                  Locale _locale = await setLocale(language.languageCode);
+                  MyApp.setLocale(context, _locale);
                 }
               },
               items: Language.languageList()
