@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -42,7 +44,9 @@ dependencies:
   carousel_slider: ^4.1.1
   form_field_validator: ^1.1.0
   shared_preferences: ^0.5.12+4
+
   intl: ^0.17.0
+  easy_localization: ^2.3.3+1
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +64,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -80,7 +85,7 @@ flutter:
     - assets/doctors_list/image02.jpg
     - assets/doctors_list/image03.jpg
     - assets/doctors_list/image04.jpg
-    
+
     - assets/doctors_list/receptionist_profile_pic.jpg
 
     - assets/pregnancy_care/image01.jpg
@@ -142,7 +147,7 @@ flutter:
           weight: 700
         - asset: assets/font/Roboto-Black.ttf
           weight: 900
-          
+
     - family: Pacifico
       fonts:
         - asset: assets/font/Pacifico-Regular.ttf

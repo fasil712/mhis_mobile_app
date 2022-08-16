@@ -46,20 +46,23 @@ class _EDDCalculatorState extends State<EDDCalculator> {
 
   String dueDate = "2019-10-22 00:00:00.000";
   String gastetionalAge = "3 Weeks 6 Days";
+  int threeMonth = 90; // 3 month = 90 days
+  int oneYear = 365; // 1 year = 365 days
 
   result() async {
     DateTime lmpFromField = DateTime.parse(_lmpController.text);
     DateTime currentDateFromFild = DateTime.parse(_todayController.text);
-    DateTime minus3Month = lmpFromField.subtract(const Duration(days: 90));
+    DateTime minus3Month = lmpFromField.subtract(Duration(days: threeMonth));
+
+    int cycleOfMonth = oneYear - 2; //Most women's cycles are 28 days
 
     int days = currentDateFromFild.difference(lmpFromField).inDays;
 
-    // ignore: division_optimization
-    int week = (days / 7).toInt();
-    int day = (days % 7).toInt();
+    int week = days ~/ 7;
+    int day = days % 7;
 
     setState(() {
-      dueDate = minus3Month.add(const Duration(days: 372)).toString();
+      dueDate = minus3Month.add(Duration(days: cycleOfMonth + 7)).toString();
       gastetionalAge = "$week Weeks $day Days";
     });
   }
@@ -105,18 +108,18 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                         keyboardType: TextInputType.datetime,
                         style:
                             const TextStyle(fontSize: 15, color: Colors.black),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Date is required";
-                          } else {
-                            return null;
-                          }
-                        },
+                        // validator: (value) {
+                        //   if (value!.isEmpty) {
+                        //     return "Date is required";
+                        //   } else {
+                        //     return null;
+                        //   }
+                        // },
                         controller: _lmpController,
                         decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
-                          hintText: "LMP",
+                          hintText: "YYYY-MM-DD",
                           suffix: IconButton(
                             icon: const Icon(
                               Icons.calendar_month,
@@ -149,18 +152,18 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                         style:
                             const TextStyle(fontSize: 15, color: Colors.black),
                         keyboardType: TextInputType.datetime,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Date is required";
-                          } else {
-                            return null;
-                          }
-                        },
+                        // validator: (value) {
+                        //   if (value!.isEmpty) {
+                        //     return "Date is required";
+                        //   } else {
+                        //     return null;
+                        //   }
+                        // },
                         controller: _todayController,
                         decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
-                          hintText: "TODAY",
+                          hintText: "YYYY-MM-DD",
                           suffix: IconButton(
                             icon: const Icon(
                               Icons.calendar_month,
@@ -189,8 +192,12 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                           primary: AppColors.btnColor,
                           minimumSize: const Size(140, 50)),
                       onPressed: () {
-                        if (_formkey.currentState!.validate()) {
+                        if (_lmpController.text.isNotEmpty &&
+                            _todayController.text.isNotEmpty) {
                           result();
+                        } else {
+                          errorSnackBar(
+                              context, "Enter LMP'\s and TODAY'\s Date");
                         }
                       },
                       child: const Text(
@@ -239,7 +246,9 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 5.0,),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
                     Text(
                       dueDate,
                       textAlign: TextAlign.center,
@@ -248,14 +257,18 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                           fontSize: 30,
                           fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 5.0,),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
                     const Text(
                       "Estimated gestational age :",
                       textAlign: TextAlign.center,
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 5.0,),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
                     Text(
                       gastetionalAge,
                       textAlign: TextAlign.center,
@@ -263,7 +276,15 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                           color: Colors.yellow,
                           fontSize: 30,
                           fontWeight: FontWeight.bold),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    const Text(
+                      "This is an estimated date of when your baby is due. Babies rarely keep to an exact timetable, so your full-term pregnancy can be anywhere from 37 and 42 weeks.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontStyle: FontStyle.italic),
+                    ),
                   ],
                 ),
               )
@@ -273,4 +294,12 @@ class _EDDCalculatorState extends State<EDDCalculator> {
       ),
     );
   }
+}
+
+errorSnackBar(BuildContext context, String text) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    backgroundColor: Colors.red,
+    content: Text(text),
+    duration: const Duration(seconds: 1),
+  ));
 }
