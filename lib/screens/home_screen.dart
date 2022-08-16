@@ -297,9 +297,10 @@ class _HomePageState extends State<HomePage> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
-                                    child: Text("Body Mass Index Desc"),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
+                                    child: Text(translation(context).bmi_desc),
                                   )
                                 ],
                               ),
@@ -350,10 +351,10 @@ class _HomePageState extends State<HomePage> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                   Padding(
+                                    padding: const EdgeInsets.only(left: 8, right: 8),
                                     child:
-                                        Text("Estimated Date of Delivery Desc"),
+                                        Text(translation(context).edd),
                                   )
                                 ],
                               ),
