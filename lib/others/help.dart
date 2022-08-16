@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pregmomcare/classes/language_constants.dart';
+import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 
 class HelpPage extends StatefulWidget {

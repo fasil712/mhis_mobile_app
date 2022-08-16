@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:pregmomcare/classes/language_constants.dart';
+import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/screens/home_screen.dart';
 
 void main() {
+  //Only Portraits
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -16,7 +17,7 @@ class MyApp extends StatefulWidget {
 
   @override
   State<MyApp> createState() => _MyAppState();
-
+//Set Localization
   static void setLocale(BuildContext context, Locale newLocale) {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
     state?.setLocale(newLocale);
@@ -24,7 +25,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static const String _title = 'Flutter Code Sample';
+  static const String _title = 'HMIS App';
   Locale? _locale;
 
   setLocale(Locale locale) {
@@ -33,6 +34,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+//getLocal from shared preferences
   @override
   void didChangeDependencies() {
     getLocale().then((locale) => {setLocale(locale)});

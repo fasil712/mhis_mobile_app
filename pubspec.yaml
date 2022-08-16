@@ -72,7 +72,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+
     - lib/json_data/
+    
+    - lib/l10n/preg_care/preg_care_am.json
+    - lib/l10n/preg_care/preg_care_en.json
+
     - assets/avatar.jpg
     - assets/backgroundimage.jpg
     - assets/bmi.jpg

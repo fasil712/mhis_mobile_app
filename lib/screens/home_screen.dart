@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pregmomcare/classes/language_constants.dart';
+import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/main.dart';
 import 'package:pregmomcare/screens/bmi_screen.dart';
 import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
 import 'package:pregmomcare/screens/edd_screen.dart';
 import 'package:pregmomcare/screens/pregnancey_care_screen.dart';
-import 'package:pregmomcare/screens/pregnancy_danger_sign_screen.dart';
+import 'package:pregmomcare/screens/danger_sign_screen.dart';
 import 'package:pregmomcare/widgets/doctor_list.dart';
 import 'package:pregmomcare/widgets/item_carousel.dart';
-import 'package:pregmomcare/classes/language.dart';
+import 'package:pregmomcare/model/language_model.dart';
 import '../widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {

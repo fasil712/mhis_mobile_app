@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pregmomcare/classes/language_constants.dart';
+import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/screens/bmi_screen.dart';
 import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
 import 'package:pregmomcare/screens/feedback_screen.dart';
 import 'package:pregmomcare/screens/pregnancey_care_screen.dart';
-import 'package:pregmomcare/screens/pregnancy_danger_sign_screen.dart';
+import 'package:pregmomcare/screens/danger_sign_screen.dart';
 import 'package:share/share.dart';
 import 'package:pregmomcare/others/help.dart';
 import 'package:pregmomcare/screens/login_screen.dart';

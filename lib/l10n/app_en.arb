@@ -1,5 +1,5 @@
 {
-  "homePage": "MHIS App",
+  "homePage": "MHIS",
   "services": "Services",
   "doctors": "Doctors",
   "preg_care": "Pregnancey Care",
@@ -11,5 +11,6 @@
   "help": "Help",
   "feedback": "Feedback",
   "share": "Share",
-  "more": "More"
+  "more": "More",
+  "bmi_desc": "Body Mass Index Description"
 }
