@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/model/usermodel.dart';
-import 'package:pregmomcare/screens/about_screen.dart';
 import 'package:pregmomcare/screens/bmi_screen.dart';
 import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
@@ -181,7 +180,7 @@ class _DrawerPageState extends State<DrawerPage> {
             leading: const Icon(Icons.info, size: 30, color: Colors.green),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const AboutPage()));
+                  builder: (BuildContext context) => const AboutListTile()));
             },
           ),
         ],

@@ -78,10 +78,7 @@ flutter:
     - assets/backgroundimage.jpg
     - assets/logo.png
     - assets/bmi.jpg
-    - assets/download.jpg
-    - assets/images/pregnantmother.jpg
-    - assets/images/register.png
-    - assets/images/login.png
+    - assets/nav_header.jpg
 
     - assets/doctors_list/image01.jpg
     - assets/doctors_list/image02.jpg
