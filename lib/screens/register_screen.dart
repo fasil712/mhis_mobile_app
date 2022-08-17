@@ -57,6 +57,21 @@ class _RegisterPageState extends State<RegisterPage> {
     'Male',
     'Others',
   ];
+//Date Picker for registration date
+  DateTime currentDate = DateTime.now();
+  Future<void> _selectLmpDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != currentDate)
+      // ignore: curly_braces_in_flow_control_structures
+      setState(() {
+        currentDate = pickedDate;
+        _registrationdatecontroller.text = currentDate.toString();
+      });
+  }
 
   final formkey = GlobalKey<FormState>();
 
@@ -137,9 +152,17 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextFormField(
                       controller: _registrationdatecontroller,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Date of Registation'),
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        labelText: 'Date of Registation',
+                        suffix: IconButton(
+                          icon: const Icon(
+                            Icons.calendar_month,
+                            color: Colors.blue,
+                          ),
+                          onPressed: () => _selectLmpDate(context),
+                        ),
+                      ),
                       keyboardType: TextInputType.datetime,
                     ),
                     const SizedBox(
@@ -148,8 +171,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     TextFormField(
                       controller: _fnamecontroller,
                       decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'First Name'),
+                        border: OutlineInputBorder(),
+                        labelText: 'First Name',
+                      ),
                       validator: (value) {
                         if (value!.isEmpty ||
                             !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {

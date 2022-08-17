@@ -38,7 +38,6 @@ class _LoginPageState extends State<LoginPage> {
       http.Response response =
           await AuthServices.login(_username, _password, _role);
       Map responseMap = jsonDecode(response.body);
-      // print(responseMap);
       if (response.statusCode == 200) {
         sharedPreferences.setString("user", response.body);
         Navigator.pushReplacement(

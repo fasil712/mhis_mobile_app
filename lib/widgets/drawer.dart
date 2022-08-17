@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
+import 'package:pregmomcare/model/usermodel.dart';
 import 'package:pregmomcare/screens/bmi_screen.dart';
+import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
 import 'package:pregmomcare/screens/feedback_screen.dart';
 import 'package:pregmomcare/screens/pregnancey_care_screen.dart';
@@ -9,6 +11,8 @@ import 'package:share/share.dart';
 import 'package:pregmomcare/others/help.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/screens/edd_screen.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);
@@ -18,6 +22,8 @@ class DrawerPage extends StatefulWidget {
 }
 
 class _DrawerPageState extends State<DrawerPage> {
+  late SharedPreferences sharedPreferences;
+  UserModel? userModel;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -112,9 +118,21 @@ class _DrawerPageState extends State<DrawerPage> {
           ListTile(
             title: Text(translation(context).login),
             leading: const Icon(Icons.login, color: Colors.greenAccent),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const LoginPage()));
+            onTap: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              if (!prefs.containsKey("user")) {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return const LoginPage();
+                  },
+                ));
+              } else {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return const ClientList();
+                  },
+                ));
+              }
             },
           ),
           const Divider(
@@ -146,7 +164,7 @@ class _DrawerPageState extends State<DrawerPage> {
             title: Text(translation(context).share),
             leading: const Icon(Icons.share_rounded, color: Colors.blue),
             onTap: () {
-              Share.share('check out my website https://example.com',
+              Share.share('check out my website http://192.168.137.88:3000/',
                   subject: 'Look what I made!');
             },
           )

@@ -109,13 +109,6 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                         keyboardType: TextInputType.datetime,
                         style:
                             const TextStyle(fontSize: 15, color: Colors.black),
-                        // validator: (value) {
-                        //   if (value!.isEmpty) {
-                        //     return "Date is required";
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
                         controller: _lmpController,
                         decoration: InputDecoration(
                           fillColor: Colors.white,
@@ -153,13 +146,6 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                         style:
                             const TextStyle(fontSize: 15, color: Colors.black),
                         keyboardType: TextInputType.datetime,
-                        // validator: (value) {
-                        //   if (value!.isEmpty) {
-                        //     return "Date is required";
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
                         controller: _todayController,
                         decoration: InputDecoration(
                           fillColor: Colors.white,
