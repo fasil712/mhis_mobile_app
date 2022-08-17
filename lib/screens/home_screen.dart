@@ -30,21 +30,21 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: DropdownButton<Language>(
+            child: DropdownButton<LanguageModel>(
               underline: const SizedBox(),
               icon: const Icon(
                 Icons.language,
                 color: Colors.white,
               ),
-              onChanged: (Language? language) async {
+              onChanged: (LanguageModel? language) async {
                 if (language != null) {
                   Locale _locale = await setLocale(language.languageCode);
                   MyApp.setLocale(context, _locale);
                 }
               },
-              items: Language.languageList()
-                  .map<DropdownMenuItem<Language>>(
-                    (e) => DropdownMenuItem<Language>(
+              items: LanguageModel.languageList()
+                  .map<DropdownMenuItem<LanguageModel>>(
+                    (e) => DropdownMenuItem<LanguageModel>(
                       value: e,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

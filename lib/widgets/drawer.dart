@@ -33,7 +33,7 @@ class _DrawerPageState extends State<DrawerPage> {
             decoration: const BoxDecoration(
                 color: Colors.blue,
                 image: DecorationImage(
-                    image: ExactAssetImage("assets/download.jpg"),
+                    image: ExactAssetImage("assets/nav_header.jpg"),
                     fit: BoxFit.cover)),
             child: Center(
               child: Row(
