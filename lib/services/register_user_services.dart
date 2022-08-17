@@ -4,7 +4,7 @@ import 'package:pregmomcare/config/constants.dart';
 
 import 'package:pregmomcare/model/client_data_model.dart';
 
-Future<ClientDataModel> registerUser(
+Future<ClientDataModel> registerClient(
     String userId,
     String facilityname,
     String mrn,
@@ -52,47 +52,3 @@ Future<ClientDataModel> registerUser(
     throw Exception('Failed to create user.');
   }
 }
-
-// class RegisterAuthServices {
-//   static Future<http.Response> register(
-//       String userId,
-//       String facilityname,
-//       String mrn,
-//       String registrationdate,
-//       String firstname,
-//       String lastname,
-//       String grandfathername,
-//       String age,
-//       String sex,
-//       String email,
-//       String phonenumber,
-//       String region,
-//       String woreda,
-//       String kebele) async {
-//     Map data = {
-//       'userId': userId,
-//       'facility_name': facilityname,
-//       'mrn': mrn,
-//       'date_of_reg': registrationdate,
-//       'fname': firstname,
-//       'lname': lastname,
-//       'gfname': grandfathername,
-//       'age': age,
-//       'gender': sex,
-//       'email': email,
-//       'phone': phonenumber,
-//       'region': region,
-//       'city': woreda,
-//       'kebele': kebele,
-//     };
-//     var body = json.encode(data);
-//     var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.addClientEndpoint);
-//     http.Response response = await http.post(
-//       url,
-//       headers: {"Content-Type": "application/json"},
-//       body: body,
-//     );
-//     print(response.body);
-//     return response;
-//   }
-// }

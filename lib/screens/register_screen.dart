@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final _kebelecontroller = TextEditingController();
 
   _register() {
-    registerUser(
+    registerClient(
         _useridcontroller.text,
         _facilitynamecontroller.text,
         _mrncontroller.text,

@@ -4,12 +4,12 @@ import 'package:pregmomcare/config/constants.dart';
 
 class AuthServices {
   static Future<http.Response> login(String username, String password, String role) async {
-    Map data = {
+    Map user = {
       "uname": username,
       "password": password,
       "role": role,
     };
-    var body = json.encode(data);
+    var body = json.encode(user);
     var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersLoginEndpoint);
     http.Response response = await http.post(
       url,
