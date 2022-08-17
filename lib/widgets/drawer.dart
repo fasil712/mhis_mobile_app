@@ -171,16 +171,8 @@ class _DrawerPageState extends State<DrawerPage> {
             leading:
                 const Icon(Icons.share_rounded, size: 30, color: Colors.blue),
             onTap: () {
-              Share.share('check out my website http://192.168.137.88:3000/',
+              Share.share('check out my website http://10.161.164.237:3000/',
                   subject: 'Look what I made!');
-            },
-          ),
-          ListTile(
-            title: Text(translation(context).about),
-            leading: const Icon(Icons.info, size: 30, color: Colors.green),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const AboutListTile()));
             },
           ),
         ],

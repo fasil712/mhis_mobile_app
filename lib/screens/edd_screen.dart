@@ -169,6 +169,7 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                   ],
                 ),
               ),
+
               Container(
                 padding: const EdgeInsets.only(
                     left: 15, right: 10, top: 10, bottom: 20),
@@ -184,7 +185,7 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                           result();
                         } else {
                           errorSnackBar(
-                              context, "Enter LMP'\s and TODAY'\s Date");
+                              context, "Enter LMP's and TODAY's Date");
                         }
                       },
                       child: const Text(
@@ -217,6 +218,7 @@ class _EDDCalculatorState extends State<EDDCalculator> {
                   ],
                 ),
               ),
+             
               Container(
                 margin: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(

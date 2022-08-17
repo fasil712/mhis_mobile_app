@@ -57,6 +57,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               ),
               style: style,
               onChanged: widget.onChanged,
+              textInputAction: TextInputAction.search,
             ))
       ],
     );

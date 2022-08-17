@@ -45,6 +45,24 @@ class _ClientListState extends State<ClientList> {
           backgroundColor: AppColors.appbarBgColor,
           title: const Text('Client List'),
           actions: [
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 12, left: 18),
+                  child: Text(
+                    userModel!.user.userName,
+                    style: const TextStyle(
+                        fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 2),
+                  child: Text(userModel!.user.role,
+                      style: const TextStyle(
+                          fontSize: 10, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
             GestureDetector(
               onTap: () async {
                 sharedPreferences = await SharedPreferences.getInstance();
@@ -107,7 +125,8 @@ class _ClientListState extends State<ClientList> {
                       width: 10.0,
                     ),
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.red),
+                      style: ElevatedButton.styleFrom(
+                          primary: const Color.fromARGB(255, 198, 64, 54)),
                       child: const Text("Logout"),
                       onPressed: () async {
                         SharedPreferences sharedPreferences =

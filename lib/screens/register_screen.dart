@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/model/usermodel.dart';
-import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/services/register_user_services.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -316,56 +316,62 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(
                       height: 15.0,
                     ),
-                    Center(
+                    Container(
+                      padding: const EdgeInsets.only(
+                          left: 15, right: 10, top: 10, bottom: 20),
                       child: Row(
                         children: [
                           ElevatedButton(
-                              onPressed: () {
-                                if (formkey.currentState!.validate()) {
-                                  _register();
-                                  secSnackBar(context, 'Secussully Registered');
-                                } else {
-                                  errorSnackBar(
-                                      context, 'Enter all required fields');
-                                }
-                              },
-                              child: const Text("Register")),
+                            style: ElevatedButton.styleFrom(
+                                primary: AppColors.btnColor,
+                                minimumSize: const Size(140, 50)),
+                            onPressed: () {
+                              if (formkey.currentState!.validate()) {
+                                _register();
+                                secSnackBar(context, 'Secussully Registered');
+                              } else {
+                                errorSnackBar(
+                                    context, 'Enter all required fields');
+                              }
+                            },
+                            child: const Text(
+                              'Register',
+                              style: TextStyle(
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17),
+                            ),
+                          ),
                           const SizedBox(
                             width: 15.0,
                           ),
                           ElevatedButton(
-                              onPressed: () {
-                                _facilitynamecontroller.clear();
-                                _mrncontroller.clear();
-                                _registrationdatecontroller.clear();
-                                _fnamecontroller.clear();
-                                _lnamecontroller.clear();
-                                _grandfathernamecontroller.clear();
-                                _agecontroller.clear();
-                                _emailcontroller.clear();
-                                _phonenumbercontroller.clear();
-                                _regioncontroller.clear();
-                                _woredacontroller.clear();
-                                _kebelecontroller.clear();
-                              },
-                              child: const Text("Clear"))
+                            style: ElevatedButton.styleFrom(
+                                primary: AppColors.btnColor,
+                                minimumSize: const Size(100, 50)),
+                            onPressed: () {
+                              _facilitynamecontroller.clear();
+                              _mrncontroller.clear();
+                              _registrationdatecontroller.clear();
+                              _fnamecontroller.clear();
+                              _lnamecontroller.clear();
+                              _grandfathernamecontroller.clear();
+                              _agecontroller.clear();
+                              _emailcontroller.clear();
+                              _phonenumbercontroller.clear();
+                              _regioncontroller.clear();
+                              _woredacontroller.clear();
+                              _kebelecontroller.clear();
+                            },
+                            child: const Text(
+                              'Clear',
+                              style: TextStyle(
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17),
+                            ),
+                          ),
                         ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 100,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const LoginPage()));
-                      },
-                      child: const Text(
-                        'Early User? Login Account',
-                        style: TextStyle(color: Colors.blue, fontSize: 15),
                       ),
                     ),
                   ],

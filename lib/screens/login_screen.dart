@@ -179,10 +179,20 @@ class _LoginPageState extends State<LoginPage> {
                       height: 20.0,
                     ),
                     ElevatedButton(
-                        onPressed: () {
-                          _login();
-                        },
-                        child: const Text("Login")),
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.btnColor,
+                          minimumSize: const Size(200, 50)),
+                      onPressed: () {
+                        _login();
+                      },
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      ),
+                    ),
                     const SizedBox(
                       height: 100,
                     ),

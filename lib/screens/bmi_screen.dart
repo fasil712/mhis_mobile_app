@@ -30,7 +30,6 @@ class _BMIScreenState extends State<BMIScreen> {
       ),
       body: Column(
         children: [
-          /*Male or Female Section*/
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -119,8 +118,6 @@ class _BMIScreenState extends State<BMIScreen> {
               ),
             ),
           ),
-
-          /*Height Section*/
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -186,8 +183,6 @@ class _BMIScreenState extends State<BMIScreen> {
               ),
             ),
           ),
-
-          /*Weight and Age Section*/
           Expanded(
               child: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -310,15 +305,13 @@ class _BMIScreenState extends State<BMIScreen> {
                       borderRadius: BorderRadius.circular(
                         10.0,
                       ),
-                      color: Color.fromARGB(255, 16, 19, 35),
+                      color: const Color.fromARGB(255, 16, 19, 35),
                     ),
                   ),
                 ),
               ],
             ),
           )),
-
-          /*Calculate Button Section*/
           Container(
             width: double.infinity,
             height: 75.0,

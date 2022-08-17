@@ -122,30 +122,52 @@ class _FeedbackPageState extends State<FeedbackPage> {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    Center(
+                    Container(
+                      padding: const EdgeInsets.only(
+                          left: 15, right: 10, top: 10, bottom: 20),
                       child: Row(
                         children: [
                           ElevatedButton(
-                              onPressed: () {
-                                if (formkey.currentState!.validate()) {
-                                  send();
-                                  secSnackBar(
-                                      context, "Tankyou for you feedback");
-                                  reset();
-                                } else {
-                                  errSnackBar(
-                                      context, "Enter all required fields");
-                                }
-                              },
-                              child: const Text("Send")),
+                            style: ElevatedButton.styleFrom(
+                                primary: AppColors.btnColor,
+                                minimumSize: const Size(100, 50)),
+                            onPressed: () {
+                              if (formkey.currentState!.validate()) {
+                                send();
+                                secSnackBar(
+                                    context, "Tankyou for you feedback");
+                                reset();
+                              } else {
+                                errSnackBar(
+                                    context, "Enter all required fields");
+                              }
+                            },
+                            child: const Text(
+                              'Send',
+                              style: TextStyle(
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17),
+                            ),
+                          ),
                           const SizedBox(
                             width: 15.0,
                           ),
                           ElevatedButton(
-                              onPressed: () {
-                                reset();
-                              },
-                              child: const Text("Reset"))
+                            style: ElevatedButton.styleFrom(
+                                primary: AppColors.btnColor,
+                                minimumSize: const Size(100, 50)),
+                            onPressed: () {
+                              reset();
+                            },
+                            child: const Text(
+                              'Reset',
+                              style: TextStyle(
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17),
+                            ),
+                          ),
                         ],
                       ),
                     ),

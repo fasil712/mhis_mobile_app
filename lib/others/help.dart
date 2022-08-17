@@ -29,7 +29,7 @@ class _HelpPageState extends State<HelpPage> {
                 children: <Widget>[
                   ListTile(
                     title: Text(
-                        '1. Open navigation bar.\n2. Select "Estimated Date of Delivery" item. \n3. Enter first day of last period. \n4. Enter today\s date. \n5. Press "Calculate" button. \n6. If you want re-calculate press "Re-Calculate" button'),
+                        '1. Open navigation bar.\n2. Select "Estimated Date of Delivery" item. \n3. Enter first day of last period. \n4. Enter today\'s date. \n5. Press "Calculate" button. \n6. If you want re-calculate press "Re-Calculate" button'),
                   ),
                 ],
               ),
@@ -62,7 +62,7 @@ class _HelpPageState extends State<HelpPage> {
                 children: <Widget>[
                   ListTile(
                     title: Text(
-                        '1. Open navigation bar.\n2. Select "Estimated Date of Delivery" item. \n3. Enter first day of last period. \n4. Enter today\s date. \n5. Press "Calculate" button. \n6. If you want re-calculate press "Re-Calculate" button'),
+                        '1. Open navigation bar.\n2. Select "Estimated Date of Delivery" item. \n3. Enter first day of last period. \n4. Enter today\'s date. \n5. Press "Calculate" button. \n6. If you want re-calculate press "Re-Calculate" button'),
                   ),
                 ],
               ),
@@ -95,7 +95,7 @@ class _HelpPageState extends State<HelpPage> {
                 children: <Widget>[
                   ListTile(
                     title: Text(
-                        '1. Open navigation bar.\n2. Select "Estimated Date of Delivery" item. \n3. Enter first day of last period. \n4. Enter today\s date. \n5. Press "Calculate" button. \n6. If you want re-calculate press "Re-Calculate" button'),
+                        '1. Open navigation bar.\n2. Select "Estimated Date of Delivery" item. \n3. Enter first day of last period. \n4. Enter today\'s date. \n5. Press "Calculate" button. \n6. If you want re-calculate press "Re-Calculate" button'),
                   ),
                 ],
               ),
