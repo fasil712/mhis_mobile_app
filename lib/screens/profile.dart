@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/model/usermodel.dart';
 import 'package:pregmomcare/widgets/prefile_card.dart';
 
-const department = "Health Scince";
-const email = "abeale007@gmail.com";
-const phone = "+251930571728"; // not real number :)
-const location = "Bahir dar, Ethiopia";
+class Profile extends StatefulWidget {
+  final UserModel userModel;
 
-class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile({Key? key, required this.userModel}) : super(key: key);
 
   @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  @override
   Widget build(BuildContext context) {
+    var data = widget.userModel.user;
     return Scaffold(
         appBar: AppBar(
           title: const Text("Profile Page"),
@@ -24,20 +28,21 @@ class Profile extends StatelessWidget {
             children: <Widget>[
               const CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage('assets/doctors_list/receptionist_profile_pic.jpg'),
+                backgroundImage: AssetImage(
+                    'assets/doctors_list/receptionist_profile_pic.jpg'),
               ),
-              const Text(
-                "Mis. Abebech Alemu",
-                style: TextStyle(
+              Text(
+                data.firstName + " " + data.lastName,
+                style: const TextStyle(
                   fontSize: 30.0,
                   color: Color.fromARGB(255, 20, 20, 34),
                   fontWeight: FontWeight.bold,
                   fontFamily: "Pacifico",
                 ),
               ),
-              const Text(
-                "Receptionist",
-                style: TextStyle(
+              Text(
+                data.role,
+                style: const TextStyle(
                     fontSize: 25,
                     color: Color.fromARGB(255, 108, 116, 120),
                     letterSpacing: 2.5,
@@ -51,12 +56,14 @@ class Profile extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              ProfileCard(text: phone, icon: Icons.phone, onPressed: () {}),
-              ProfileCard(text: email, icon: Icons.email, onPressed: () {}),
               ProfileCard(
-                  text: department, icon: Icons.school, onPressed: () {}),
+                  text: data.phoneNo, icon: Icons.phone, onPressed: () {}),
               ProfileCard(
-                  text: location, icon: Icons.location_city, onPressed: () {}),
+                  text: data.email, icon: Icons.email, onPressed: () {}),
+              ProfileCard(
+                  text: data.department, icon: Icons.school, onPressed: () {}),
+              ProfileCard(
+                  text: data.city, icon: Icons.location_city, onPressed: () {}),
             ],
           ),
         ));

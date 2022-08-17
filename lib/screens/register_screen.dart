@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/model/usermodel.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/services/register_user_services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -11,7 +13,9 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final _useridcontroller = TextEditingController();
+  late SharedPreferences sharedPreferences;
+  UserModel? userModel;
+
   final _facilitynamecontroller = TextEditingController();
   final _mrncontroller = TextEditingController();
   final _registrationdatecontroller = TextEditingController();
@@ -25,9 +29,12 @@ class _RegisterPageState extends State<RegisterPage> {
   final _woredacontroller = TextEditingController();
   final _kebelecontroller = TextEditingController();
 
-  _register() {
+  _register() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    var user = sharedPreferences.getString("user");
+    userModel = userModelFromJson(user);
     registerClient(
-        _useridcontroller.text,
+        userModel!.user.userId,
         _facilitynamecontroller.text,
         _mrncontroller.text,
         _registrationdatecontroller.text,
@@ -97,21 +104,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 key: formkey,
                 child: Column(
                   children: <Widget>[
-                    TextFormField(
-                      controller: _useridcontroller,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(), labelText: 'User ID'),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Enter correct user id";
-                        } else {
-                          return null;
-                        }
-                      },
-                    ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
                     TextFormField(
                       controller: _facilitynamecontroller,
                       decoration: const InputDecoration(
@@ -319,7 +311,6 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                _useridcontroller.clear();
                                 _facilitynamecontroller.clear();
                                 _mrncontroller.clear();
                                 _registrationdatecontroller.clear();

@@ -3,11 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/model/client_data_model.dart';
+import 'package:pregmomcare/model/usermodel.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/screens/profile.dart';
 import 'package:pregmomcare/screens/register_screen.dart';
 import 'package:pregmomcare/services/client_list_service.dart';
 import 'package:pregmomcare/widgets/search_widget.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ClientList extends StatefulWidget {
   const ClientList({Key? key}) : super(key: key);
@@ -18,22 +21,15 @@ class ClientList extends StatefulWidget {
 
 class _ClientListState extends State<ClientList> {
   List<ClientDataModel> _clientDataModel = [];
+  late SharedPreferences sharedPreferences;
+  UserModel? userModel;
   String query = '';
   Timer? debouncer;
+
   @override
   void initState() {
     super.initState();
     _getData();
-  }
-
-  void debounce(
-    VoidCallback callback, {
-    Duration duration = const Duration(milliseconds: 1000),
-  }) {
-    if (debouncer != null) {
-      debouncer!.cancel();
-    }
-    debouncer = Timer(duration, callback);
   }
 
   Future _getData() async {
@@ -50,9 +46,16 @@ class _ClientListState extends State<ClientList> {
           title: const Text('Client List'),
           actions: [
             GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const Profile()));
+              onTap: () async {
+                sharedPreferences = await SharedPreferences.getInstance();
+                var user = sharedPreferences.getString("user");
+                userModel = userModelFromJson(user);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => Profile(
+                              userModel: userModel!,
+                            )));
               },
               child: const Padding(
                 padding: EdgeInsets.all(8.0),
@@ -92,7 +95,7 @@ class _ClientListState extends State<ClientList> {
                       child: const Text("Add Client"),
                       style:
                           ElevatedButton.styleFrom(primary: AppColors.btnColor),
-                      onPressed: () {
+                      onPressed: () async {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -106,11 +109,15 @@ class _ClientListState extends State<ClientList> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
                       child: const Text("Logout"),
-                      onPressed: () {
-                        Navigator.push(
+                      onPressed: () async {
+                        SharedPreferences sharedPreferences =
+                            await SharedPreferences.getInstance();
+                        sharedPreferences.remove('user');
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => const LoginPage()));
+                                builder: (BuildContext ctx) =>
+                                    const LoginPage()));
                       },
                     )
                   ],
@@ -356,6 +363,16 @@ class _ClientListState extends State<ClientList> {
         ));
   }
 
+  void debounce(
+    VoidCallback callback, {
+    Duration duration = const Duration(milliseconds: 1000),
+  }) {
+    if (debouncer != null) {
+      debouncer!.cancel();
+    }
+    debouncer = Timer(duration, callback);
+  }
+
   Widget buildSearch() => SearchWidget(
       text: query, onChanged: searchClieant, hintText: "Search client..");
 
@@ -366,6 +383,7 @@ class _ClientListState extends State<ClientList> {
         subtitle: Text(_clientDataModel.mrn),
         trailing: const Icon(Icons.more_vert),
       );
+
   Future searchClieant(String query) async => debounce(() async {
         final _clientDataModel = await ApiService.getUsers(query);
         if (!mounted) return;

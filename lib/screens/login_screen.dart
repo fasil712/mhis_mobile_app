@@ -7,6 +7,8 @@ import 'package:pregmomcare/config/colors.dart';
 import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/others/help.dart';
 import 'package:pregmomcare/services/login_auth_service.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -31,15 +33,18 @@ class _LoginPageState extends State<LoginPage> {
 
   _login() async {
     if (_username.isNotEmpty && _password.isNotEmpty && _role.isNotEmpty) {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
       http.Response response =
           await AuthServices.login(_username, _password, _role);
       Map responseMap = jsonDecode(response.body);
+      // print(responseMap);
       if (response.statusCode == 200) {
-        Navigator.push(
+        sharedPreferences.setString("user", response.body);
+        Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const ClientList(),
-            ));
+                builder: (BuildContext ctx) => const ClientList()));
       } else {
         errorSnackBar(context, responseMap.values.first);
       }
@@ -151,9 +156,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Column(children: [
                       DropdownButtonFormField(
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(), labelText: 'Role'),
-                        borderRadius: BorderRadius.circular(10),
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            labelText: 'Role'),
                         value: _role,
                         icon: const Icon(Icons.keyboard_arrow_down),
                         items: items.map((String items) {
