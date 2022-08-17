@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
-import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/config/colors_constants.dart';
 
 class HelpPage extends StatefulWidget {
   const HelpPage({Key? key}) : super(key: key);

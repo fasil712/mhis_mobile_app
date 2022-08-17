@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
-import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/model/diet_detail_model.dart';
 import 'package:pregmomcare/screens/diet_detail_screen.dart';
 import 'package:pregmomcare/services/diet_services.dart';

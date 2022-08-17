@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
-import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/screens/bmi_result_screen.dart';
 
 class BMIScreen extends StatefulWidget {

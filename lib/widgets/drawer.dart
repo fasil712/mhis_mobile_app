@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/model/usermodel.dart';
+import 'package:pregmomcare/screens/about_screen.dart';
 import 'package:pregmomcare/screens/bmi_screen.dart';
 import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
@@ -37,20 +38,19 @@ class _DrawerPageState extends State<DrawerPage> {
                     fit: BoxFit.cover)),
             child: Center(
               child: Row(
-                children: const [
-                  Expanded(
-                    child: Icon(
-                      Icons.account_circle,
-                      color: Colors.white,
-                      size: 40,
+                children: [
+                  const Expanded(
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage("assets/logo.png"),
                     ),
                     flex: 2,
                   ),
                   Expanded(
                     flex: 6,
                     child: Text(
-                      "Maternal Health Care App",
-                      style: TextStyle(
+                      translation(context).nav_head,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                       ),
@@ -62,7 +62,7 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             leading: const Icon(Icons.pregnant_woman_rounded,
-                color: Color.fromARGB(255, 51, 148, 44)),
+                size: 30, color: Color.fromARGB(255, 51, 148, 44)),
             title: Text(translation(context).preg_care),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -71,7 +71,8 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             title: Text(translation(context).preg_diet),
-            leading: const Icon(Icons.food_bank, color: Colors.indigoAccent),
+            leading: const Icon(Icons.food_bank,
+                size: 30, color: Colors.indigoAccent),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const DietDuringPreg()));
@@ -79,7 +80,8 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             title: Text(translation(context).danger_sign),
-            leading: const Icon(Icons.dangerous_rounded, color: Colors.red),
+            leading: const Icon(Icons.dangerous_rounded,
+                size: 30, color: Colors.red),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const PregDangerSign()));
@@ -93,6 +95,7 @@ class _DrawerPageState extends State<DrawerPage> {
             title: Text(translation(context).bmi),
             leading: const Icon(
               Icons.calculate_rounded,
+              size: 30,
               color: Colors.amber,
             ),
             onTap: () {
@@ -104,7 +107,8 @@ class _DrawerPageState extends State<DrawerPage> {
             title: Text(translation(context).edd),
             leading: const Icon(
               Icons.calculate_rounded,
-              color: Colors.amber,
+              size: 30,
+              color: Colors.blue,
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -117,7 +121,8 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             title: Text(translation(context).login),
-            leading: const Icon(Icons.login, color: Colors.greenAccent),
+            leading:
+                const Icon(Icons.login, size: 30, color: Colors.greenAccent),
             onTap: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();
               if (!prefs.containsKey("user")) {
@@ -146,7 +151,8 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             title: Text(translation(context).help),
-            leading: const Icon(Icons.help_rounded, color: Colors.blue),
+            leading:
+                const Icon(Icons.help_rounded, size: 30, color: Colors.blue),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const HelpPage()));
@@ -154,7 +160,8 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             title: Text(translation(context).feedback),
-            leading: const Icon(Icons.feedback_rounded, color: Colors.blue),
+            leading: const Icon(Icons.feedback_rounded,
+                size: 30, color: Colors.blue),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const FeedbackPage()));
@@ -162,12 +169,21 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             title: Text(translation(context).share),
-            leading: const Icon(Icons.share_rounded, color: Colors.blue),
+            leading:
+                const Icon(Icons.share_rounded, size: 30, color: Colors.blue),
             onTap: () {
               Share.share('check out my website http://192.168.137.88:3000/',
                   subject: 'Look what I made!');
             },
-          )
+          ),
+          ListTile(
+            title: Text(translation(context).about),
+            leading: const Icon(Icons.info, size: 30, color: Colors.green),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const AboutPage()));
+            },
+          ),
         ],
       ),
     );

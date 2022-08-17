@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:pregmomcare/config/language_constants.dart';
 
 class ItemCarousel extends StatefulWidget {
   const ItemCarousel({Key? key}) : super(key: key);
@@ -17,16 +18,16 @@ class _ItemCarouselState extends State<ItemCarousel> {
     "assets/carousel_image/image04.jpg",
     "assets/carousel_image/image05.jpg"
   ];
-  List<String> names = [
-    "Month 01",
-    "Month 02",
-    'Month 03',
-    'Month 04',
-    "Month 05"
-  ];
 
   @override
   Widget build(BuildContext context) {
+    List<String> names = [
+      translation(context).carousel_name01,
+      translation(context).carousel_name02,
+      translation(context).carousel_name03,
+      translation(context).carousel_name04,
+      translation(context).carousel_name05
+    ];
     return Container(
       decoration: const BoxDecoration(
           color: Colors.black12,
@@ -76,10 +77,10 @@ class _ItemCarouselState extends State<ItemCarousel> {
                     });
                   })),
           AspectRatio(
-            aspectRatio: 18 / 10,
+            aspectRatio: 18 / 11,
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 180.0),
+                padding: const EdgeInsets.only(top: 150.0, left: 10, right: 10),
                 child: Column(
                   children: [
                     Text(
@@ -88,7 +89,7 @@ class _ItemCarouselState extends State<ItemCarousel> {
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(255, 8, 69, 235),
                           fontWeight: FontWeight.bold,
-                          fontSize: 15.0),
+                          fontSize: 18.0),
                     ),
                   ],
                 ),

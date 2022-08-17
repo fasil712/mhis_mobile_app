@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pregmomcare/config/constants.dart';
+import 'package:pregmomcare/config/api_constants.dart';
 import 'package:pregmomcare/model/customer_feedback_model.dart';
 
 Future<FeedbackModel> sendFeedback(

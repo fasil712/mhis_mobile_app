@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
-import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/model/preg_care_model.dart';
 import 'package:pregmomcare/screens/pregnancey_care_detail.dart';
 import 'package:pregmomcare/services/preg_care_services.dart';

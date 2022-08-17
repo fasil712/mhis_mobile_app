@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/config/colors_constants.dart';
 
 class BMIResultScreen extends StatelessWidget {
   final bool isMale;

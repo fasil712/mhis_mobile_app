@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pregmomcare/config/colors.dart';
+import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/model/usermodel.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
 import 'package:pregmomcare/services/register_user_services.dart';
