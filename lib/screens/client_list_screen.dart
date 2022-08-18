@@ -156,234 +156,229 @@ class _ClientListState extends State<ClientList> {
               child: buildSearch(),
             ),
             Expanded(
-              child: SizedBox(
-                child: _clientDataModel.isEmpty
-                    ? const Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    : ListView.builder(
-                        itemCount: _clientDataModel.length,
-                        itemBuilder: (context, index) {
-                          final listItem = _clientDataModel[index];
-                          return SizedBox(
-                            child: Column(
-                              children: [
-                                ListTile(
-                                    leading: const Icon(Icons.person),
-                                    title: Text(listItem.firstname +
-                                        ' ' +
-                                        listItem.lastname),
-                                    subtitle: Text(listItem.phonenumber),
-                                    trailing: Text(
-                                      listItem.mrn,
-                                      style: const TextStyle(
-                                          color: Colors.red,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    onLongPress: () {
-                                      showModalBottomSheet(
-                                          context: context,
-                                          builder: (context) {
-                                            return Wrap(
-                                              children: [
-                                                ListTile(
-                                                  leading: const Icon(
-                                                    Icons.update,
-                                                    color: Color.fromARGB(
-                                                        255, 30, 132, 214),
-                                                  ),
-                                                  title: const Text('Update'),
-                                                  trailing: Text(listItem.mrn),
-                                                  onTap: () {},
-                                                ),
-                                                const Divider(
-                                                  height: 2.0,
-                                                ),
-                                                ListTile(
-                                                  leading: const Icon(
-                                                    Icons.delete,
-                                                    color: Color.fromARGB(
-                                                        255, 181, 51, 42),
-                                                  ),
-                                                  title: const Text('Delete'),
-                                                  trailing: Text(listItem.mrn),
-                                                  onTap: () {},
-                                                ),
-                                              ],
-                                            );
-                                          });
-                                    },
-                                    onTap: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return Dialog(
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0)), //this right here
-                                              child: SizedBox(
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height -
-                                                    150,
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      15.0),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text("Usser ID : " +
-                                                          listItem.userId),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Facility Name : " +
-                                                          listItem
-                                                              .facilityname),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("MRN : " +
-                                                          listItem.mrn),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Registration Date : " +
-                                                          listItem
-                                                              .registrationdate),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("First Name : " +
-                                                          listItem.firstname),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Last Name : " +
-                                                          listItem.lastname),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Grand Father Name : " +
-                                                          listItem
-                                                              .grandfathername),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Age : " +
-                                                          listItem.age
-                                                              .toString()),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Sex : " +
-                                                          listItem.sex),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Email : " +
-                                                          listItem.email),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Phone Number : " +
-                                                          listItem.phonenumber),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Region : " +
-                                                          listItem.region),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Woreda : " +
-                                                          listItem.woreda),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      Text("Kebele : " +
-                                                          listItem.kebele),
-                                                      const Divider(
-                                                        height: 10.0,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      TextButton(
-                                                          onPressed: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                          },
-                                                          child: const Text(
-                                                            'Ok',
-                                                            style: TextStyle(
-                                                                color:
-                                                                    Colors.blue,
-                                                                fontSize: 18.0),
-                                                          ))
-                                                    ],
-                                                  ),
-                                                ),
+              child: FutureBuilder(builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Center(child: Text("${snapshot.error}"));
+                } else if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: _clientDataModel.length,
+                    itemBuilder: (context, index) {
+                      final listItem = _clientDataModel[index];
+                      return SizedBox(
+                        child: Column(
+                          children: [
+                            ListTile(
+                                leading: const Icon(Icons.person),
+                                title: Text(listItem.firstname +
+                                    ' ' +
+                                    listItem.lastname),
+                                subtitle: Text(listItem.phonenumber),
+                                trailing: Text(
+                                  listItem.mrn,
+                                  style: const TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                onLongPress: () {
+                                  showModalBottomSheet(
+                                      context: context,
+                                      builder: (context) {
+                                        return Wrap(
+                                          children: [
+                                            ListTile(
+                                              leading: const Icon(
+                                                Icons.update,
+                                                color: Color.fromARGB(
+                                                    255, 30, 132, 214),
                                               ),
-                                            );
-                                          });
-                                    }),
-                                const Divider(
-                                  height: 2.0,
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-              ),
+                                              title: const Text('Update'),
+                                              trailing: Text(listItem.mrn),
+                                              onTap: () {},
+                                            ),
+                                            const Divider(
+                                              height: 2.0,
+                                            ),
+                                            ListTile(
+                                              leading: const Icon(
+                                                Icons.delete,
+                                                color: Color.fromARGB(
+                                                    255, 181, 51, 42),
+                                              ),
+                                              title: const Text('Delete'),
+                                              trailing: Text(listItem.mrn),
+                                              onTap: () {},
+                                            ),
+                                          ],
+                                        );
+                                      });
+                                },
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return Dialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      20.0)), //this right here
+                                          child: SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height -
+                                                150,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(15.0),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("Usser ID : " +
+                                                      listItem.userId),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Facility Name : " +
+                                                      listItem.facilityname),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("MRN : " + listItem.mrn),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Registration Date : " +
+                                                      listItem
+                                                          .registrationdate),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("First Name : " +
+                                                      listItem.firstname),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Last Name : " +
+                                                      listItem.lastname),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Grand Father Name : " +
+                                                      listItem.grandfathername),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Age : " +
+                                                      listItem.age.toString()),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Sex : " + listItem.sex),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Email : " +
+                                                      listItem.email),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Phone Number : " +
+                                                      listItem.phonenumber),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Region : " +
+                                                      listItem.region),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Woreda : " +
+                                                      listItem.woreda),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  Text("Kebele : " +
+                                                      listItem.kebele),
+                                                  const Divider(
+                                                    height: 10.0,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10.0,
+                                                  ),
+                                                  TextButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      child: const Text(
+                                                        'Ok',
+                                                        style: TextStyle(
+                                                            color: Colors.blue,
+                                                            fontSize: 18.0),
+                                                      ))
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      });
+                                }),
+                            const Divider(
+                              height: 2.0,
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
             ),
           ],
         ));

@@ -5,14 +5,14 @@ import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/screens/bmi_result_screen.dart';
 
-class BMIScreen extends StatefulWidget {
-  const BMIScreen({Key? key}) : super(key: key);
+class BMICalculator extends StatefulWidget {
+  const BMICalculator({Key? key}) : super(key: key);
 
   @override
-  _BMIScreenState createState() => _BMIScreenState();
+  _BMICalculatorState createState() => _BMICalculatorState();
 }
 
-class _BMIScreenState extends State<BMIScreen> {
+class _BMICalculatorState extends State<BMICalculator> {
   bool isMale = true;
   double height = 180.0;
   int weight = 40;
