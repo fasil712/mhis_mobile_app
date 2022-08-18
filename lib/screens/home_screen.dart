@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/main.dart';
-import 'package:pregmomcare/screens/bmi_screen.dart';
-import 'package:pregmomcare/screens/diet_during_preg_screen.dart';
-import 'package:pregmomcare/screens/edd_screen.dart';
-import 'package:pregmomcare/screens/pregnancey_care_screen.dart';
-import 'package:pregmomcare/screens/danger_sign_screen.dart';
 import 'package:pregmomcare/screens/services_item_screen.dart';
 import 'package:pregmomcare/widgets/doctor_list.dart';
 import 'package:pregmomcare/widgets/item_carousel.dart';
@@ -64,6 +59,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      //Drawer section
       drawer: const DrawerPage(),
       body: SingleChildScrollView(
         child: Column(
