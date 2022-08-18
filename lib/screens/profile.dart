@@ -29,7 +29,7 @@ class _ProfileState extends State<Profile> {
               const CircleAvatar(
                 radius: 50,
                 backgroundImage: AssetImage(
-                    'assets/doctors_list/receptionist_profile_pic.jpg'),
+                    'assets/receptionist_profile_pic.jpg'),
               ),
               Text(
                 data.firstName + " " + data.lastName,

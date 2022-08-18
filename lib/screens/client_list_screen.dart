@@ -13,8 +13,7 @@ import 'package:pregmomcare/widgets/search_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ClientList extends StatefulWidget {
-  final UserModel useModel;
-  const ClientList({Key? key, required this.useModel}) : super(key: key);
+  const ClientList({Key? key}) : super(key: key);
 
   @override
   _ClientListState createState() => _ClientListState();
@@ -53,24 +52,25 @@ class _ClientListState extends State<ClientList> {
           backgroundColor: AppColors.appbarBgColor,
           title: const Text('Client List'),
           actions: [
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 12, left: 18),
-                  child: Text(
-                    widget.useModel.user.userName,
-                    style: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 2),
-                  child: Text(widget.useModel.user.role,
-                      style: const TextStyle(
-                          fontSize: 10, fontWeight: FontWeight.bold)),
-                ),
-              ],
-            ),
+            // Column(
+            //   children: [
+            //     Padding(
+            //       padding: const EdgeInsets.only(top: 12, left: 18),
+            //       child: Text(
+            //         userModel!.user.userName,
+            //         style: const TextStyle(
+            //             fontSize: 15, fontWeight: FontWeight.bold),
+            //       ),
+            //     ),
+            //     Padding(
+            //       padding: const EdgeInsets.only(top: 2),
+            //       child: Text(userModel!.user.role,
+            //           style: const TextStyle(
+            //               fontSize: 10, fontWeight: FontWeight.bold)),
+            //     ),
+            //   ],
+            // ),
+
             GestureDetector(
               onTap: () {
                 _getUserData();
@@ -88,8 +88,8 @@ class _ClientListState extends State<ClientList> {
                   backgroundColor: Colors.blue,
                   child: CircleAvatar(
                     radius: 15,
-                    backgroundImage: AssetImage(
-                        "assets/doctors_list/receptionist_profile_pic.jpg"),
+                    backgroundImage:
+                        AssetImage("assets/receptionist_profile_pic.jpg"),
                   ),
                 ),
               ),
