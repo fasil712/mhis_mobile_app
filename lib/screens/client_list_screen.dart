@@ -155,6 +155,7 @@ class _ClientListState extends State<ClientList> {
                   left: 10.0, right: 10.0, top: 10.0, bottom: 5.0),
               child: buildSearch(),
             ),
+            
             Expanded(
               child: (_clientDataModel.isNotEmpty)
                   ? ListView.builder(

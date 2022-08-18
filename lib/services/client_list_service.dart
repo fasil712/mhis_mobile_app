@@ -6,7 +6,7 @@ import 'package:pregmomcare/model/client_data_model.dart';
 class ApiService {
   static Future<List<ClientDataModel>> getClientList(String query) async {
     var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.clientListEndpoint);
-    var response = await http.get(url, headers: {"accept": "application/json"});
+    var response = await http.get(url, headers: ApiConstants.headers);
     if (response.statusCode == 200) {
       final List clients = json.decode(response.body);
       return clients
