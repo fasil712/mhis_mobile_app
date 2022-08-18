@@ -17,20 +17,23 @@ class ServicesList extends StatefulWidget {
 class _ServicesListState extends State<ServicesList> {
   @override
   Widget build(BuildContext context) {
-    
     String pregImage = "assets/pregnancy_care/image01.jpg";
     String pregName = translation(context).preg_care;
     String pregDesc = translation(context).preg_care_desc;
-    String dangerSignImage = "assets/pregnancy_care/image02.jpg";
+
+    String dangerSignImage = "assets/danger_sign/fever_image05.jpg";
     String dangerSignName = translation(context).danger_sign;
     String dangerSignDesc = translation(context).danger_sign_desc;
-    String dietImage = "assets/pregnancy_care/image03.jpg";
+
+    String dietImage = "assets/food_list/month01.jpg";
     String dietName = translation(context).preg_diet;
     String dietDesc = translation(context).preg_diet_desc;
-    String bmiImage = "assets/pregnancy_care/image04.jpg";
+
+    String bmiImage = "assets/bmi.jpg";
     String bmiName = translation(context).bmi;
     String bmiDesc = translation(context).bmi_desc;
-    String eddImage = "assets/pregnancy_care/image05.jpg";
+
+    String eddImage = "assets/edd.jpg";
     String eddName = translation(context).edd;
     String eddDesc = translation(context).edd_desc;
 
