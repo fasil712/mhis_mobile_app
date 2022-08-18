@@ -13,7 +13,8 @@ import 'package:pregmomcare/widgets/search_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ClientList extends StatefulWidget {
-  const ClientList({Key? key}) : super(key: key);
+  final UserModel useModel;
+  const ClientList({Key? key, required this.useModel}) : super(key: key);
 
   @override
   _ClientListState createState() => _ClientListState();
@@ -29,12 +30,19 @@ class _ClientListState extends State<ClientList> {
   @override
   void initState() {
     super.initState();
-    _getData();
+    _getClientData();
+    _getUserData();
   }
 
-  Future _getData() async {
-    final _clientDataModel = await ApiService.getUsers(query);
+  Future _getClientData() async {
+    final _clientDataModel = await ApiService.getClientList(query);
     setState(() => this._clientDataModel = _clientDataModel);
+  }
+
+  Future _getUserData() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    var user = sharedPreferences.getString("user");
+    userModel = userModelFromJson(user);
   }
 
   @override
@@ -50,24 +58,22 @@ class _ClientListState extends State<ClientList> {
                 Padding(
                   padding: const EdgeInsets.only(top: 12, left: 18),
                   child: Text(
-                    userModel!.user.userName,
+                    widget.useModel.user.userName,
                     style: const TextStyle(
                         fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 2),
-                  child: Text(userModel!.user.role,
+                  child: Text(widget.useModel.user.role,
                       style: const TextStyle(
                           fontSize: 10, fontWeight: FontWeight.bold)),
                 ),
               ],
             ),
             GestureDetector(
-              onTap: () async {
-                sharedPreferences = await SharedPreferences.getInstance();
-                var user = sharedPreferences.getString("user");
-                userModel = userModelFromJson(user);
+              onTap: () {
+                _getUserData();
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -76,13 +82,14 @@ class _ClientListState extends State<ClientList> {
                             )));
               },
               child: const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.only(left: 5, right: 8, top: 8, bottom: 8),
                 child: CircleAvatar(
                   radius: 16,
                   backgroundColor: Colors.blue,
                   child: CircleAvatar(
                     radius: 15,
-                    backgroundImage: AssetImage("assets/avatar.jpg"),
+                    backgroundImage: AssetImage(
+                        "assets/doctors_list/receptionist_profile_pic.jpg"),
                   ),
                 ),
               ),
@@ -404,7 +411,7 @@ class _ClientListState extends State<ClientList> {
       );
 
   Future searchClieant(String query) async => debounce(() async {
-        final _clientDataModel = await ApiService.getUsers(query);
+        final _clientDataModel = await ApiService.getClientList(query);
         if (!mounted) return;
         setState(() {
           this.query = query;

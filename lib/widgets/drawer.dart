@@ -124,6 +124,8 @@ class _DrawerPageState extends State<DrawerPage> {
                 const Icon(Icons.login, size: 30, color: Colors.greenAccent),
             onTap: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();
+              var user = prefs.getString("user");
+              UserModel userModel = userModelFromJson(user);
               if (!prefs.containsKey("user")) {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
@@ -133,7 +135,9 @@ class _DrawerPageState extends State<DrawerPage> {
               } else {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
-                    return const ClientList();
+                    return ClientList(
+                      useModel: userModel,
+                    );
                   },
                 ));
               }

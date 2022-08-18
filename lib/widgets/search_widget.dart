@@ -30,6 +30,7 @@ class _SearchWidgetState extends State<SearchWidget> {
         Flexible(
             flex: 1,
             child: TextFormField(
+              controller: controller,
               cursorColor: Colors.grey,
               decoration: InputDecoration(
                 fillColor: Colors.white,

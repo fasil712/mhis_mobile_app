@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:pregmomcare/config/language_constants.dart';
 import 'package:pregmomcare/config/colors_constants.dart';
+import 'package:pregmomcare/model/usermodel.dart';
 import 'package:pregmomcare/screens/client_list_screen.dart';
 import 'package:pregmomcare/others/help.dart';
 import 'package:pregmomcare/services/login_auth_service.dart';
@@ -40,10 +41,14 @@ class _LoginPageState extends State<LoginPage> {
       Map responseMap = jsonDecode(response.body);
       if (response.statusCode == 200) {
         sharedPreferences.setString("user", response.body);
+        var user = sharedPreferences.getString("user");
+        UserModel userModel = userModelFromJson(user);
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (BuildContext ctx) => const ClientList()));
+                builder: (BuildContext ctx) => ClientList(
+                      useModel: userModel,
+                    )));
       } else {
         errorSnackBar(context, responseMap.values.first);
       }
