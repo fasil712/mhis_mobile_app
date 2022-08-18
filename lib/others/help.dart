@@ -52,6 +52,75 @@ class _HelpPageState extends State<HelpPage> {
               ),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
+            child: Card(
+              elevation: 2,
+              child: ExpansionTile(
+                title: Text('How to user Login?'),
+                subtitle: Text(
+                    'Login to the system only the user created by admin first'),
+                children: <Widget>[
+                  ListTile(
+                    title: Text(
+                        '1. Open navigation bar.\n2. Select "Login" item. \n3. Fill the required fields correctlly. \n4. Press "Login" button'),
+                    subtitle: Text("This help you!"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
+            child: Card(
+              elevation: 2,
+              child: ExpansionTile(
+                title: Text('How to see detail services?'),
+                subtitle: Text('See detail by pressing nav item list'),
+                children: <Widget>[
+                  ListTile(
+                    title: Text(
+                        'Pregnancy care, \n Diet during pregnancy \n Danger sign during pregnancy'),
+                    subtitle: Text("This help you!"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
+            child: Card(
+              elevation: 2,
+              child: ExpansionTile(
+                title: Text('How to add client to the database?'),
+                subtitle: Text('The user can to add the client or patient'),
+                children: <Widget>[
+                  ListTile(
+                    title: Text(
+                        '1. First loggedin.\n2. Press "Add Client" button. \n3. Fill the required fields correctlly. \n4. Press "Register" button. \n4. Press "Clear" button to clear the fields'),
+                    subtitle: Text("This help you!"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
+            child: Card(
+              elevation: 2,
+              child: ExpansionTile(
+                title: Text('Help, Feedback, Shere?'),
+                subtitle: Text('The customer can send feedback and share'),
+                children: <Widget>[
+                  ListTile(
+                    title: Text(
+                        '1. Select Navigation bar.\n2. Help. \n3. Feedback. \n4. Share.'),
+                    subtitle: Text("I hope this help you!"),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

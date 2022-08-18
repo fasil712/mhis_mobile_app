@@ -5,7 +5,7 @@ import 'package:pregmomcare/config/colors_constants.dart';
 import 'package:pregmomcare/model/client_data_model.dart';
 import 'package:pregmomcare/model/usermodel.dart';
 import 'package:pregmomcare/screens/login_screen.dart';
-import 'package:pregmomcare/screens/profile.dart';
+import 'package:pregmomcare/screens/profile_screen.dart';
 import 'package:pregmomcare/screens/register_screen.dart';
 import 'package:pregmomcare/services/client_list_service.dart';
 import 'package:pregmomcare/widgets/search_widget.dart';
